@@ -1,0 +1,31 @@
+.Autorization {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-bottom: 200px;
+    .aus-method {
+        
+    }
+    .email-and-passvord {
+        form{
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+            input{}
+            p{
+                text-align: left;
+            }
+            button{
+                justify-content: center;
+                p{
+                    
+                }
+               
+            }
+        }
+        
+    }
+}
+

@@ -1,0 +1,16 @@
+.collections {
+    padding: 0 100px;
+    .chapter {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+        width: 100%;
+        text-align: left;
+        h2{
+            font-size: 40px;
+        }
+        
+
+    }
+}

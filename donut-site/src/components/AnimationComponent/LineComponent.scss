@@ -1,0 +1,23 @@
+.animation-line {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    animation: moveUp 90s linear infinite;
+
+    img {
+        width: 320px;
+        height: auto;
+        border-radius: 15px;
+        margin:  3px 5px;
+    }
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-38%);
+    }
+}
+
