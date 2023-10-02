@@ -19,19 +19,27 @@ interface CardProps {
 }
 
 function Card({ collectionName }: CardProps) {
-    const { data: collectionData, isLoading, isError } = useQuery<CollectionData>('collectionData', fetchData);
+    const { data: collectionData, isLoading, isError } = useQuery(['collectionData', collectionName], fetchData);
 
     async function fetchData() {
         const collectionRef = collection(db, collectionName);
         const querySnapshot = await getDocs(collectionRef);
-        const data = querySnapshot.docs[0].data() as CollectionData;
-
+        
+        const data: CollectionData[] = [];
+        
+        querySnapshot.forEach((doc) => {
+            const docData = doc.data() as CollectionData;
+            data.push(docData);
+        });
+    
         return data;
     }
 
-    if (!collectionData) {
+    if (!collectionData || !collectionData[0]) {
         return <div>error</div>;
     }
+
+    const firstItem = collectionData[0]; // Возьмем первый элемент массива
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -46,17 +54,15 @@ function Card({ collectionName }: CardProps) {
             <div className='product-container'>
                 <div className='card'>
                     <div className='image'>
-                        <img src={collectionData.foto} alt="" />
+                        <img src={firstItem.foto} alt="" />
                     </div>
                     <div className='description'>
-                        <p>{collectionData.name}</p>
-                        <p>Discount Price: {collectionData.discountPrice}</p>
-                        <p>Real Price: {collectionData.realPrice}</p>
-                        <p>Discount Indicator: {collectionData.discountIndicator}</p>
+                        <p>{firstItem.name}</p>
+                        <p>{firstItem.discountIndicator}</p>
                         <div className='logic'>
                             <div className='price'>
-                                <p className='discount'>1111</p>
-                                <p className='real-price'>2222</p>
+                                <p className='discount'>{firstItem.discountPrice}</p>
+                                <p className='real-price'>{firstItem.realPrice}</p>
                             </div>
                             <button className='favorite'>
                                 <img src={Star} alt="Star" />
