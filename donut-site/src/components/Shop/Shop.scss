@@ -1,8 +1,10 @@
 main{
     width: 100%;
-    background-color: #D2B48C;
     
-    @media (max-width: 1620px) {
-        width: 1620px;
+    @media (min-width: 1920px) {
+        width: 1920px;
+    }
+    .shop-page{
+        display: flex;
     }
 }

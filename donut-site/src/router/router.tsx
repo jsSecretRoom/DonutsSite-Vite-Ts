@@ -5,10 +5,13 @@ import Layout from "../components/Layout/Layout";
 import ErorPage from "../components/ErorPage/ErorPage";
 import Shop from "../components/Shop/Shop";
 import SetCreator from "../components/SetCreator/SetCreator";
+import Collection from '../components/Collection/Collection'
+import Search from "../components/Search/Search";
+
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Layout />, // Layout будет отображаться на всех страницах, кроме /login
+        element: <Layout />,
         children: [
             {
                 path: '/',
@@ -16,11 +19,25 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/shop',
-                element: <Shop />
+                element: (
+                    <>
+                        <Search />
+                        <Shop />
+                    </>
+                )
             },
             {
                 path: '/create',
                 element: <SetCreator />
+            },
+            {
+                path: '/collection/:collectionName',
+                element: (
+                    <>
+                        <Search />
+                        <Collection />
+                    </>
+                )
             }
         ]
     },
@@ -29,7 +46,7 @@ export const router = createBrowserRouter([
         element: <Autorization />
     },
     {
-        path: '*', // Перенесен за пределы дочерних маршрутов Layout
-        element: <ErorPage /> // Страница ошибки для несуществующих маршрутов
+        path: '*',
+        element: <ErorPage />
     }
 ]);

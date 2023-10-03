@@ -1,0 +1,36 @@
+aside{
+    min-width: 280px;
+    width: 340px;
+    border-right: 1px solid white;
+    position: relative;
+    height: auto;
+    .aside-continer{
+        height: auto;
+        position: sticky;
+        top: 130px;
+        left: 0;
+        z-index: 2;
+
+        .list{
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border-bottom: 1px solid white;
+            a, li{
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                text-align: left;
+                img{}
+                p{
+                    font-size: 20px;
+                }
+            }
+            li{
+                color: black;
+            }
+            
+        }
+    }
+    
+}

@@ -1,8 +1,18 @@
 .search {
     background-color: #541146;
-    padding: 5px 100px;
+    width: 100vi;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 70px;
+    left: 0;
+    z-index: 3;
     .search-conteiner {
         width: 100%;
+        @media (min-width: 1920px) {
+            width: 1920px;
+        }
+        padding: 0 25px;
         height: 60px;
         display: flex;
         column-gap: 10px;
@@ -19,16 +29,30 @@
                 height: 45px;
             }
         }
-        input{
-            background-color: #E3A44F;
-            height: 35px;
-            border-radius: 50px;
-            font-size: 20px;
-            color: #541146;
-            &::placeholder{
-                color: #541111;
+        .search-input{
+            position: relative;
+            width: 100%;
+            input{
+                background-color: #E3A44F;
+                height: 35px;
+                border-radius: 50px;
+                font-size: 20px;
+                padding: 0 0 0 50px;
+                color: #541146;
+                
+                &::placeholder{
+                    color: #541111;
+                }
+    
+            }
+            .donut-img{
+                position: absolute;
+                top: 0;
+                left: 0px;
+                width: 40px;
             }
         }
+
     }
     
 }

@@ -20,16 +20,22 @@ function Layout() {
         <>
             <header>
                 <nav>
-                    <NavLink to={'/'}>Home</NavLink>
-                    <NavLink to={'/shop'}>Order now!</NavLink>
-                    <NavLink to={'/create'}>Create a set</NavLink>
+                    <div className='nav-conteiner'>
+                        <div className='links'>
+                            <NavLink to={'/'}>Home</NavLink>
+                            <NavLink to={'/shop'}>Order now!</NavLink>
+                            <NavLink to={'/create'}>Create a set</NavLink>
+                        </div>
+                        <div className='logo'>
+                            <NavLink to={'/'}><h4>Divine Doughnuts</h4></NavLink>   
+                        </div>
+                    </div>
                 </nav>
-                <div className='logo'>
-                    <h4>Divine Doughnuts</h4>
-                </div>
+                
             </header>
             <Outlet/>
         </>
+        
 
     );
 }

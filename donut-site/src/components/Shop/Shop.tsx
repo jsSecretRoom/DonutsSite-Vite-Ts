@@ -1,14 +1,15 @@
 import './Shop.scss';
 
-import Search from '../Search/Search';
 import CollectionChapter from '../CollectionChapter/CollectionChapter';
 
-
+import Sidebar from '../Sidebar/Sidebar';
 function Shop() {
     return ( 
         <main>
-            <Search/>
-            <CollectionChapter/>
+            <div className='shop-page'>
+                <Sidebar/>
+                <CollectionChapter/>
+            </div>
         </main>
     );
 }

@@ -1,0 +1,24 @@
+
+.nav-categories {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    @media (min-width: 1920px) {
+        width: 1520px;
+    }
+    .categories {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; 
+        column-gap: 5px;
+        border-bottom: 1px solid white;
+        width: 100%;
+        a {
+            button {
+                width: auto;
+                p {}
+            }
+        }
+    }
+}
