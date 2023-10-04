@@ -5,8 +5,11 @@ import Layout from "../components/Layout/Layout";
 import ErorPage from "../components/ErorPage/ErorPage";
 import Shop from "../components/Shop/Shop";
 import SetCreator from "../components/SetCreator/SetCreator";
-import Collection from '../components/Collection/Collection'
+import Collection from '../components/Collection/Collection';
+
+
 import Search from "../components/Search/Search";
+import SweetsData from "../serverComponents/SweetsData";
 
 export const router = createBrowserRouter([
     {
@@ -24,7 +27,13 @@ export const router = createBrowserRouter([
                         <Search />
                         <Shop />
                     </>
-                )
+                ),
+                children: [
+                    {
+                        path: '/shop/:filterName',
+                        element: <SweetsData/>
+                    }
+                ]
             },
             {
                 path: '/create',

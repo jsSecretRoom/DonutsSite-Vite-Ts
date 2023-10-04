@@ -1,6 +1,5 @@
 import './Shop.scss';
-
-import CollectionChapter from '../CollectionChapter/CollectionChapter';
+import { Outlet } from 'react-router-dom';
 
 import Sidebar from '../Sidebar/Sidebar';
 function Shop() {
@@ -8,7 +7,7 @@ function Shop() {
         <main>
             <div className='shop-page'>
                 <Sidebar/>
-                <CollectionChapter/>
+                <Outlet/>
             </div>
         </main>
     );

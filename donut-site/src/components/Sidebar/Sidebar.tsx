@@ -1,12 +1,12 @@
 import './Sidebar.scss';
 import { NavLink } from 'react-router-dom';
 const categoryFilter: string[] = [
-    "Alcoholic Drinks", 
-    "Convenience products", 
     "Sweets", 
+    "Convenience products", 
+    "Alcoholic Drinks", 
     "Cocktails", 
     "Сandies",
-    "bakery"
+    "Bakery"
 ];
 
 function Sidebar() {
@@ -15,10 +15,11 @@ function Sidebar() {
         <aside>
             <section className='aside-continer'>
                 <div className='list'>
-                    {categoryFilter.map((collectionName, index) => (
-                        <NavLink to={`/shop/${collectionName}`} key={index}>
+                    {categoryFilter.map((filterName, index) => (
+                        <NavLink to={`/shop/${filterName}`} key={index}>
                             <img src="" alt="" />
-                            <p>{collectionName}</p>
+                            <p>{filterName}</p>
+                            
                         </NavLink>
                     ))}
                 </div>

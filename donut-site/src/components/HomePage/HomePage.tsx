@@ -10,7 +10,7 @@ function HomePage() {
             <main>
                 <AnimationComponent/>
                 <section className='interface-conteiner'>
-                    <NavLink to={'/shop'}><h2>Order now!</h2></NavLink>
+                    <NavLink to={'/shop/Sweets'}><h2>Order now!</h2></NavLink>
                     <img src={qrCode} alt="qar-kod" />
                 </section>
             </main>

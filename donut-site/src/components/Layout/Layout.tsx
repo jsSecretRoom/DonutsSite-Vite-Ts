@@ -23,7 +23,7 @@ function Layout() {
                     <div className='nav-conteiner'>
                         <div className='links'>
                             <NavLink to={'/'}>Home</NavLink>
-                            <NavLink to={'/shop'}>Order now!</NavLink>
+                            <NavLink to={'/shop/Sweets'}>Order now!</NavLink>
                             <NavLink to={'/create'}>Create a set</NavLink>
                         </div>
                         <div className='logo'>

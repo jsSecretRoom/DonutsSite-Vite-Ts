@@ -17,7 +17,7 @@ main{
         }
         .card-conteiner{
             height: auto;
-            display: flex;
+            display: flex;justify-content: center;
             flex-wrap:wrap;
             column-gap: 10px;
             row-gap: 10px;
