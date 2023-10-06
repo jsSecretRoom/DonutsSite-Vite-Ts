@@ -2,8 +2,10 @@ import './Card.scss';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
 import { useQuery } from 'react-query';
-
+import { useState, useEffect } from 'react'; // Додано useState
 import Star from '../../assets/Star_light.svg';
+
+import { useParams } from 'react-router-dom';
 
 interface CollectionData {
     name: string;
@@ -11,13 +13,23 @@ interface CollectionData {
     diskountPrice: number;
     realPrice: number;
     diskountIndicator: string;
-    // Добавьте другие поля, если они есть в вашей коллекции
+    // Добавьте інші поля, якщо вони є в вашій колекції
 }
 
-
-function Card({ collectionName }: { collectionName: string  }) {
+function Card({ collectionName }: { collectionName: string }) {
+    const [visibleCards, setVisibleCards] = useState(5); // Initial number of visible cards
     const { data: collectionData, isLoading, isError } = useQuery(['collectionData', collectionName], fetchData);
-    
+    const { filterName } = useParams();
+    console.log(filterName);
+
+    useEffect(() => {
+        if (filterName === undefined) {
+            setVisibleCards(Infinity); // Show all cards when filterName is undefined
+        } else {
+            setVisibleCards(5); // Show 5 cards when filterName is defined
+        }
+    }, [filterName]);
+
     async function fetchData() {
         const collectionRef = collection(db, collectionName);
         const querySnapshot = await getDocs(collectionRef);
@@ -44,9 +56,14 @@ function Card({ collectionName }: { collectionName: string  }) {
         return <div>Error loading data</div>;
     }
 
+    const loadMore = () => {
+        setVisibleCards((prevVisibleCards) => prevVisibleCards + 5);
+    };
+
+
     return (
         <>
-            {collectionData.map((item, index) => (
+            {collectionData.slice(0, visibleCards).map((item, index) => (
                 <div className='card' key={index}>
                     <div className='image'>
                         <img src={item.foto} alt="" />
@@ -70,8 +87,14 @@ function Card({ collectionName }: { collectionName: string  }) {
                         </div>
                     </div>
                 </div>
-            
             ))}
+            {filterName !== undefined && visibleCards < collectionData.length && (
+                <div className='load-more-button'>
+                    <button onClick={loadMore}>
+                        Load More
+                    </button>
+                </div>
+            )}
         </>
     );
 }

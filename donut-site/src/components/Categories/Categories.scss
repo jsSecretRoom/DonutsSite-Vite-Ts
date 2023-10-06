@@ -14,10 +14,14 @@
         column-gap: 5px;
         border-bottom: 1px solid white;
         width: 100%;
+        @media (min-width: 800px) {
+            width: 600px;
+        }
         a {
             button {
                 width: auto;
                 height: 30px;
+                
                 p {
                     font-size: 18px;
                 }

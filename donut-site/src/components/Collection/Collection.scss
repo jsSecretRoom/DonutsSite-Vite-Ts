@@ -15,9 +15,17 @@ main{
                 font-family: 'Modak';
             }
         }
+        .back{
+            position: relative;
+            button{
+                position: fixed;
+                width: auto;
+            }
+        }
         .card-conteiner{
             height: auto;
-            display: flex;justify-content: center;
+            display: flex;
+            justify-content: center;
             flex-wrap:wrap;
             column-gap: 10px;
             row-gap: 10px;

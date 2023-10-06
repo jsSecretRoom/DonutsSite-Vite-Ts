@@ -1,38 +1,77 @@
-.shop-logik{
+.shop-logik {
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: center;
     width: 100%;
     overflow: hidden;
+
     @media (min-width: 1920px) {
         width: 1580px;
     }
-    .collections {
-        padding: 0 25px;
+}
+
+.collections {
+    padding: 0 25px;
+    width: 100%;
+
+    .chapter {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 5px 0;
         width: 100%;
-        .chapter {
-            display: flex;
-            flex-direction: column;
-            height: auto;
-            padding: 5px 0;
-            width: 100%;
-            text-align: left;
-            .link{
-                a{
-                    font-size: 30px;
-                    width: auto;
-                }
+        text-align: left;
+
+        .link {
+            a {
+                font-size: 30px;
+                width: auto;
             }
-            .products {
+        }
+
+        .products {
+            display: flex;
+            column-gap: 20px;
+            border-bottom: 1px solid rgb(255, 255, 255);
+            position: relative;
+
+            .product-conteiner {
                 display: flex;
                 column-gap: 20px;
-                border-bottom: 1px solid rgb(255, 255, 255) ;
-                .product-conteiner {
-                    display: flex;
-                    column-gap: 20px;
-                    padding: 5px 0;
-                    overflow-x: auto;
+                padding: 5px 0;
+                overflow: hidden;
+                align-items: center;
+                z-index: 1;
+                scroll-behavior: smooth;
+                transition: 0.5s;
+
+                &::-webkit-scrollbar-track, &::-webkit-scrollbar-thumb, &::-webkit-scrollbar-thumb:hover{
+                    background-color: transparent;
+                    background: transparent;
+                    
+                }
+                
+            }
+
+            .buttons-scroll {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 10px;
+                top: 0;
+                right: 0;
+
+                .left-scroll,
+                .right-scroll {
+                    z-index: 2;
+
+                    img {
+                        width: 60px;
+                    }
                 }
             }
         }
