@@ -20,7 +20,6 @@ function Card({ collectionName }: { collectionName: string }) {
     const [visibleCards, setVisibleCards] = useState(5); // Initial number of visible cards
     const { data: collectionData, isLoading, isError } = useQuery(['collectionData', collectionName], fetchData);
     const { filterName } = useParams();
-    console.log(filterName);
 
     useEffect(() => {
         if (filterName === undefined) {
