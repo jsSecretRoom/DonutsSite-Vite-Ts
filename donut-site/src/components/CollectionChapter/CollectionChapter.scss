@@ -55,6 +55,7 @@
             }
 
             .buttons-scroll {
+                
                 height: 100%;
                 width: 100%;
                 position: absolute;
@@ -64,7 +65,7 @@
                 padding: 0 10px;
                 top: 0;
                 right: 0;
-
+                
                 .left-scroll,
                 .right-scroll {
                     z-index: 2;

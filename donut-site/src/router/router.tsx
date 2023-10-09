@@ -6,7 +6,7 @@ import ErorPage from "../components/ErorPage/ErorPage";
 import Shop from "../components/Shop/Shop";
 import SetCreator from "../components/SetCreator/SetCreator";
 import Collection from '../components/Collection/Collection';
-
+import RegistrationComponnt from "../components/RegistrationComponnt/RegistrationComponnt";
 
 import Search from "../components/Search/Search";
 import SweetsData from "../serverComponents/SweetsData";
@@ -53,6 +53,10 @@ export const router = createBrowserRouter([
     {
         path: '/login',
         element: <Autorization />
+    },
+    {
+        path: '/registration',
+        element: <RegistrationComponnt />
     },
     {
         path: '*',

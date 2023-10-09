@@ -1,31 +1,46 @@
-.Autorization {
+.aus-main{
+    background-color: rgb(58, 58, 58);
+    width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    padding-bottom: 200px;
-    .aus-method {
-        
-    }
-    .email-and-passvord {
-        form{
-            display: flex;
-            flex-direction: column;
-            row-gap: 5px;
-            input{}
-            p{
-                text-align: left;
-            }
-            button{
-                justify-content: center;
-                p{
-                    
-                }
-               
-            }
+    .autorization {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding-bottom: 200px;
+        .aus-method {
+            
         }
-        
+        .email-and-passvord {
+            form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                row-gap: 5px;
+                input{}
+                .warning-massage{
+                    display: flex;
+                    justify-content: space-between;
+                    p{
+                        text-align: left;
+                    }
+
+                }
+
+                button{
+                    justify-content: center;
+                    p{
+                        
+                    }
+                   
+                }
+            }
+            
+        }
     }
+    
 }
 

@@ -4,7 +4,7 @@ import LiedBox from '../../assets/box/liedbox.svg'
 import BodyBoxTop from '../../assets/box/topbox.svg'
 function SetCreator() {
     return (
-        <main>
+        <main className='product-creator-main'>
             <section className='priduct-line'>
                 <div className='box-sizwe'>
                     <button>2x3(6)</button>
