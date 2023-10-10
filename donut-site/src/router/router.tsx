@@ -7,6 +7,7 @@ import Shop from "../components/Shop/Shop";
 import SetCreator from "../components/SetCreator/SetCreator";
 import Collection from '../components/Collection/Collection';
 import RegistrationComponnt from "../components/RegistrationComponnt/RegistrationComponnt";
+import AboutProductPage from "../components/AboutProductPage/AboutProductPage";
 
 import Search from "../components/Search/Search";
 import SweetsData from "../serverComponents/SweetsData";
@@ -47,6 +48,16 @@ export const router = createBrowserRouter([
                         <Collection />
                     </>
                 )
+            },
+            {
+                path: '/about_product/:collectionName/:itemName',
+                element: (
+                    <>
+                        <Search />
+                        <AboutProductPage/>
+                    </>
+                )
+                
             }
         ]
     },

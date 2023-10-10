@@ -2,13 +2,14 @@ import './Card.scss';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
 import { useQuery } from 'react-query';
-import { useState, useEffect } from 'react'; // Додано useState
+import { useState, useEffect } from 'react';
 import Star from '../../assets/Star_light.svg';
-
+import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 interface CollectionData {
     name: string;
+    id: number
     foto: string;
     diskountPrice: number;
     realPrice: number;
@@ -32,7 +33,6 @@ function Card({ collectionName }: { collectionName: string }) {
     async function fetchData() {
         const collectionRef = collection(db, collectionName);
         const querySnapshot = await getDocs(collectionRef);
-
         const data: CollectionData[] = [];
 
         querySnapshot.forEach((doc) => {
@@ -59,16 +59,19 @@ function Card({ collectionName }: { collectionName: string }) {
         setVisibleCards((prevVisibleCards) => prevVisibleCards + 5);
     };
 
-
     return (
         <>
             {collectionData.slice(0, visibleCards).map((item, index) => (
                 <div className='card' key={index}>
                     <div className='image'>
                         <img src={item.foto} alt="" />
+                        <div className='add-to-basket'>
+                            <button>+ To basket</button>
+                        </div>
+
                     </div>
                     <div className='description'>
-                        <p>{item.name}</p>
+                        <NavLink to={`/about_product/${collectionName}/${item.id}`}>{item.name}</NavLink>
                         <div className='logic'>
                             <div className='price'>
                                 {item.diskountIndicator ? (
