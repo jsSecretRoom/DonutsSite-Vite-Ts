@@ -1,7 +1,6 @@
 import './Search.scss';
 import Menu from '../../assets/Menu.svg';
-import Bag from '../../assets/Bag_fill.svg';
-
+import ShopButton from '../../ButtonComponents/ShopButton/ShopButton';
 import Donutimg from '../../assets/donut.svg';
 
 function Search() {
@@ -11,9 +10,7 @@ function Search() {
                 <button className='side-bur-button'>
                     <img src={Menu} alt="Menu" />
                 </button>
-                <button className='shop-button'>
-                    <img src={Bag} alt="Bag" />
-                </button>
+                <ShopButton/>
                 <div className='search-input'>
                     <input type="search" name="search" id="search" placeholder='chocolate, gift, festive'/>
                     <img className='donut-img' src={Donutimg} alt="Donutimg" />

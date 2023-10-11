@@ -1,0 +1,19 @@
+.add-to-basket{
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    button{
+        z-index: 1;
+        width: auto;
+        height: 30px;
+        font-size: medium;
+        
+        padding: 2px 10px;
+        background-color: rgb(225, 225, 19);
+        color: blue;
+
+        &:hover{
+            background-color: rgb(247, 103, 199);
+        }
+    }
+}

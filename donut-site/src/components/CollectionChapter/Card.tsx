@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import Star from '../../assets/Star_light.svg';
 import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-
+import AddToBasketButton from '../../ButtonComponents/AddToBasketButton/AddToBasketButton';
 interface CollectionData {
     name: string;
     id: number
@@ -64,11 +64,8 @@ function Card({ collectionName }: { collectionName: string }) {
             {collectionData.slice(0, visibleCards).map((item, index) => (
                 <div className='card' key={index}>
                     <div className='image'>
-                        <img src={item.foto} alt="" />
-                        <div className='add-to-basket'>
-                            <button>+ To basket</button>
-                        </div>
-
+                        <img src={item.foto} alt="itmfoto" />
+                        <AddToBasketButton/>
                     </div>
                     <div className='description'>
                         <NavLink to={`/about_product/${collectionName}/${item.id}`}>{item.name}</NavLink>

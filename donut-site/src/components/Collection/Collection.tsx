@@ -1,28 +1,20 @@
 import './Collection.scss';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Card from '../CollectionChapter/Card';
+import BackButton from '../../ButtonComponents/BackButton/BackButton';
 
 function Collection() {
     const { collectionName } = useParams();
-    const navigate = useNavigate();
 
-    const goBack = () => {
-        navigate(-1); // This will navigate back to the previous page
-    };
-
-
-    return ( 
+    return (
         <main>
             <section className='chose-collection'>
-
-                <div className='back'>
-                    <button onClick={goBack}>Back</button>
-                </div>
+                <BackButton />
                 <div className='collection-name'>
                     <p>{collectionName}</p>
                 </div>
                 <div className='card-conteiner'>
-                    <Card collectionName={collectionName}/>
+                    <Card collectionName={collectionName} />
                 </div>
             </section>
         </main>
