@@ -1,13 +1,13 @@
 import './Shop.scss';
 import { Outlet } from 'react-router-dom';
 
-import Sidebar from '../Sidebar/Sidebar';
+import Sidebar from '../../components/Sidebar/Sidebar';
 function Shop() {
-    return ( 
+    return (
         <main className='shop-main'>
             <div className='shop-page'>
-                <Sidebar/>
-                <Outlet/>
+                <Sidebar />
+                <Outlet />
             </div>
         </main>
     );

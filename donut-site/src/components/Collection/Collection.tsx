@@ -7,7 +7,7 @@ function Collection() {
     const { collectionName } = useParams();
 
     return (
-        <main>
+        <main className='collection-main'>
             <section className='chose-collection'>
                 <BackButton />
                 <div className='collection-name'>

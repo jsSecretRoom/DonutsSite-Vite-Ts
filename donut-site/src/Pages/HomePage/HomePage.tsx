@@ -1,14 +1,14 @@
 import './HomePage.scss';
 import { NavLink, Outlet } from 'react-router-dom';
-import AnimationComponent from '../AnimationComponent/AnimationComponent';
+import AnimationComponent from '../../components/AnimationComponent/AnimationComponent';
 import qrCode from '../../assets/qr-code.svg'
 
 function HomePage() {
-    return ( 
+    return (
         <div className='conteiner'>
-            <Outlet/>
+            <Outlet />
             <main>
-                <AnimationComponent/>
+                <AnimationComponent />
                 <section className='interface-conteiner'>
                     <NavLink to={'/shop/Sweets'}><h2>Order now!</h2></NavLink>
                     <img src={qrCode} alt="qar-kod" />

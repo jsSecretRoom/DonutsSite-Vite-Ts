@@ -29,23 +29,23 @@ function Sidebar() {
                     </li>
                     <a>
                         <img src="" alt="" />
-                        <p>About Us</p>
+                        <NavLink to='/AboutUs'>About Us</NavLink>
                     </a>
                     <a>
                         <img src="" alt="" />
-                        <p>Terms of use of the site</p>
+                        <NavLink to='/Terms'>Terms of use of the site</NavLink>
                     </a>
                     <a>
                         <img src="" alt="" />
-                        <p>Vacancies</p>
+                        <NavLink to='/Vacancies'>Vacancies</NavLink>
                     </a>
                     <a>
                         <img src="" alt="" />
-                        <p>Contacts</p>
+                        <NavLink to='/Contacts'>Contacts</NavLink>
                     </a>
                     <a>
                         <img src="" alt="" />
-                        <p>All categories</p>
+                        <NavLink to='/Allcategories'>All categories</NavLink>
                     </a>
 
                 </div>
@@ -55,19 +55,19 @@ function Sidebar() {
                     </li>
                     <a>
                         <img src="" alt="" />
-                        <p>Cooperation with us</p>
+                        <NavLink to='/Cooperation'>Cooperation with us</NavLink>
                     </a>
                     <a>
                         <img src="" alt="" />
-                        <p>Franchising</p>
+                        <NavLink to='/Franchising'>Franchising</NavLink>
                     </a>
                     <a>
                         <img src="" alt="" />
-                        <p>Rental of premises</p>
+                        <NavLink to='/Rental'>Rental of premises</NavLink>
                     </a>
                     <a>
                         <img src="" alt="" />
-                        <p>Sell on Divine D.</p>
+                        <NavLink to='/SellonDivine'>Sell on Divine D.</NavLink>
                     </a>
                 </div>
             </section>

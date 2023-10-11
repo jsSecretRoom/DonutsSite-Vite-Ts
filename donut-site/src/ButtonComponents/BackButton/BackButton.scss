@@ -1,6 +1,7 @@
 .back{
     position: relative;
     button{
+        z-index: 3;
         position: fixed;
         width: auto;
     }
