@@ -1,5 +1,8 @@
 import './Sidebar.scss';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux'; 
+
+
 const categoryFilter: string[] = [
     "Sweets", 
     "Convenience products", 
@@ -9,10 +12,13 @@ const categoryFilter: string[] = [
     "Bakery"
 ];
 
+
 function Sidebar() {
 
+    const togleButton = useSelector((data) => data.togllebutton.togleSidebur);
+    
     return (
-        <aside>
+        <aside className={`aside ${togleButton ? 'show-aside' : ''}`}>
             <section className='aside-continer'>
                 <div className='list'>
                     {categoryFilter.map((filterName, index) => (
@@ -27,48 +33,48 @@ function Sidebar() {
                     <li>
                         <p>Information about the company</p>
                     </li>
-                    <a>
+                    <NavLink to='/AboutUs'>
                         <img src="" alt="" />
-                        <NavLink to='/AboutUs'>About Us</NavLink>
-                    </a>
-                    <a>
+                        <p>About Us</p>
+                    </NavLink>
+                    <NavLink to='/Terms'>
                         <img src="" alt="" />
-                        <NavLink to='/Terms'>Terms of use of the site</NavLink>
-                    </a>
-                    <a>
+                        <p>Terms of use of the site</p>
+                    </NavLink>
+                    <NavLink to='/Vacancies'>
                         <img src="" alt="" />
-                        <NavLink to='/Vacancies'>Vacancies</NavLink>
-                    </a>
-                    <a>
+                        <p>Vacancies</p>
+                    </NavLink>
+                    <NavLink to='/Contacts'>
                         <img src="" alt="" />
-                        <NavLink to='/Contacts'>Contacts</NavLink>
-                    </a>
-                    <a>
+                        <p>Contacts</p>
+                    </NavLink>
+                    <NavLink to='/Allcategories'>
                         <img src="" alt="" />
-                        <NavLink to='/Allcategories'>All categories</NavLink>
-                    </a>
+                        <p>All categories</p>
+                    </NavLink>
 
                 </div>
                 <div className='list'>
                     <li>
                         <p>For partners</p>
                     </li>
-                    <a>
+                    <NavLink to='/Cooperation'>
                         <img src="" alt="" />
-                        <NavLink to='/Cooperation'>Cooperation with us</NavLink>
-                    </a>
-                    <a>
+                        <p>Cooperation with us</p>
+                    </NavLink>
+                    <NavLink to='/Franchising'>
                         <img src="" alt="" />
-                        <NavLink to='/Franchising'>Franchising</NavLink>
-                    </a>
-                    <a>
+                        <p>Franchising</p>
+                    </NavLink>
+                    <NavLink to='/Rental'>
                         <img src="" alt="" />
-                        <NavLink to='/Rental'>Rental of premises</NavLink>
-                    </a>
-                    <a>
+                        <p>Rental of premises</p>
+                    </NavLink>
+                    <NavLink to='/SellonDivine'>
                         <img src="" alt="" />
-                        <NavLink to='/SellonDivine'>Sell on Divine D.</NavLink>
-                    </a>
+                        <p>Sell on Divine D.</p>
+                    </NavLink>
                 </div>
             </section>
             

@@ -5,6 +5,12 @@
         width: 1920px;
     }
     .shop-page{
-        display: flex;
+        display: block;
+        position: relative;
+        min-height: 100vh;
+
+        @media (min-width: 602px) {
+            display: flex;
+        }
     }
 }

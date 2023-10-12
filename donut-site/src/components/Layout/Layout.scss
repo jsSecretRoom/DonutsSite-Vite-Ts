@@ -1,12 +1,21 @@
 header{
     background: linear-gradient(180deg, #541111 0%, #541149 100%);
     width: 100vi;
-    height: 70px;
-    
+    height: 110px;
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 3;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 768px) {
+        height: 70px;
+        display: block;
+    }
+
     nav{
         display: flex;
         justify-content: center;
@@ -14,26 +23,45 @@ header{
         .nav-conteiner{
             display: flex;
             align-items: center;
-            justify-content: space-between;
             
-            padding: 0 25px;
+            flex-direction: column;
+            padding: 0 20px;
             width: 100%;
-            @media (min-width: 1920px) {
-                width: 1920px;
-            }
+
             .links{
                 display: flex;
                 column-gap: 20px;
+                order: 2;
                 a{
-                    font-size: 24px;
+                    font-size: 20px;
                 }
             }
             .logo{
+                order: 1;
                 h4{
-                    font-size: 44px;
+                    font-size: 26px;
                     font-family: 'Modak';
                     
                 }
+            }
+            @media (min-width: 768px) {
+                flex-direction: row;
+                justify-content: space-between;
+                .links{
+                    order: 1;
+                    a{
+                        font-size: 24px;
+                    }
+                }
+                .logo{
+                    order: 2;
+                    h4{
+                        font-size: 44px;
+                    }
+                }
+            }
+            @media (min-width: 1920px) {
+                width: 1920px;
             }
         }
     }

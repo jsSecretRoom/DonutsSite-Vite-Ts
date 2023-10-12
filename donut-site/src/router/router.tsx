@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Autorization from "../components/Authorization/Authorization";
 import HomePage from "../Pages/HomePage/HomePage";
 import Layout from "../components/Layout/Layout";
-import ErorPage from "../components/ErorPage/ErorPage";
+import ErorPage from "../Pages/ErorPage/ErorPage";
 import Shop from "../Pages/Shop/Shop";
 import SetCreator from "../components/SetCreator/SetCreator";
 import Collection from '../components/Collection/Collection';
@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
                 path: '/collection/:collectionName',
                 element: (
                     <>
-                        <Search />
+                        
                         <Collection />
                     </>
                 )
@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
                 path: '/about_product/:collectionName/:itemName',
                 element: (
                     <>
-                        <Search />
+                        
                         <AboutProductPage />
                     </>
                 )
@@ -104,6 +104,10 @@ export const router = createBrowserRouter([
                 path: '/SellonDivine',
                 element: <SellonDivine />
             },
+            {
+                path: '*',
+                element: <ErorPage />
+            }
 
 
         ]

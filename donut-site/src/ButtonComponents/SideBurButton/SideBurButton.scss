@@ -1,0 +1,16 @@
+.side-bur-button {
+
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    display: none;
+    background-color: white;
+    @media (max-width: 668px) {
+        display: block;
+    }
+    img{
+        
+        width: 45px;
+        height: 45px;
+    }
+}

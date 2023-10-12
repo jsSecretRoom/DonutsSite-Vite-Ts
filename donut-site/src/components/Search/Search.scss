@@ -4,29 +4,33 @@
     display: flex;
     justify-content: center;
     position: sticky;
-    top: 70px;
+    top: 110px;
     left: 0;
-    z-index: 3;
+    z-index: 5;
+    @media (min-width: 768px) {
+        top: 70px;
+    }
     .search-conteiner {
         width: 100%;
-        @media (min-width: 1920px) {
-            width: 1920px;
-        }
-        padding: 0 25px;
-        height: 60px;
+        padding: 0 10px;
+        height: 120px;
         display: flex;
         column-gap: 10px;
         align-items: center;
-        .side-bur-button, .shop-button {
-            width: 45px;
-            height: 45px;
-            padding: 0;
-            background-color: white;
-            
-            img{
+        flex-direction: column;
+        @media (min-width: 768px) {
+            padding: 0 20px;
+            flex-direction: row;
+            height: 60px;
+        }
+        @media (min-width: 1920px) {
+            width: 1920px;
+        }
+        .button-section{
+            display: flex;
+            column-gap: 40px;
+            @media (min-width: 768px) {
                 
-                width: 45px;
-                height: 45px;
             }
         }
         .search-input{
@@ -39,7 +43,7 @@
                 font-size: 20px;
                 padding: 0 0 0 50px;
                 color: #541146;
-                
+                width: 100%;
                 &::placeholder{
                     color: #541111;
                 }
