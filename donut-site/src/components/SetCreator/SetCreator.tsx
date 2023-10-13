@@ -31,13 +31,17 @@ function SetCreator() {
                         </div>
                     </div>
                     <div className="slots">
-
+                        
                     </div>
                     <div className="cap-box">
                         <div className='Lied'>
+                            
+                            <div className='bakc-lied'>
+                            
+                            </div>
                             <img src={LiedBox} alt="LiedBox" />
                         </div>
-                        
+
                     </div>
                 </div>
             </section>

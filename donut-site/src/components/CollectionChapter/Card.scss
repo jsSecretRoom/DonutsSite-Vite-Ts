@@ -61,6 +61,11 @@
     }
 }
 .load-more-button{
+    min-width: 300px;
+    height: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     button{
         margin-right: 70px;
         height: 70px;

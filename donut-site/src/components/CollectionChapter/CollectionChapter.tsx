@@ -11,7 +11,7 @@ import SignRight from '../../assets/SignRight.svg';
 
 function CollectionChapter({ dataprop }) {
   const containerRefs = useRef([]);
-  const [displayCount, setDisplayCount] = useState(3); // Количество блоков, которые нужно отобразить изначально
+  const [displayCount, setDisplayCount] = useState(3);
   const [hasMore, setHasMore] = useState(true); // Переменная для определения, есть ли еще данные для загрузки
 
   function scrollLeft(index) {
@@ -67,7 +67,7 @@ function CollectionChapter({ dataprop }) {
           </div>
         ))}
       </section>
-      {/* Оберните ваш список элементов в InfiniteScroll */}
+      
       <InfiniteScroll
         dataLength={displayCount}
         next={fetchMoreData}

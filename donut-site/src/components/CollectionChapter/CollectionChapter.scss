@@ -40,17 +40,20 @@
                 display: flex;
                 column-gap: 20px;
                 padding: 5px 0;
-                overflow: hidden;
+                overflow-y: hidden;
                 align-items: center;
                 z-index: 1;
                 scroll-behavior: smooth;
                 transition: 0.5s;
 
+                -webkit-overflow-scrolling: touch;
+                
                 &::-webkit-scrollbar-track, &::-webkit-scrollbar-thumb, &::-webkit-scrollbar-thumb:hover{
                     background-color: transparent;
                     background: transparent;
                     
                 }
+                
                 
             }
 

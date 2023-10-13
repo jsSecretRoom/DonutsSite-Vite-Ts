@@ -21,7 +21,9 @@
             flex-direction: column;
             justify-content: space-around;
             button{
-                width: 120px;
+                width: 110px;
+                height: 30px;
+                font-size: 22px;
             }
         }
         .product-container{
@@ -52,7 +54,7 @@
                 
             }
         }
-    }
+    } 
 
     .donuts-box {
         width: 1920px;
@@ -63,16 +65,26 @@
             height: 642px;
             width: 1024px;
             position: relative;
+            display: flex;
+            justify-content: center;
+            
             .main-box {
                 position: absolute;
                 .box{
                     position: relative;
     
                     .BodyBox{
-                        width: 1024px;
+                        width: 90vi;
+                        @media (min-width: 1224px) {
+                            width: 50vi;
+                            
+                        }
                     }
                     .BodyBoxTop{
-                        width: 1024px;
+                        width: 90vi;
+                        @media (min-width: 1224px) {
+                            width: 50vi;
+                        }
                         position: absolute;
                         bottom: 0;
                         left: 0;
@@ -86,18 +98,44 @@
             }
             .cap-box {
                 position: absolute;
+                
                 .Lied{
                     position: relative;
+                    display: flex;
+                    width: 100%;
+                    
+                    transform: perspective(200px) rotateX(7deg);
+                    transform-origin: center top;
+                    z-index: 3;
+                    transform-style: preserve-3d;
                     img{
-                        width: 1024px;
-                        left: 0;
-                        top: 0;
-                        position: absolute;
+                        
+                        width: 82vi;
                         z-index: 2;
-                        display: none;
+                        
+
+                    }
+                    @media (min-width: 575px) {
+                        transform: perspective(370px) rotateX(7deg);
+                    }
+                    @media (min-width: 1224px) {
+                        img{
+                            width: 45vi;
+                        }
+                    }
+                    .bakc-lied{
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: rotateX(180deg) translateZ(0.5px);
+                        background-color: #5C3317;
+                        backface-visibility: visible;
+                        border-radius: 20px 20px 0 0;
+                        z-index: 2;
                     }
                 }
-                
             }
         }
         
