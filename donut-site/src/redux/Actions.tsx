@@ -17,3 +17,8 @@ export const setSideburButton = (togle) => ({
     type: 'SIDEBUR_IVENT',
     payload: togle,
 });
+
+export const setModallBag = (togle) => ({
+    type: 'TOGLE_BAG_MODAL',
+    payload: togle,
+});

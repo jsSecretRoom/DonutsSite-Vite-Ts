@@ -1,0 +1,69 @@
+.modal {
+    position: fixed;
+    width: 100%;
+    z-index: 20;
+    background-color: transparent;
+    top: 210px;
+    
+
+    @media (min-width: 768px) {
+        top: 130px;
+    }
+
+    .ReactModal__Overlay {
+        position: absolute;
+        padding: 40px;
+        &.ReactModal__Overlay--after-open {
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: background-color 0.3s ease;
+
+
+        }
+
+        .overlay {
+            // Здесь можно добавить стили для дополнительных элементов, находящихся внутри оверлея.
+        }
+    }
+
+    .ReactModal__Content {
+        border-radius: 0;
+        height: 100%;
+        width: 100%;
+
+        @media (min-width: 768px) {
+            border-radius: 10px;
+        }
+
+        @media (min-width: 1920px) {
+            width: 1920px;
+        }
+
+        &.ReactModal__Content--after-open {
+            background-color: aqua;
+            display: block;
+            max-width: 100%;
+            transition: background-color 0.3s ease;
+
+        }
+
+
+    }
+}
+.modal-content {
+    .modal-body {
+        padding: 20px;
+        // Ваши стили для блока .modal-body
+        h2 {
+            color: #ff0000;
+        }
+        p {
+            // Ваши стили для абзацев
+        }
+    }
+}

@@ -5,10 +5,15 @@ import { Provider } from 'react-redux'
 import ReduxStor from './redux/ReduxStor.tsx'
 
 import { QueryClient, QueryClientProvider } from 'react-query';
+
+
 const queryClient = new QueryClient();
 
 import App from './components/App/App.tsx'
 import './index.scss'
+
+
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <QueryClientProvider client={queryClient}>

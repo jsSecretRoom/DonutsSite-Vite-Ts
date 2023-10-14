@@ -21,6 +21,8 @@ import Rental from "../Pages/Rental/Rental";
 import SellonDivine from "../Pages/SellonDivine/SellonDivine";
 import Terms from "../Pages/Terms/Terms";
 import Vacancies from "../Pages/Vacancies/Vacancies";
+
+import ModalBag from "../components/ModalBag/ModalBag";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -35,6 +37,7 @@ export const router = createBrowserRouter([
                 element: (
                     <>
                         <Search />
+                        <ModalBag/>
                         <Shop />
                     </>
                 ),
