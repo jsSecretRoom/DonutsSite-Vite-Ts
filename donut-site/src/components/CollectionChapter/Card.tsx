@@ -65,7 +65,7 @@ function Card({ collectionName }: { collectionName: string }) {
                 <div className='card' key={index}>
                     <div className='image'>
                         <img src={item.foto} alt="itmfoto" />
-                        <AddToBasketButton/>
+                        <AddToBasketButton id={item.id} cardToBuy={item}/>
                     </div>
                     <div className='description'>
                         <NavLink to={`/about_product/${collectionName}/${item.id}`}>{item.name}</NavLink>

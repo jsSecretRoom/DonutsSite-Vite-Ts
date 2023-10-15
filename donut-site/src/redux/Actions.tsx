@@ -22,3 +22,8 @@ export const setModallBag = (togle) => ({
     type: 'TOGLE_BAG_MODAL',
     payload: togle,
 });
+
+export const setAddToBasket = (push) => ({
+    type: 'ADD_TO_BASKET',
+    payload: push,
+});

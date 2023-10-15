@@ -1,6 +1,7 @@
 const initialState = {
   togleSidebur: false,
   togleBagModal: false,
+  pushToBasket: [],
 };
 export function ButtonsReducer(state = initialState, action) {
   switch (action.type) {
@@ -13,6 +14,11 @@ export function ButtonsReducer(state = initialState, action) {
       return {
         ...state,
         togleBagModal: action.payload,
+      };
+    case 'ADD_TO_BASKET':
+      return {
+        ...state,
+        pushToBasket: [...action.payload],
       };
     default:
       return state;

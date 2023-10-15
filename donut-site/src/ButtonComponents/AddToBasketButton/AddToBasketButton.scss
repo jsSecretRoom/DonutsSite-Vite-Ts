@@ -2,7 +2,7 @@
     position: absolute;
     top: 0px;
     right: 5px;
-    button{
+    .basketButton{
         z-index: 1;
         width: auto;
         height: 30px;
@@ -11,9 +11,8 @@
         padding: 2px 10px;
         background-color: rgb(225, 225, 19);
         color: blue;
-
-        &:hover{
-            background-color: rgb(247, 103, 199);
-        }
+    }
+    .active{
+        background-color: rgb(1, 255, 1);
     }
 }
