@@ -1,66 +1,101 @@
 .bay-line-info {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto;
+    display: flex;
+    flex-direction: column;
     background-color: rgb(255, 255, 255);
     border-bottom: 1px solid black;
     
     margin: 5px 0;
     padding: 20px;
-    .guds-img {
-        grid-row: 1;
-        grid-column: 1;
-        img{
-            width: 200px;
-            height: 200px;
-            border-radius: 10px;
-        }
-    }
-    .guds-info {
-        grid-row: 1;
-        grid-column: 2;
-        p{}
-    }
-    .dell-feach {
-        grid-row: 1;
-        grid-column: 3;
-        img{}
-    }
-    .special-services {
-        grid-row: 2;
-        grid-column: 1;
-    }
-    .guds-counter {
-        grid-row: 2;
-        grid-column: 2;
 
+    .product-main-continer{
+        background-color: cadetblue;
+        border-radius: 10px;
+        padding: 20px;
         display: flex;
-        justify-content: center;
         align-items: center;
-        .less, .more {
-            width: auto;
-            justify-content: center;
-            padding: 0;
+        justify-content: space-between;
+        .guds-img {
+
+            img{
+                width: 200px;
+                height: 200px;
+                border-radius: 10px;
+            }
         }
-        .counter {
-            p{}
+        .guds-info {
+            padding: 10px;
+            text-align: left;
+            p{color: #000;}
+        }
+        .dell-feach {
+            button{
+                width: auto;
+                height: auto;
+                justify-content: center;
+                padding: 0;
+                img{}
+            }
+            
+        }
+    }
+    .feaces-product{
+        margin: 10px 0;
+        padding: 10px;
+        background-color: coral;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .special-services {
+            p{
+                color: black;
+            }
+        }
+        .guds-counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 20px;
+            .less, .more {
+                width: auto;
+                padding: 0;
+                height: auto;
+                justify-content: center;
+                border: 2px solid white;
+                background-color: rgb(255, 255, 255);
+                &:hover{
+                    background-color:rgb(105, 250, 255);
+                    border: 2px solid black;
+                }
+            }
+            .counter {
+                background-color: white;
+                width: 40px;
+                text-align: center;
+                border-radius: 10px;
+                border: 1px solid black;
+                p{
+                    color: rgb(0, 0, 0);
+                    font-size: 33px;
+                }
+            }
+        }
+    
+        .guds-line-price {
+            display: flex;
+            flex-direction: column;
+            .start-price {
+                font-size: 22px;
+                color: rgb(63, 63, 63);
+                text-decoration: line-through;
+            }
+            .discount-price {
+                font-size: 30px;
+                color: rgb(255, 0, 0);
+            }
         }
     }
 
-    .guds-line-price {
-        grid-row: 2;
-        grid-column: 3;
-        display: flex;
-        flex-direction: column;
-        .start-price {
-            font-size: 22px;
-            color: gray;
-            text-decoration: line-through;
-        }
-        .discount-price {
-            font-size: 30px;
-            color: rgb(1, 255, 43);
-        }
-    }
 
 }

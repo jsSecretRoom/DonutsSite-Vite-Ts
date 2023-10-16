@@ -43,7 +43,7 @@ function AboutProductPage() {
     if (isError) {
         return <div>Error loading data</div>;
     }
-    console.log(collectionData);
+    
     return (
         <main className='product-info-main'>
             <BackButton />
@@ -60,7 +60,7 @@ function AboutProductPage() {
                             <p className='discount-price'>{collectionData[0].diskountPrice}</p>
                             
                         </div>
-                        <AddToBasketButton/>
+                        <AddToBasketButton id={collectionData[0].id} cardToBuy={collectionData[0]}/>
                     </div>
                 </section>
 

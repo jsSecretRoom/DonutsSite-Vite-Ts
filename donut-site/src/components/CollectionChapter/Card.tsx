@@ -3,10 +3,10 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
 import { useQuery } from 'react-query';
 import { useState, useEffect } from 'react';
-import Star from '../../assets/Star_light.svg';
 import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import AddToBasketButton from '../../ButtonComponents/AddToBasketButton/AddToBasketButton';
+import IsFavoriteButton from '../../ButtonComponents/IsFavoriteButton/IsFavoriteButton';
 interface CollectionData {
     name: string;
     id: number
@@ -80,9 +80,7 @@ function Card({ collectionName }: { collectionName: string }) {
                                     <p className='real-price'>{item.realPrice}</p>
                                 )}
                             </div>
-                            <button className='favorite'>
-                                <img src={Star} alt="Star" />
-                            </button>
+                            <IsFavoriteButton/>
                         </div>
                     </div>
                 </div>
