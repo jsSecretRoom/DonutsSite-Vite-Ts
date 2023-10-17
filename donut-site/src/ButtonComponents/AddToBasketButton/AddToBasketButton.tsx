@@ -6,9 +6,15 @@ import { setAddToBasket } from '../../redux/Actions';
 
 function AddToBasketButton({ id, cardToBuy }) {
     const dispatch = useDispatch();
+    
     const busketArray = useSelector((state) => state.togllebutton.pushToBasket);
 
     const [isActive, setIsActive] = useState(false);
+
+    useEffect(() => {
+        // Обновление активности кнопки при изменении busketArray
+        setIsActive(busketArray.some(item => item.id === cardToBuy.id));
+    }, [busketArray, cardToBuy]);
     
     useEffect(() => {
         const storedState = localStorage.getItem(`buttonState_${id}`);

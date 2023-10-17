@@ -1,7 +1,7 @@
 import './ModalBag.scss';
 
 import { useSelector } from 'react-redux';
-import CardLine from './CardLine';
+import CardLine from './CardLine/CardLine';
 import Modal from 'react-modal';
 const modalRoot = document.getElementById('portall');
 Modal.setAppElement(modalRoot);
@@ -9,9 +9,9 @@ Modal.setAppElement(modalRoot);
 function ModalBag() {
 
     const toggleModal = useSelector((state) => state.togllebutton.togleBagModal);
-    
-    return ( 
-        
+
+    return (
+
         <Modal
             isOpen={toggleModal}
             contentLabel="Модальное окно"
@@ -22,7 +22,7 @@ function ModalBag() {
         >
             <div className='modal-body'>
                 <section className='want-bay'>
-                    <CardLine/>
+                    <CardLine />
                 </section>
                 <section className='bay-logick'>
                     <div className='bady-sum'>
@@ -35,7 +35,7 @@ function ModalBag() {
                 </section>
             </div>
         </Modal>
-        
+
     );
 }
 

@@ -1,0 +1,29 @@
+.guds-counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    .less, .more {
+        width: auto;
+        padding: 0;
+        height: auto;
+        justify-content: center;
+        border: 2px solid white;
+        background-color: rgb(255, 255, 255);
+        &:hover{
+            background-color:rgb(105, 250, 255);
+            border: 2px solid black;
+        }
+    }
+    .counter {
+        background-color: white;
+        width: 40px;
+        text-align: center;
+        border-radius: 10px;
+        border: 1px solid black;
+        p{
+            color: rgb(0, 0, 0);
+            font-size: 33px;
+        }
+    }
+}
