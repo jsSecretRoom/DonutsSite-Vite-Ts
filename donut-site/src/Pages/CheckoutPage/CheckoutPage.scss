@@ -1,0 +1,53 @@
+.checkout {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    .order {
+        background-color:cadetblue;
+        border-radius: 10px;
+        .orderproduct {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            .orderImg {
+                img{
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 10px;
+                }
+                
+            }
+            p{
+                padding: 10px;
+            }
+            h3{
+
+            }
+        }
+    }
+    .persondata{
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            row-gap: 20px;
+            .paid {
+                background-color: greenyellow;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            .inputs {
+                width: 400px;
+            }
+            button{}
+        }
+    }
+}
+
+
+

@@ -1,7 +1,9 @@
 import './ModalBag.scss';
 
 import { useSelector } from 'react-redux';
+
 import CardLine from './CardLine/CardLine';
+
 import Modal from 'react-modal';
 const modalRoot = document.getElementById('portall');
 Modal.setAppElement(modalRoot);
@@ -24,12 +26,7 @@ function ModalBag() {
                 <section className='want-bay'>
                     <CardLine />
                 </section>
-                <section className='bay-logick'>
-                    <div className='bady-sum'>
-                        <h3>444</h3>
-                        <button>Bay</button>
-                    </div>
-                </section>
+
                 <section className='favorite-guds'>
 
                 </section>

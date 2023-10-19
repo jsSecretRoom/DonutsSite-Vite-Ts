@@ -1,48 +1,57 @@
-.bay-line-info {
+.conteiner-biznes{
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    border-bottom: 1px solid black;
-    
-    margin: 5px 0;
-    padding: 20px;
-
-    .product-main-continer{
-        background-color: cadetblue;
-        border-radius: 10px;
+    align-items: center;
+   
+    .bay-line-info {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(255, 255, 255);
+        border-bottom: 1px solid black;
+        width: 100%;
+        margin: 5px 0;
         padding: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .guds-img {
-
-            img{
-                width: 200px;
-                height: 200px;
-                border-radius: 10px;
+    
+        .product-main-continer{
+            background-color: cadetblue;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .guds-img {
+    
+                img{
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 10px;
+                }
+            }
+            .guds-info {
+                padding: 10px;
+                text-align: left;
+                p{color: #000;}
             }
         }
-        .guds-info {
+        .feaces-product{
+            margin: 10px 0;
             padding: 10px;
-            text-align: left;
-            p{color: #000;}
-        }
-    }
-    .feaces-product{
-        margin: 10px 0;
-        padding: 10px;
-        background-color: coral;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        .special-services {
-            p{
-                color: black;
+            background-color: coral;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+    
+            .special-services {
+                p{
+                    color: black;
+                }
             }
         }
+    
+    
     }
-
-
+    .bay-logick {
+                
+    }
 }

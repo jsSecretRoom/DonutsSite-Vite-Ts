@@ -3,12 +3,15 @@ import { createContext, useContext, useState } from 'react';
 const MyContext = createContext();
 
 export const MyProvider = ({ children }) => {
-
-    const [count, setCount] = useState(1);
+  let [order, setOrder] = useState([]);
+  
 
   return (
-    <MyContext.Provider value={{ count, setCount }}>
-      {children}
+    <MyContext.Provider value={{
+      order,
+      setOrder
+    }}>
+        {children}
     </MyContext.Provider>
   );
 };
