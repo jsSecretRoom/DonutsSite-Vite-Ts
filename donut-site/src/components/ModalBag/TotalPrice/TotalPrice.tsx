@@ -2,8 +2,11 @@ import './TotalPrice.scss';
 import { NavLink } from 'react-router-dom';
 import CreateOrderButton from '../../../ButtonComponents/CreateOrderButton/CreateOrderButton';
 
+
+
 function TotalPrice({ busketArray, cartItems }) {
-    
+
+
     let productCount = [];
     if (busketArray && cartItems) {
         busketArray.map((item) => {
@@ -11,7 +14,7 @@ function TotalPrice({ busketArray, cartItems }) {
             if (cartItem) {
                 productCount.push(cartItem.count);
             }
-            return null; // Важно вернуть что-то из map, чтобы избежать потенциальных ошибок
+            return null; 
         });
     }
     // Вычислите общую стоимость основанную на `busketArray` и `cartItems`
@@ -31,6 +34,7 @@ function TotalPrice({ busketArray, cartItems }) {
         return acc;
     }, 0);
 
+
     return ( 
         <div className='bady-sum'>
             <h3 className='real'>{totalReal}</h3>
@@ -38,7 +42,6 @@ function TotalPrice({ busketArray, cartItems }) {
             <NavLink to='/checkout'>
                 <CreateOrderButton totalReal={totalReal} busketArray={busketArray} productCount={productCount}/>
             </NavLink>
-            
         </div>
     );
 }

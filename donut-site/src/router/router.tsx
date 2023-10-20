@@ -23,6 +23,7 @@ import Terms from "../Pages/Terms/Terms";
 import Vacancies from "../Pages/Vacancies/Vacancies";
 
 import ModalBag from "../components/ModalBag/ModalBag";
+import ModalOrderSucess from "../components/ModalOrderSucess/ModalOrderSucess";
 
 import CheckoutPage from "../Pages/CheckoutPage/CheckoutPage";
 export const router = createBrowserRouter([
@@ -75,7 +76,13 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/checkout',
-                element: <CheckoutPage />
+                
+                element: (
+                    <>
+                        <CheckoutPage />
+                        <ModalOrderSucess/>
+                    </>
+                )
             },
             {
                 path: '/AboutUs',

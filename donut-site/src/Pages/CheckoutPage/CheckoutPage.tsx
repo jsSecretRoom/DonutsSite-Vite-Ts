@@ -1,20 +1,17 @@
 import './CheckoutPage.scss';
-import { useMyContext } from '../../Context/Context';
-
+import SubmitOrderButton from '../../ButtonComponents/SubmitOrderButton/SubmitOrderButton';
 
 function CheckoutPage() {
-
-    const { order } = useMyContext();
-    console.log(order)
+    const savedOrderData = JSON.parse(localStorage.getItem('orderData')); // Преобразование строки JSON в объект
 
     return ( 
         <main className='checkout'>
             <section className='order'>
-                <h2>You order:</h2>
-                {order.orderGuds.map((obj) => (
-                    <div className='orderproduct'>
+                <h2>Ваш заказ:</h2>
+                {savedOrderData.orderGuds.map((obj) => (
+                    <div className='orderproduct' key={obj.productName}>
                         <div className='orderImg'>
-                            <img src={obj.photo} alt="foto" />
+                            <img src={obj.photo} alt="фото" />
                         </div>
                         <p>{obj.productName}</p>
                         <h3>{obj.count} x</h3>
@@ -24,19 +21,19 @@ function CheckoutPage() {
             <section className='persondata'>
                 <form action="">
                     <div className='paid'>
-                        <h3>You paid {order.total}</h3>
+                        <h3>You will pay: {savedOrderData.total}</h3>
                     </div>
+                    <div className='info'><h4>Enter order information:</h4></div>
                     <div className='inputs'>
-                        <input type="text" name="" id="" placeholder='firstname'/>
-                        <input type="text" name="" id="" placeholder='secondname'/>
-                        <input type="number" name="" id=""  placeholder='phone number'/>
+                        <input type="text" name="" id="" placeholder='имя'/>
+                        <input type="text" name="" id="" placeholder='фамилия'/>
+                        <input type="number" name="" id="" placeholder='номер телефона'/>
                         <input type="email" name="" id="" placeholder='email'/>
                     </div>
-                    <button type="submit">Order</button>
+                    <SubmitOrderButton/>
                 </form>
             </section>
         </main>
-
     );
 }
 

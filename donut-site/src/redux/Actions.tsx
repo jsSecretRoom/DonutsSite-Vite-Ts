@@ -23,6 +23,11 @@ export const setModallBag = (togle) => ({
     payload: togle,
 });
 
+export const setModallOrderSucces = (togle) => ({
+    type: 'TOGLE_SUCCES_ORDER_MODAL',
+    payload: togle,
+});
+
 export const setAddToBasket = (push) => ({
     type: 'ADD_TO_BASKET',
     payload: push,

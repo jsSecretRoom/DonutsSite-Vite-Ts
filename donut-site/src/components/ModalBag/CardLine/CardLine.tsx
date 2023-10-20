@@ -73,7 +73,10 @@ function CardLine() {
             ) : (
                 <p>Корзина пуста</p>
             )}
-            <TotalPrice busketArray={busketArray} cartItems={cartItems}/>
+            <div className='logic-calculator'>
+                <TotalPrice busketArray={busketArray} cartItems={cartItems}/>
+            </div>
+            
         </div>
     );
 }

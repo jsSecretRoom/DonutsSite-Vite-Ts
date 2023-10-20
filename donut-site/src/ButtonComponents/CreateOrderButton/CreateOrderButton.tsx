@@ -1,8 +1,11 @@
-
-import { useMyContext } from '../../Context/Context';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { useDispatch } from 'react-redux';
+import { setModallBag } from '../../redux/Actions';
 
 function CreateOrderButton({ totalReal, busketArray, productCount }) {
-    const { setOrder } = useMyContext();
+
+    const dispatch = useDispatch();
+    let toglmodal = useSelector((state) => state.togllebutton.togleBagModal);
 
     let gudsArr = [];
 
@@ -22,8 +25,9 @@ function CreateOrderButton({ totalReal, busketArray, productCount }) {
             orderGuds: gudsArr
         };
 
+        localStorage.setItem('orderData', JSON.stringify(newOrder));
         
-        setOrder(newOrder);
+        dispatch(setModallBag(!toglmodal));
     };
     
     return ( 
