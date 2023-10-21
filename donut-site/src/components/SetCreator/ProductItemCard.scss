@@ -1,0 +1,42 @@
+.product-item {
+
+    .product-item-img {
+        
+        img{
+            width: 170px;
+            height: 190px;
+            border-radius: 20px 20px 0 0;
+        }
+        .price{
+            background-color: chartreuse;
+            p{
+                color: black;
+            }
+        }
+    }
+    .counter-one-donut{
+        background-color: cadetblue;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .counter-one-donut{
+
+        .add-button{
+            width: auto;
+            height: 30px;
+            width: 170px;background-color: aqua;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+        }
+    }
+}
+.card-loader{
+    button{
+        justify-content: center;
+        width: auto;
+        height: 70px;
+        margin: 0;
+        
+    }
+}

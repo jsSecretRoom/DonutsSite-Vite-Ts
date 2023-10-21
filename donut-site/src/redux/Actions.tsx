@@ -32,3 +32,10 @@ export const setAddToBasket = (push) => ({
     type: 'ADD_TO_BASKET',
     payload: push,
 });
+
+//globall stats reducer
+
+export const setGloballCount = (update) => ({
+    type: 'FIND_GLOBAL_COUNT',
+    payload: update,
+});
