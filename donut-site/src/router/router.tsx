@@ -10,7 +10,6 @@ import RegistrationComponnt from "../components/RegistrationComponnt/Registratio
 import AboutProductPage from "../components/AboutProductPage/AboutProductPage";
 
 import Search from "../components/Search/Search";
-import SweetsData from "../serverComponents/SweetsData";
 
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Allcategories from "../Pages/Allcategories/Allcategories";
@@ -26,6 +25,10 @@ import ModalBag from "../components/ModalBag/ModalBag";
 import ModalOrderSucess from "../components/ModalOrderSucess/ModalOrderSucess";
 
 import CheckoutPage from "../Pages/CheckoutPage/CheckoutPage";
+
+import Sidebar from "../components/Sidebar/Sidebar";
+import CollectionChapter from "../components/CollectionChapter/CollectionChapter";
+
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -33,7 +36,8 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <HomePage />
+                element: <HomePage />,
+                
             },
             {
                 path: '/shop',
@@ -47,9 +51,19 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         path: '/shop/:filterName',
-                        element: <SweetsData />
+                        element: (
+                            <>
+                                <Sidebar/>
+                                <CollectionChapter/>
+                            </>
+                        ), children: [
+                            {
+                                
+                            }
+                        ]
                     }
                 ]
+
             },
             {
                 path: '/create',

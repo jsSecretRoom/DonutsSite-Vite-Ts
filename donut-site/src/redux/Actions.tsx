@@ -5,10 +5,15 @@ export const SetAutorisation = (name: string) => ({
     payload: name,
 });
 
-//collection reducer
+//collection reducer 
 import { GetCollectionName } from './redaxTypes';
 export const setNameCollections = (name: string[]) => ({
     type: GetCollectionName.GET_COLLECTION_NAME,
+    payload: name,
+});
+
+export const setListCollectionsnames = (name) => ({
+    type: 'COLLECTION_LIST_DATA',
     payload: name,
 });
 

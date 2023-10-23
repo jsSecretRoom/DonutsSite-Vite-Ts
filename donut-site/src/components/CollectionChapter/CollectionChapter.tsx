@@ -1,15 +1,21 @@
 import './CollectionChapter.scss';
 
 import { useRef, useState } from 'react';
-import Card from './Card';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+
 import Categories from '../Categories/Categories';
 import InfiniteScroll from 'react-infinite-scroll-component';
+
+import Card from './Card';
 
 import SignLeft from '../../assets/SignLeft.svg';
 import SignRight from '../../assets/SignRight.svg';
 
-function CollectionChapter({ dataprop }) {
+function CollectionChapter() {
+
+  let capterData = useSelector((state) => state.getcollection.collectionsName)
+
   const containerRefs = useRef([]);
   const [displayCount, setDisplayCount] = useState(3);
   const [hasMore, setHasMore] = useState(true); 
@@ -27,7 +33,7 @@ function CollectionChapter({ dataprop }) {
   // Функция, которая будет вызвана при достижении конца списка
   function fetchMoreData() {
     // Если больше данных нет, установите hasMore в false, чтобы отключить дальнейшую загрузку
-    if (displayCount >= dataprop.length) {
+    if (displayCount >= capterData.length) {
       setHasMore(false);
       return;
     }
@@ -41,7 +47,7 @@ function CollectionChapter({ dataprop }) {
     <div className='shop-logik'>
       <Categories />
       <section className='collections'>
-        {dataprop.slice(0, displayCount).map((item, index) => (
+        {capterData.slice(0, displayCount).map((item, index) => (
           <div className='chapter' key={index}>
             <div className='link'>
               <NavLink to={`/collection/${item}`} key={index}>
@@ -49,12 +55,11 @@ function CollectionChapter({ dataprop }) {
               </NavLink>
             </div>
             <div className='products'>
-              <div
-                className='product-container'
-                ref={(ref) => (containerRefs.current[index] = ref)}
-              >
+
+              <div className='product-container' ref={(ref) => (containerRefs.current[index] = ref)}>
                 <Card collectionName={item.toString()} />
               </div>
+
               <div className='buttons-scroll'>
                 <div className='left-scroll' onClick={() => scrollLeft(index)}>
                   <img src={SignLeft} alt='SignLeft' />

@@ -3,29 +3,19 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux'; 
 
 
-const categoryFilter: string[] = [
-    "Sweets", 
-    "Convenience products", 
-    "Alcoholic Drinks", 
-    "Cocktails", 
-    "Сandies",
-    "Bakery"
-]; 
-
-
 function Sidebar() {
 
     const togleButton = useSelector((data) => data.togllebutton.togleSidebur);
+    let listDataNemas = useSelector((state) => state.getcollection.collectionslistNames)
     
     return (
         <aside className={`aside ${togleButton ? 'show-aside' : ''}`}>
             <section className='aside-continer'>
                 <div className='list'>
-                    {categoryFilter.map((filterName, index) => (
+                    {listDataNemas.map((filterName, index) => (
                         <NavLink to={`/shop/${filterName}`} key={index}>
                             <img src="" alt="" />
                             <p>{filterName}</p>
-                            
                         </NavLink>
                     ))}
                 </div>
