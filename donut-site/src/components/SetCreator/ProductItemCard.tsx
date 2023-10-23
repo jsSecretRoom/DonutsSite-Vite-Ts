@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import CounterOneDonut from './CounterOneDonut';
 
 
-function ProductItemCard({matrixfraim, setmatrixfraim}) {
+function ProductItemCard({matrixfraim, setmatrixfraim, donutsCount}) {
 
     const [visibleCards, setVisibleCards] = useState(5);
 
@@ -64,7 +64,7 @@ function ProductItemCard({matrixfraim, setmatrixfraim}) {
                         </div>
                     </div>
     
-                    <CounterOneDonut matrixfraim={matrixfraim} setmatrixfraim={setmatrixfraim} item={item} />
+                    <CounterOneDonut matrixfraim={matrixfraim} setmatrixfraim={setmatrixfraim} item={item} donutsCount={donutsCount}/>
                     
                 </div>
             ))}

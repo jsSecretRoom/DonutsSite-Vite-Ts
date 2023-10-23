@@ -12,7 +12,7 @@ export const setNameCollections = (name: string[]) => ({
     payload: name,
 });
 
-//buttonsreducer
+//buttonsreducer 
 export const setSideburButton = (togle) => ({
     type: 'SIDEBUR_IVENT',
     payload: togle,
@@ -28,6 +28,11 @@ export const setModallOrderSucces = (togle) => ({
     payload: togle,
 });
 
+export const setTogleLeedOpenClose = (togle) => ({
+    type: 'CLOSE_OPEN_LEED',
+    payload: togle,
+});
+
 export const setAddToBasket = (push) => ({
     type: 'ADD_TO_BASKET',
     payload: push,
@@ -37,5 +42,10 @@ export const setAddToBasket = (push) => ({
 
 export const setGloballCount = (update) => ({
     type: 'FIND_GLOBAL_COUNT',
+    payload: update,
+});
+
+export const setGloballTotallPrice = (update) => ({
+    type: 'FIND_GLOBALL_TOTAL_PRICE',
     payload: update,
 });

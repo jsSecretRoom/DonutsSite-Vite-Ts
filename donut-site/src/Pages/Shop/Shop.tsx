@@ -7,10 +7,8 @@ function Shop() {
     return (
         <main className='shop-main'>
             <div className='shop-page'>
-                <Sidebar />
                 <Outlet />
             </div>
-            
         </main>
     );
 }

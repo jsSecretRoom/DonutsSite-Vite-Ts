@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { setNameCollections } from '../redux/Actions';
 import CollectionChapter from '../components/CollectionChapter/CollectionChapter';
+import Sidebar from '../components/Sidebar/Sidebar';
 import { useParams } from 'react-router-dom';
 
 function SweetsData() {
@@ -57,9 +58,13 @@ function SweetsData() {
     }
     
     return (
-        <CollectionChapter dataprop={data}/>
+        <>
+            <Sidebar />
+            <CollectionChapter dataprop={data}/>
+        </>
+
     );
 
 }
-
+ 
 export default SweetsData;

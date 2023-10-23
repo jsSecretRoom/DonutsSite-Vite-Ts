@@ -10,7 +10,7 @@ const categoryFilter: string[] = [
     "Cocktails", 
     "Сandies",
     "Bakery"
-];
+]; 
 
 
 function Sidebar() {

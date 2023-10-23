@@ -1,17 +1,27 @@
 import './SetCreator.scss';
 
 import { useState, useEffect } from 'react';
-
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 import ProductItemCard from './ProductItemCard';
+import { setTogleLeedOpenClose } from '../../redux/Actions';
+import { useDispatch } from 'react-redux';
 
 import BodyBox from '../../assets/box/backbox.svg'
 import LiedBox from '../../assets/box/liedbox.svg'
 import BodyBoxTop from '../../assets/box/topbox.svg'
 import donutico from '../../assets/donut.svg';
 
+
+
 function SetCreator() {
+    const dispatch = useDispatch();
     let [donutsCount, setDonutsCount] = useState(6);
     let [matrixfraim, setmatrixfraim] = useState([]);
+
+
+    let globallcount = useSelector((state) => state.globalStates.globallCounter);
+    let togleLeed = useSelector((state) => state.togllebutton.togleLeedOpenClose);
+    let globallTotallPrice = useSelector((state) => state.globalStates.globalBoxTotalPrice);
 
     const createMatrix = () => {
         let newMatrix = [];
@@ -25,13 +35,21 @@ function SetCreator() {
         createMatrix();
     }, [donutsCount]);
 
+    useEffect(() => {
+        if (globallcount === donutsCount){
+            dispatch(setTogleLeedOpenClose(true));
+        }else{
+            dispatch(setTogleLeedOpenClose(false));
+        }
+    }, [globallcount]);
+
     let changeDonutsCount = (count) => {
         setDonutsCount(count);
     }
 
     return (
         <main className='product-creator-main'>
-            <section className='priduct-line'>
+            <section className='product-line'>
                 <div className='box-sizwe'>
                     <button onClick={() => changeDonutsCount(6)}>2x3(6)</button>
                     <button onClick={() => changeDonutsCount(12)}>3x4(12)</button>
@@ -39,7 +57,7 @@ function SetCreator() {
                     <button onClick={() => changeDonutsCount(20)}>5x4(20)</button>
                 </div>
                 <div className='product-container'>
-                    <ProductItemCard matrixfraim={matrixfraim} setmatrixfraim={setmatrixfraim}/>
+                    <ProductItemCard matrixfraim={matrixfraim} setmatrixfraim={setmatrixfraim} donutsCount={donutsCount}/>
                 </div>
             </section>
             <section className="donuts-box">
@@ -58,13 +76,19 @@ function SetCreator() {
                         ))}
                     </div>
                     <div className="cap-box">
-                        <div className='Lied'>
+                        <div className={`Lied ${ togleLeed ? 'activ' : ''}`}>
                             <div className='bakc-lied'>
                             
                             </div>
                             <img src={LiedBox} alt="LiedBox" />
                         </div>
                     </div>
+                </div>
+            </section>
+            <section className='total-price-conteiner'>
+                <div className='price'>
+                    <p>Totall:</p>
+                    <p>{globallTotallPrice}</p>
                 </div>
             </section>
         </main>

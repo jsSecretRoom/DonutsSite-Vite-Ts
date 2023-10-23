@@ -12,7 +12,7 @@ import SignRight from '../../assets/SignRight.svg';
 function CollectionChapter({ dataprop }) {
   const containerRefs = useRef([]);
   const [displayCount, setDisplayCount] = useState(3);
-  const [hasMore, setHasMore] = useState(true); // Переменная для определения, есть ли еще данные для загрузки
+  const [hasMore, setHasMore] = useState(true); 
 
   function scrollLeft(index) {
     const container = containerRefs.current[index];
