@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+
 import './AddToBasketButton.scss';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setAddToBasket } from '../../redux/Actions';
 
-function AddToBasketButton({ id, cardToBuy }) {
+function AddToBasketButton({ id, cardToBuy }) { 
     const dispatch = useDispatch();
     
     const busketArray = useSelector((state) => state.togllebutton.pushToBasket);
@@ -28,7 +29,7 @@ function AddToBasketButton({ id, cardToBuy }) {
         if (storedBasket !== null) {
             dispatch(setAddToBasket(JSON.parse(storedBasket)));
         }
-    }, [dispatch]);
+    }, [dispatch]); 
 
     const handleAddToBasket = () => {
         const newActiveState = !isActive;

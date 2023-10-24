@@ -3,7 +3,7 @@ import './ModalBag.scss';
 import { useSelector } from 'react-redux';
 
 import CardLine from './CardLine/CardLine';
-
+import FavoriteLine from './FavoriteLine/FavoriteLine';
 import Modal from 'react-modal';
 const modalRoot = document.getElementById('portall');
 Modal.setAppElement(modalRoot);
@@ -28,7 +28,7 @@ function ModalBag() {
                 </section>
 
                 <section className='favorite-guds'>
-
+                    <FavoriteLine/>
                 </section>
             </div>
         </Modal>

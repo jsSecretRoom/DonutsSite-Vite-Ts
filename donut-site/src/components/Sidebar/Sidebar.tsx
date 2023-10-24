@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 function Sidebar() {
 
-    const togleButton = useSelector((data) => data.togllebutton.togleSidebur);
+    const togleButton = useSelector((state) => state.togllebutton.togleSidebur);
     let listDataNemas = useSelector((state) => state.getcollection.collectionslistNames)
     
     return (

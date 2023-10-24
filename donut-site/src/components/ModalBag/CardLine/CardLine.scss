@@ -7,18 +7,27 @@
         display: flex;
         flex-direction: column;
         background-color: rgb(255, 255, 255);
-        width: 50%;
-        max-height: 380px ;
+        width: 100%;
         margin: 5px 0;
-        padding: 20px;
-    
+        padding: 0px;
+        @media (min-width: 425px) {
+            padding: 20px;
+        }
+        @media (min-width: 1200px) {
+            width: 50%;
+            
+        }
         .product-main-continer{
             background-color: cadetblue;
             border-radius: 10px;
             padding: 20px;
             display: flex;
             align-items: center;
+            flex-direction: column;
             justify-content: space-between;
+            @media (min-width: 512px) {
+                flex-direction: row;
+            }
             .guds-img {
     
                 img{
@@ -36,12 +45,17 @@
         .feaces-product{
             margin: 10px 0;
             padding: 10px;
+            min-height: 100px;
             background-color: coral;
             border-radius: 10px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-    
+            justify-content: space-between; 
+            flex-direction: column;
+
+            @media (min-width: 425px) {
+                flex-direction: row;
+            }
             .special-services {
                 p{
                     color: black;

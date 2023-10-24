@@ -19,7 +19,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: rgba(255, 192, 203, 0.943);
+  background-color: rgba(255, 192, 203, 1);
   overflow-x: hidden;
 }
 
@@ -194,7 +194,7 @@ button::-moz-focus-inner {
 @media (prefers-color-scheme: light) {
   :root {
     color: #fdfffe;
-    background-color: #fefafba4;
+    background-color: rgba(255, 192, 203, 1);
   }
   a:hover {
     color: #1b26ff;

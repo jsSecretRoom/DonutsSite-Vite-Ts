@@ -17,6 +17,11 @@ export const setListCollectionsnames = (name) => ({
     payload: name,
 });
 
+export const setPushToFavirite = (name) => ({
+    type: 'FAVORITE_COLLECTION_LIST',
+    payload: name,
+});
+
 //buttonsreducer 
 export const setSideburButton = (togle) => ({
     type: 'SIDEBUR_IVENT',

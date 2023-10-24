@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import AddToBasketButton from '../../ButtonComponents/AddToBasketButton/AddToBasketButton';
 import IsFavoriteButton from '../../ButtonComponents/IsFavoriteButton/IsFavoriteButton';
+import SpinerLoader from '../SpinerLoader/SpinerLoader';
 interface CollectionData {
     name: string;
     id: number
@@ -44,11 +45,27 @@ function Card({ collectionName }: { collectionName: string }) {
     }
 
     if (!collectionData) {
-        return <div>error</div>;
+        return (
+            <SpinerLoader
+              style={{
+                  backgroundColor: 'rgba(255, 192, 203, 0)',
+                  height: '100vh',
+                  position: 'fixed',
+              }}
+            />
+        );
     }
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <SpinerLoader
+              style={{
+                  backgroundColor: 'rgba(255, 192, 203, 0)',
+                  height: '100vh',
+                  position: 'fixed',
+              }}
+            />
+        );
     }
 
     if (isError) {
@@ -80,7 +97,7 @@ function Card({ collectionName }: { collectionName: string }) {
                                     <p className='real-price'>{item.realPrice}</p>
                                 )}
                             </div>
-                            <IsFavoriteButton/>
+                            <IsFavoriteButton id={item.id} cardToBuy={item}/>
                         </div>
                     </div>
                 </div>

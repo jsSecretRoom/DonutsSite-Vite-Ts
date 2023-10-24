@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
 import { useQuery } from 'react-query';
+import SpinerLoader from '../SpinerLoader/SpinerLoader';
 import BackButton from '../../ButtonComponents/BackButton/BackButton';
 import AddToBasketButton from '../../ButtonComponents/AddToBasketButton/AddToBasketButton';
 
@@ -33,11 +34,27 @@ function AboutProductPage() {
 
 
     if (!collectionData) {
-        return <div>error</div>;
+        return (
+            <SpinerLoader
+              style={{
+                  backgroundColor: 'rgba(255, 192, 203, 0)',
+                  height: '100vh',
+                  position: 'fixed',
+              }}
+            />
+        );
     }
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <SpinerLoader
+              style={{
+                  backgroundColor: 'rgba(255, 192, 203, 0)',
+                  height: '100vh',
+                  position: 'fixed',
+              }}
+            />
+        );
     }
 
     if (isError) {
@@ -57,7 +74,7 @@ function AboutProductPage() {
                         
                         <div className='price-group'>
                             <p className='real-price'>{collectionData[0].realPrice}</p>
-                            <p className='discount-price'>{collectionData[0].diskountPrice}</p>
+                            {collectionData[0].diskountIndicator ? <p className='discount-price'>{collectionData[0].diskountPrice}</p> : <p></p>}
                             
                         </div>
                         <AddToBasketButton id={collectionData[0].id} cardToBuy={collectionData[0]}/>

@@ -36,7 +36,7 @@ function Shop() {
 
         // Фильтрация и сортировка массива listNames перед отправкой
         const filteredAndSortedDataListNames = listNames
-        .filter((item) => 'Sweets')                                       //тут реба щось!!!!
+                                              
         .sort((a, b) => a.localeCompare(b));
 
         dispatch(setListCollectionsnames(filteredAndSortedDataListNames));

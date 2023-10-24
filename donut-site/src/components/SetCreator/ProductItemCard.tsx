@@ -5,7 +5,7 @@ import { db } from '../../firebase/firebaseConfig';
 import { useQuery } from 'react-query';
 import { useState, useEffect } from 'react';
 import CounterOneDonut from './CounterOneDonut';
-
+import SpinerLoader from '../SpinerLoader/SpinerLoader';
 
 function ProductItemCard({matrixfraim, setmatrixfraim, donutsCount}) {
 
@@ -38,11 +38,27 @@ function ProductItemCard({matrixfraim, setmatrixfraim, donutsCount}) {
     }
 
     if (!collectionData) {
-        return <div>error</div>;
+        return (
+            <SpinerLoader
+              style={{
+                  backgroundColor: 'rgba(255, 192, 203, 0)',
+                  height: '100%',
+                  position: 'static',
+              }}
+            />
+        );
     }
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <SpinerLoader
+              style={{
+                  backgroundColor: 'rgba(255, 192, 203, 0)',
+                  height: '100%',
+                  position: 'static',
+              }}
+            />
+        );
     }
 
     if (isError) {

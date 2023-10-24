@@ -1,13 +1,20 @@
 .guds-line-price {
     display: flex;
     flex-direction: column;
-    .start-price {
+
+    .start-price{
         font-size: 22px;
         color: rgb(63, 63, 63);
         text-decoration: line-through;
+    }
+    .start-price.nonediscount{
+        font-size: 30px;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
     }
     .discount-price {
         font-size: 30px;
         color: rgb(255, 0, 0);
     }
+
 }

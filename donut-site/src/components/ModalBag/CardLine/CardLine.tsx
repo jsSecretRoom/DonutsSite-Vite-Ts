@@ -59,7 +59,7 @@ function CardLine() {
                                 updateCount={(newCount) => updateCount(item.id, newCount)}
                             />
                             <PriceComponent
-                                
+                                diskountIndicator={item.diskountIndicator }
                                 realPrice={item.realPrice}
                                 discountPrice={item.diskountPrice}
                                 count={cartItems[id] && cartItems[id].count}
@@ -71,7 +71,7 @@ function CardLine() {
                 
                 
             ) : (
-                <p>Корзина пуста</p>
+                <p>Корзина пуста</p> 
             )}
             <div className='logic-calculator'>
                 <TotalPrice busketArray={busketArray} cartItems={cartItems}/>
