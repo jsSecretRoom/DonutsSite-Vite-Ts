@@ -74,15 +74,26 @@ function ProductItemCard({matrixfraim, setmatrixfraim, donutsCount}) {
             {collectionData.slice(0, visibleCards).map((item, index) => (
                 <div className='product-item' key={index}>
                     <div className='product-item-img'>
-                        <img src={item.oneimg} alt="oneimg" />
+                        <div className='donut-img'>
+                            <img src={item.oneimg} alt="oneimg" />
+                            
+                            <div className='one-donut-info'>
+                                <div className='info-conteiner'>
+                                    <p>{item.info}</p>
+                                </div>
+                            </div>
+
+                        </div>
                         <div className='price'>
                             <p>price: {item.price}</p>
                         </div>
+
                     </div>
     
                     <CounterOneDonut matrixfraim={matrixfraim} setmatrixfraim={setmatrixfraim} item={item} donutsCount={donutsCount}/>
-                    
+
                 </div>
+                
             ))}
             
             <div className='card-loader'>

@@ -1,19 +1,57 @@
 .product-item {
-
+    
     .product-item-img {
+
         
-        img{
-            width: 170px;
-            height: 190px;
-            border-radius: 20px 20px 0 0;
+        .donut-img{
+            position: relative;
+            img{
+                width: 170px;
+                height: 190px;
+                border-radius: 20px 20px 0 0;
+                z-index: 2;
+                position: relative;
+            }
+
+            .one-donut-info{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                z-index: 1;background-color: rgb(150, 89, 107);
+                border-radius: 20px 20px 0 0;
+                .info-conteiner{
+                    padding: 5px;
+                    p{
+                        font-size: 15px;
+                    }
+                }
+            }
+    
+            &:hover{
+                .one-donut-info{
+                    z-index: 3;
+                    .info-conteiner{
+                        
+                    }
+                    
+                }
+            }
         }
+
+
         .price{
             background-color: chartreuse;
+            z-index: 3;
+            position: relative;
             p{
                 color: black;
             }
         }
+
+        
     }
+    
     .counter-one-donut{
         background-color: cadetblue;
         border-radius: 0 0 20px 20px;

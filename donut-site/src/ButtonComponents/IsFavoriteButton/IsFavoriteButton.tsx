@@ -13,7 +13,7 @@ function IsFavoriteButton({ id, cardToBuy }) {
 
     const favoriteList = useSelector(( state ) => state.getcollection.pushToFavirite);
     
-    console.log(favoriteList);
+    
     const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {

@@ -6,6 +6,8 @@ import ProductItemCard from './ProductItemCard';
 import { setTogleLeedOpenClose } from '../../redux/Actions';
 import { useDispatch } from 'react-redux';
 
+import OrderButton from '../../ButtonComponents/OrderButton/OrderButton';
+
 import BodyBox from '../../assets/box/backbox.svg'
 import LiedBox from '../../assets/box/liedbox.svg'
 import BodyBoxTop from '../../assets/box/topbox.svg'
@@ -81,6 +83,10 @@ function SetCreator() {
                             
                             </div>
                             <img src={LiedBox} alt="LiedBox" />
+
+                            <div className='order-button'>
+                                <OrderButton/>
+                            </div>
                         </div>
                     </div>
                 </div>

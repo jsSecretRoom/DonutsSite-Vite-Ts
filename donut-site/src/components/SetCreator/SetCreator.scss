@@ -138,11 +138,12 @@
                     @media (min-width: 575px) {
                         transform: perspective(370px) rotateX(270deg);
                     }
-            
+                    
                     img {
                         width: 82vi;
                         z-index: 2;
                     }
+
             
                     @media (min-width: 1224px) {
                         img {

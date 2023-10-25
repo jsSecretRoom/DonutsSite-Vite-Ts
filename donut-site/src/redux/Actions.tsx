@@ -22,7 +22,12 @@ export const setPushToFavirite = (name) => ({
     payload: name,
 });
 
-//buttonsreducer 
+export const setSpeciallCollection = (name) => ({
+    type: 'SPECIALL_COLLECTION_BOX',
+    payload: name,
+});
+
+//buttonsreducer togleSpeciallModalBox
 export const setSideburButton = (togle) => ({
     type: 'SIDEBUR_IVENT',
     payload: togle,
@@ -35,6 +40,11 @@ export const setModallBag = (togle) => ({
 
 export const setModallOrderSucces = (togle) => ({
     type: 'TOGLE_SUCCES_ORDER_MODAL',
+    payload: togle,
+});
+
+export const setTogleSpeciallModalBox = (togle) => ({
+    type: 'TOGLE_SPECIALL_MODAL_BOX',
     payload: togle,
 });
 

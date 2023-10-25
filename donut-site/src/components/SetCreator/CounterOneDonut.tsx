@@ -15,6 +15,7 @@ function CounterOneDonut({ matrixfraim, setmatrixfraim, item, donutsCount }) {
 
     let globallcount = useSelector((state) => state.globalStates.globallCounter);
     let globallTotallPrice = useSelector((state) => state.globalStates.globalBoxTotalPrice);
+    let speciallPrice = useSelector((state) => state.globalStates.globalBoxTotalPrice);
     
     useEffect(() => {
         if (donutsCount !== prevDonutsCount) {
@@ -25,6 +26,7 @@ function CounterOneDonut({ matrixfraim, setmatrixfraim, item, donutsCount }) {
         setPrevDonutsCount(donutsCount);
     }, [donutsCount, prevDonutsCount]);
 
+    
     const remuveToBox = () => {
         const updatedMatrixfraim = [...matrixfraim];
         const indexToChange = updatedMatrixfraim.findIndex(matrixItem => matrixItem.donutimg === item.oneimg);

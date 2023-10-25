@@ -22,10 +22,10 @@ import Terms from "../Pages/Terms/Terms";
 import Vacancies from "../Pages/Vacancies/Vacancies";
 
 import ModalBag from "../components/ModalBag/ModalBag";
+import ModalSpeciallOrder from "../components/ModalSpeciallOrder/ModalSpeciallOrder";
 import ModalOrderSucess from "../components/ModalOrderSucess/ModalOrderSucess";
 
 import CheckoutPage from "../Pages/CheckoutPage/CheckoutPage";
-
 import Sidebar from "../components/Sidebar/Sidebar";
 import CollectionChapter from "../components/CollectionChapter/CollectionChapter";
 
@@ -67,7 +67,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/create',
-                element: <SetCreator />
+                element: 
+                <>
+                    <SetCreator />
+                    <ModalSpeciallOrder/>
+                </> 
             },
             {
                 path: '/collection/:collectionName',

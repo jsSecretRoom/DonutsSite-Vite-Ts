@@ -1,7 +1,10 @@
 const initialState = {
   togleSidebur: false,
+
   togleBagModal: false,
   toglSuccesOrder: false,
+  togleSpeciallModalBox: false,
+
   togleLeedOpenClose: false,
   pushToBasket: [],
 };
@@ -21,6 +24,11 @@ export function ButtonsReducer(state = initialState, action) {
       return {
         ...state,
         toglSuccesOrder: action.payload,
+      };
+    case 'TOGLE_SPECIALL_MODAL_BOX':
+      return {
+        ...state,
+        togleSpeciallModalBox: action.payload,
       };
     case 'CLOSE_OPEN_LEED':
       return {

@@ -5,6 +5,8 @@ const initialState: CollectionState = {
   collectionsName: [],
   collectionslistNames: [],
   pushToFavirite: [],
+  speciallCollectionBox: []
+
 };
 
 export function CollectionReducer(state = initialState, action: SetCollection): CollectionState {
@@ -23,6 +25,11 @@ export function CollectionReducer(state = initialState, action: SetCollection): 
       return {
         ...state,
         pushToFavirite: action.payload,
+      };
+    case 'SPECIALL_COLLECTION_BOX':
+      return {
+        ...state,
+        speciallCollectionBox: action.payload,
       };
     default:
       return state;
