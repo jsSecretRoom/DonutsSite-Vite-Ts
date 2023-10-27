@@ -1,7 +1,7 @@
 import './OrderButton.scss';
 
 import { useSelector, useDispatch  } from 'react-redux';
-import { setTogleSpeciallModalBox } from '../../redux/Actions';
+import { setTogleSpeciallModalBox, setOrerSpeciallCollection } from '../../redux/Actions';
 
 
 function OrderButton() {
@@ -10,12 +10,17 @@ function OrderButton() {
     
     const toggleModal = useSelector((state) => state.togllebutton.togleSpeciallModalBox);
 
+    let speciallCollection = useSelector((state) => state.getcollection.speciallCollectionBox);
+    let prototipespeciallCollection = useSelector((state) => state.getcollection.speciallCollectionOrer);
+
     const toggleModall = () => {
         dispatch(setTogleSpeciallModalBox(!toggleModal));
+        let speciallCollectionCopy = [...speciallCollection];
+        dispatch(setOrerSpeciallCollection([...prototipespeciallCollection, speciallCollectionCopy]));
     }
     
     return ( 
-        <button onClick={toggleModall}><h4>In basket</h4></button>
+        <button onClick={toggleModall}><h4>Show order</h4></button>
     );
 }
 

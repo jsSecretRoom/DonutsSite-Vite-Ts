@@ -1,7 +1,7 @@
 .modal {
     position: fixed;
     width: 100%;
-    z-index: 20;
+    z-index: 10;
     background-color: transparent;
     top: 210px;
     @media (min-width: 768px) {
@@ -51,7 +51,7 @@
             width: 100%;
 
         }
-
+        
         .favorite-guds {
         }
         

@@ -5,7 +5,8 @@ const initialState: CollectionState = {
   collectionsName: [],
   collectionslistNames: [],
   pushToFavirite: [],
-  speciallCollectionBox: []
+  speciallCollectionBox: [],
+  speciallCollectionOrer: []
 
 };
 
@@ -31,6 +32,11 @@ export function CollectionReducer(state = initialState, action: SetCollection): 
         ...state,
         speciallCollectionBox: action.payload,
       };
+    case 'SPECIALL_COLLECTION_ORDER':
+    return {
+      ...state,
+      speciallCollectionOrer: action.payload,
+    };
     default:
       return state;
   }

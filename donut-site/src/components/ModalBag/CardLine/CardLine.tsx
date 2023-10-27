@@ -1,6 +1,8 @@
 import './CardLine.scss';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
+
+import SpeciallOrderComponent from '../SpeciallOrderComponent/SpeciallOrderComponent';
 import CounterComponent from '../CounterComponent/CounterComponent';
 import PriceComponent from '../PriceComponent/PriceComponent';
 import DellButton from '../../../ButtonComponents/DellButton/DellButton';
@@ -73,6 +75,10 @@ function CardLine() {
             ) : (
                 <p>Корзина пуста</p> 
             )}
+            <section className='speciall-order'>
+                <h2>Special order:</h2>
+                <SpeciallOrderComponent/>
+            </section>
             <div className='logic-calculator'>
                 <TotalPrice busketArray={busketArray} cartItems={cartItems}/>
             </div>

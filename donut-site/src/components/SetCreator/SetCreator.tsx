@@ -13,8 +13,6 @@ import LiedBox from '../../assets/box/liedbox.svg'
 import BodyBoxTop from '../../assets/box/topbox.svg'
 import donutico from '../../assets/donut.svg';
 
-
-
 function SetCreator() {
     const dispatch = useDispatch();
     let [donutsCount, setDonutsCount] = useState(6);

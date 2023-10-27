@@ -10,6 +10,8 @@ function AddToBasketButton({ id, cardToBuy }) {
     
     const busketArray = useSelector((state) => state.togllebutton.pushToBasket);
 
+    
+
     const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {

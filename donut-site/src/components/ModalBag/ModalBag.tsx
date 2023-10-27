@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 
 import CardLine from './CardLine/CardLine';
 import FavoriteLine from './FavoriteLine/FavoriteLine';
+import SpeciallOrderComponent from './SpeciallOrderComponent/SpeciallOrderComponent';
+
 import Modal from 'react-modal';
 const modalRoot = document.getElementById('portall');
 Modal.setAppElement(modalRoot);
@@ -26,7 +28,6 @@ function ModalBag() {
                 <section className='want-bay'>
                     <CardLine />
                 </section>
-
                 <section className='favorite-guds'>
                     <FavoriteLine/>
                 </section>

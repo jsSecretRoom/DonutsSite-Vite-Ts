@@ -27,7 +27,12 @@ export const setSpeciallCollection = (name) => ({
     payload: name,
 });
 
-//buttonsreducer togleSpeciallModalBox
+export const setOrerSpeciallCollection = (name) => ({
+    type: 'SPECIALL_COLLECTION_ORDER',
+    payload: name,
+});
+
+//buttonsreducer togleSpeciallModalBox 
 export const setSideburButton = (togle) => ({
     type: 'SIDEBUR_IVENT',
     payload: togle,

@@ -1,0 +1,33 @@
+.special-order {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(101, 173, 236);
+    width: 230px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    row-gap: 20px;
+    border-radius: 10px;
+    .special-img {
+        img{
+            width: 200px;
+            border-radius: 10px;
+        }
+
+    }
+    .info-product-conyeinr{
+        
+        .special-info {
+            p{
+                
+            }
+        }
+        .special-price-info {
+            p{
+                font-size: 30px;
+            }
+        }
+    }
+
+
+}
