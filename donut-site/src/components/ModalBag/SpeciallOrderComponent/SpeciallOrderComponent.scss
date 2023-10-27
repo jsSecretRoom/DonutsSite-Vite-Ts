@@ -1,36 +1,40 @@
 
 .speciall-product-list{
-    position: relative;
-    .special-order-products {
-        display: flex;
-        justify-content: left;
-        column-gap: 10px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding: 10px;
+    
+    
+    .product-item{
         border-radius: 10px;
-        background-color: aquamarine;
-        
-        .peciall-product-list{
+        background-color: coral;
+        position: relative;
+        margin: 20px 0;
+        .special-order-products {
+            display: flex;
+            justify-content: left;
+            column-gap: 10px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 10px;
+            border-radius: 10px;
             
         }
         
-    }
+        .dell{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            button{
+                width: auto;
+            }
+        }
     
-    .dell{
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        button{
-            width: auto;
+        .total-price {
+            background-color:greenyellow;
+            border-radius: 0 0 10px 10px;
+            h2{}
         }
     }
-}
-
-
-.total-price {
-    background-color: greenyellow;
     
-    border-radius: 10px;
-    h2{}
 }
+
+
+

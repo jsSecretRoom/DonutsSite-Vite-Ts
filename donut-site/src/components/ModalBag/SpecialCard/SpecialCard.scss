@@ -1,7 +1,8 @@
 .special-order {
+    position: relative;
     display: flex;
     flex-direction: column;
-    background-color: rgb(101, 173, 236);
+    background-color:cadetblue;
     width: 230px;
     align-items: center;
     justify-content: space-between;
@@ -15,19 +16,18 @@
         }
 
     }
-    .info-product-conyeinr{
+    .info-product-container{
         
         .special-info {
             p{
-                
+                color: black;
             }
         }
         .special-price-info {
             p{
+                color: rgb(255, 1, 1);
                 font-size: 30px;
             }
         }
     }
-
-
 }
