@@ -1,6 +1,7 @@
 const initialState = {
     globallCounter: 0,
     globalBoxTotalPrice: 0,
+    globalSpecialPrice: 0
     
 };
 export function GlobalStatesReducer(state = initialState, action) {
@@ -14,6 +15,11 @@ export function GlobalStatesReducer(state = initialState, action) {
             return {
             ...state,
             globalBoxTotalPrice: action.payload,
+            };
+        case 'FIND_GLOBALL_SPECIALL_PRICE':
+            return {
+            ...state,
+            globalSpecialPrice: action.payload,
             };
         default:
             return state;

@@ -2,9 +2,14 @@ import './TotalPrice.scss';
 import { NavLink } from 'react-router-dom';
 import CreateOrderButton from '../../../ButtonComponents/CreateOrderButton/CreateOrderButton';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 function TotalPrice({ busketArray, cartItems }) {
+
     let [totalres, settotalres] = useState(0);
+
+    let speciallTotall = useSelector((state) => state.globalStates.globalSpecialPrice);
+    console.log(speciallTotall);
 
     let productCount = [];
 
