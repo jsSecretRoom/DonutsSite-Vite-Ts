@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react';
 import SpecialCounter from '../SpecialCounter/SpecialCounter';
 
-function SpecialOrderTotalPrice({subArray}) {
 
+function SpecialOrderTotalPrice({subArray}) {
     let [totalPrice, setTotalPrice] = useState(0);
     let [totallcountprice, setTotallcountprice] = useState(totalPrice);
     
@@ -14,7 +14,7 @@ function SpecialOrderTotalPrice({subArray}) {
         setTotalPrice(count);
         setTotallcountprice(count);
 
-    },[subArray]);
+    },[totalPrice]);
 
     return ( 
         <div className='total-price'>

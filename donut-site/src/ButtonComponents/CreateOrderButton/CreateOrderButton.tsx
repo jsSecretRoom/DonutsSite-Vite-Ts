@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { useDispatch } from 'react-redux';
-import { setModallBag } from '../../redux/Actions';
+import { setModallBag, setGloballSpecialPrice } from '../../redux/Actions';
 
 function CreateOrderButton({ totalReal, busketArray, productCount }) {
 
@@ -28,6 +28,7 @@ function CreateOrderButton({ totalReal, busketArray, productCount }) {
         localStorage.setItem('orderData', JSON.stringify(newOrder));
         
         dispatch(setModallBag(!toglmodal));
+        dispatch(setGloballSpecialPrice(0));
     };
     
     return ( 

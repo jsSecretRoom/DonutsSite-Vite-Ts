@@ -32,7 +32,7 @@ function AddToBasketButton({ id, cardToBuy }) {
             dispatch(setAddToBasket(JSON.parse(storedBasket)));
         }
     }, [dispatch]); 
-
+ 
     const handleAddToBasket = () => {
         const newActiveState = !isActive;
 

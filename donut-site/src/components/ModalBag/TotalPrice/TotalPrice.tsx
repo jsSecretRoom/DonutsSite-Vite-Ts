@@ -6,10 +6,13 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 function TotalPrice({ busketArray, cartItems }) {
 
-    let [totalres, settotalres] = useState(0);
+    let specialTotal = useSelector((state) => state.globalStates.globalSpecialPrice);
+    console.log(specialTotal);
+    
 
-    let speciallTotall = useSelector((state) => state.globalStates.globalSpecialPrice);
-    console.log(speciallTotall);
+    
+    let [totalres, settotalres] = useState(0);
+    
 
     let productCount = [];
 
@@ -36,8 +39,8 @@ function TotalPrice({ busketArray, cartItems }) {
             }
         });
 
-        settotalres(res);
-    }, [busketArray, cartItems]);
+        settotalres(res + specialTotal);
+    }, [busketArray, cartItems, specialTotal]);
 
     return (
         <div className='bady-sum'>

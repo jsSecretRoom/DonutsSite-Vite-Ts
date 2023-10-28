@@ -75,6 +75,17 @@ export const setGloballTotallPrice = (update) => ({
     payload: update,
 });
 
+//--speciall--//
+export const increaseSpecialTotal = (amount) => ({
+    type: 'INCREASE_SPECIAL_TOTAL',
+    payload: amount,
+});
+  
+export const decreaseSpecialTotal = (amount) => ({
+    type: 'DECREASE_SPECIAL_TOTAL',
+    payload: amount,
+});
+
 export const setGloballSpecialPrice = (update) => ({
     type: 'FIND_GLOBALL_SPECIALL_PRICE',
     payload: update,

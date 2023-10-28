@@ -1,12 +1,14 @@
 .checkout {
     width: 100%;
     min-height: 100vh;
-    padding: 20px;
+    padding: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 20px;
-    
+    @media (min-width: 440px) {
+        padding: 20px;
+    }
     .order {
         background-color:cadetblue;
         border-radius: 10px;
@@ -14,6 +16,13 @@
             display: flex;
             justify-content: space-between;
             padding: 20px;
+            flex-direction: column;
+            text-align: left;
+            align-items: center;
+            @media (min-width: 440px) {
+                flex-direction: row;
+            }
+            
             .orderImg {
                 img{
                     width: 120px;
@@ -24,9 +33,13 @@
             }
             p{
                 padding: 10px;
+                text-align: left;
             }
             h3{
 
+            }
+            ul{
+                
             }
         }
     }

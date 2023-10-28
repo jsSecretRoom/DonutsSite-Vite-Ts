@@ -16,10 +16,21 @@ export function GlobalStatesReducer(state = initialState, action) {
             ...state,
             globalBoxTotalPrice: action.payload,
             };
+        case 'INCREASE_SPECIAL_TOTAL':
+            return {
+                ...state,
+                globalSpecialPrice: state.globalSpecialPrice + action.payload,
+            };
+        case 'DECREASE_SPECIAL_TOTAL':
+            return {
+                ...state,
+                globalSpecialPrice: state.globalSpecialPrice - action.payload,
+            };
+
         case 'FIND_GLOBALL_SPECIALL_PRICE':
             return {
-            ...state,
-            globalSpecialPrice: action.payload,
+                ...state,
+                globalSpecialPrice: action.payload,
             };
         default:
             return state;

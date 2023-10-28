@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { setGloballSpecialPrice } from '../../../../redux/Actions';
+import { useDispatch } from 'react-redux';
+import { increaseSpecialTotal, decreaseSpecialTotal} from '../../../../redux/Actions';
 
 import moreIco from '../../../../assets/ico/Sign_in.svg';
 import lessIco from '../../../../assets/ico/Sign_out.svg';
@@ -9,25 +9,30 @@ import lessIco from '../../../../assets/ico/Sign_out.svg';
 function SpecialCounter({ totalPrice, setTotallcountprice }) {
 
     const dispatch = useDispatch();
-    let specialTotal = useSelector((state) => state.globalStates.globalSpecialPrice);
+    
 
     const [count, setCount] = useState(1);
 
     const handleLessClick = () => {
         if (count > 1) {
-            const newCount = count - 1;
-            setCount(newCount);
-            setTotallcountprice(totalPrice * newCount);
-            dispatch(setGloballSpecialPrice(specialTotal -= totalPrice * newCount));
+          
+          setCount(count - 1);
+          setTotallcountprice(totalPrice * count);
+          dispatch(decreaseSpecialTotal(totalPrice));
         }
     };
 
     const handleMoreClick = () => {
-        const newCount = count + 1;
-        setCount(newCount);
-        setTotallcountprice(totalPrice * newCount);
-        dispatch(setGloballSpecialPrice(specialTotal += totalPrice * newCount));
+        
+        setCount(count + 1);
+        setTotallcountprice(totalPrice * count);
+        dispatch(increaseSpecialTotal(totalPrice));
     };
+
+    useEffect(() => {
+        dispatch(increaseSpecialTotal(totalPrice * count));
+    }, [totalPrice]);
+
 
     return (
         <div className='guds-counter'>

@@ -18,9 +18,29 @@ function ModalSpeciallOrder() {
     
     const closeModal = () => {
         dispatch(setTogleSpeciallModalBox(!toggleModal));
+
+        const savedData = localStorage.getItem('speciallCollectionOrer');
+        let specialProducts = [];
+    
+        if (savedData) {
+            specialProducts = JSON.parse(savedData);
+        }
+    
+        // Проверяем, что speciallCollection не пуст и существует
+        if (speciallCollection && speciallCollection.length > 0) {
+            // Добавляем speciallCollection в общий массив
+            specialProducts.push(speciallCollection);
+            // Сохраняем обновленный массив в localStorage
+            localStorage.setItem('speciallCollectionOrer', JSON.stringify(specialProducts));
+        }
+
+
         dispatch(setGloballTotallPrice(0));
         dispatch(setGloballCount(0));
         dispatch(setSpeciallCollection([]));
+    }
+    const goback = () => {
+        dispatch(setTogleSpeciallModalBox(!toggleModal));
     }
 
     return (
@@ -54,10 +74,12 @@ function ModalSpeciallOrder() {
                         <h3>You pay: {globallTotallPrice}</h3>
                     </section>
                     <section className='success-order'>
-                        <p>You order added to basket</p>
                         <NavLink to='/shop/Sweets'>
                             <button onClick={closeModal}>Add to basket</button>
                         </NavLink>
+                    </section>
+                    <section className='back'>
+                        <button onClick={goback}>Back</button>
                     </section>
                 </div>
             </div>

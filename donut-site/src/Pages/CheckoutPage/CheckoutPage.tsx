@@ -1,8 +1,15 @@
 import './CheckoutPage.scss';
 import SubmitOrderButton from '../../ButtonComponents/SubmitOrderButton/SubmitOrderButton';
 
+import fulboxico from '../../assets/box/fullboxIco.svg'
+
 function CheckoutPage() {
-    const savedOrderData = JSON.parse(localStorage.getItem('orderData')); // Преобразование строки JSON в объект
+    
+    const savedOrderData = JSON.parse(localStorage.getItem('orderData'));
+   
+    
+    let specialproducts = JSON.parse(localStorage.getItem('speciallCollectionOrer')) || [];
+    console.log(specialproducts)
 
     return ( 
         <main className='checkout'>
@@ -14,7 +21,20 @@ function CheckoutPage() {
                             <img src={obj.photo} alt="фото" />
                         </div>
                         <p>{obj.productName}</p>
-                        <h3>{obj.count} x</h3>
+                        <h3>Count: {obj.count} x</h3>
+                    </div>
+                ))}
+
+                {specialproducts.map((obj) => (
+                    <div className='orderproduct' key={obj.productName}>
+                        <div className='orderImg'>
+                            <img src={fulboxico} alt="фото" />
+                        </div>
+                        <ul>
+                            {obj.map((item) => (
+                                <li>{item.basketitem.info.length > 25 ? `${item.basketitem.info.slice(0, 25)}...` : item.basketitem.info} {item.specialcount}x</li>
+                            ))}
+                        </ul>
                     </div>
                 ))}
             </section>

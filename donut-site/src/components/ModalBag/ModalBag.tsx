@@ -1,21 +1,25 @@
 import './ModalBag.scss';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import CardLine from './CardLine/CardLine';
 import FavoriteLine from './FavoriteLine/FavoriteLine';
-import SpeciallOrderComponent from './SpeciallOrderComponent/SpeciallOrderComponent';
-
+import { setModallBag, setGloballSpecialPrice } from '../../redux/Actions';
 import Modal from 'react-modal';
 const modalRoot = document.getElementById('portall');
 Modal.setAppElement(modalRoot);
 
 function ModalBag() {
-
+    const dispatch = useDispatch();
     const toggleModal = useSelector((state) => state.togllebutton.togleBagModal);
 
-    return (
+    const closeModal = () => {
+        dispatch(setModallBag(!toggleModal));
+        dispatch(setGloballSpecialPrice(0));
+    }
 
+    return (
+        
         <Modal
             isOpen={toggleModal}
             contentLabel="Модальное окно"
@@ -30,6 +34,9 @@ function ModalBag() {
                 </section>
                 <section className='favorite-guds'>
                     <FavoriteLine/>
+                </section>
+                <section className='closeModal'>
+                    <button onClick={closeModal}>close</button>
                 </section>
             </div>
         </Modal>
