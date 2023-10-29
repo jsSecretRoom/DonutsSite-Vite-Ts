@@ -2,7 +2,7 @@
 import './ShopButton.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import Bag from '../../assets/Bag_fill.svg';
-import { setModallBag } from '../../redux/Actions';
+import { setModallBag,setSpeciallCollectionFindTotall } from '../../redux/Actions';
 
 
 function ShopButton() {
@@ -11,7 +11,7 @@ function ShopButton() {
 
     const toggleModalState = () => {
         dispatch(setModallBag(!toggleModal));
-
+        dispatch(setSpeciallCollectionFindTotall([]));
     };
 
     return ( 

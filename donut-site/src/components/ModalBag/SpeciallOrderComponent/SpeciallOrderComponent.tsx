@@ -3,12 +3,12 @@ import SpecialCard from './SpecialCard/SpecialCard';
 import SpecialOrderTotalPrice from './SpecialOrderTotalPrice/SpecialOrderTotalPrice';
 import {useState} from 'react';
 
+
 function SpeciallOrderComponent() {
     let savedData = localStorage.getItem('speciallCollectionOrer');
     let specialproducts = JSON.parse(savedData) || [];
     let [personspecialbox, setpersonspecialbox] = useState(specialproducts);
-
-
+    
     const dellSpeciallOrder = (subIndex) => {
         
         const updatedSpecialProducts = [...personspecialbox];
@@ -30,7 +30,7 @@ function SpeciallOrderComponent() {
                 <div className='dell'>
                     <button onClick={() => dellSpeciallOrder(subIndex)}>Delete</button>
                 </div>
-                <SpecialOrderTotalPrice subArray={subArray}/>
+                <SpecialOrderTotalPrice subArray={subArray} personspecialbox={personspecialbox} subIndex={subIndex}/>
             </div>
         ))}
         </div>

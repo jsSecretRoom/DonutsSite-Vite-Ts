@@ -5,8 +5,9 @@ const initialState: CollectionState = {
   collectionsName: [],
   collectionslistNames: [],
   pushToFavirite: [],
+
   speciallCollectionBox: [],
-  speciallCollectionOrer: []
+  specialCollectionTotallPrice: []
 
 };
 
@@ -32,11 +33,12 @@ export function CollectionReducer(state = initialState, action: SetCollection): 
         ...state,
         speciallCollectionBox: action.payload,
       };
-    case 'SPECIALL_COLLECTION_ORDER':
-    return {
-      ...state,
-      speciallCollectionOrer: action.payload,
-    };
+    
+    case 'SPECIALL_COLLECTION_FIND_TOTAL_PRICE':
+      return {
+        ...state,
+        specialCollectionTotallPrice: action.payload,
+      };
     default:
       return state;
   }

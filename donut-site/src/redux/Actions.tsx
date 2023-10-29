@@ -27,8 +27,8 @@ export const setSpeciallCollection = (name) => ({
     payload: name,
 });
 
-export const setOrerSpeciallCollection = (name) => ({
-    type: 'SPECIALL_COLLECTION_ORDER',
+export const setSpeciallCollectionFindTotall = (name) => ({
+    type: 'SPECIALL_COLLECTION_FIND_TOTAL_PRICE',
     payload: name,
 });
 
@@ -63,7 +63,7 @@ export const setAddToBasket = (push) => ({
     payload: push,
 });
 
-//globall stats reducer
+//globall stats reducer 
 
 export const setGloballCount = (update) => ({
     type: 'FIND_GLOBAL_COUNT',
@@ -73,17 +73,6 @@ export const setGloballCount = (update) => ({
 export const setGloballTotallPrice = (update) => ({
     type: 'FIND_GLOBALL_TOTAL_PRICE',
     payload: update,
-});
-
-//--speciall--//
-export const increaseSpecialTotal = (amount) => ({
-    type: 'INCREASE_SPECIAL_TOTAL',
-    payload: amount,
-});
-  
-export const decreaseSpecialTotal = (amount) => ({
-    type: 'DECREASE_SPECIAL_TOTAL',
-    payload: amount,
 });
 
 export const setGloballSpecialPrice = (update) => ({
