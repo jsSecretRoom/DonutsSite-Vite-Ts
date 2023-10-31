@@ -1,46 +1,22 @@
-import './Card.scss';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
-
 import { useQuery } from 'react-query';
-import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
 import AddToBasketButton from '../../ButtonComponents/AddToBasketButton/AddToBasketButton';
 import IsFavoriteButton from '../../ButtonComponents/IsFavoriteButton/IsFavoriteButton';
 import SpinerLoader from '../SpinerLoader/SpinerLoader';
-interface CollectionData {
-    name: string;
-    id: number
-    foto: string;
-    diskountPrice: number;
-    realPrice: number;
-    diskountIndicator: string;
-    // Добавьте інші поля, якщо вони є в вашій колекції
-}
+import { useEffect } from 'react';
 
-function Card({ collectionName }: { collectionName: string } ) {
-
-    const [visibleCards, setVisibleCards] = useState(5); // Initial number of visible cards
-    const { data: collectionData, isLoading, isError } = useQuery(['collectionData', collectionName], fetchData);
-    const { filterName } = useParams();
-
-
-    useEffect(() => {
-        if (filterName === undefined) {
-            setVisibleCards(Infinity); // Show all cards when filterName is undefined
-        } else {
-            setVisibleCards(5); // Show 5 cards when filterName is defined
-        }
-    }, [filterName]);
+function SearchCardFind({ collectionName, searchRequest }) {
+    const { data: collectionData, isLoading, isError } = useQuery(['collectionFind', collectionName], fetchData);
 
     async function fetchData() {
         const collectionRef = collection(db, collectionName);
         const querySnapshot = await getDocs(collectionRef);
-        const data: CollectionData[] = [];
+        const data = [];
 
         querySnapshot.forEach((doc) => {
-            const docData = doc.data() as CollectionData;
+            const docData = doc.data();
             data.push(docData);
         });
 
@@ -50,11 +26,11 @@ function Card({ collectionName }: { collectionName: string } ) {
     if (!collectionData) {
         return (
             <SpinerLoader
-              style={{
-                  backgroundColor: 'rgba(255, 192, 203, 0)',
-                  height: '100vh',
-                  position: 'fixed',
-              }}
+                style={{
+                    backgroundColor: 'rgba(255, 192, 203, 0)',
+                    height: '100vh',
+                    position: 'fixed',
+                }}
             />
         );
     }
@@ -62,11 +38,11 @@ function Card({ collectionName }: { collectionName: string } ) {
     if (isLoading) {
         return (
             <SpinerLoader
-              style={{
-                  backgroundColor: 'rgba(255, 192, 203, 0)',
-                  height: '100vh',
-                  position: 'fixed',
-              }}
+                style={{
+                    backgroundColor: 'rgba(255, 192, 203, 0)',
+                    height: '100vh',
+                    position: 'fixed',
+                }}
             />
         );
     }
@@ -75,13 +51,15 @@ function Card({ collectionName }: { collectionName: string } ) {
         return <div>Error loading data</div>;
     }
 
-    const loadMore = () => {
-        setVisibleCards((prevVisibleCards) => prevVisibleCards + 5);
-    };
+    // Фильтрация карточек на основе поискового запроса
+    const filteredCollection = collectionData.filter(item =>
+        item.name.toLowerCase().includes(searchRequest.toLowerCase())
+    );
 
+        
     return (
         <>
-            {collectionData.slice(0, visibleCards).map((item, index) => (
+            {filteredCollection.map((item, index) => (
                 <div className='card' key={index}>
                     <div className='image'>
                         <img src={item.foto} alt="itmfoto" />
@@ -105,15 +83,8 @@ function Card({ collectionName }: { collectionName: string } ) {
                     </div>
                 </div>
             ))}
-            {filterName !== undefined && visibleCards < collectionData.length && (
-                <div className='load-more-button'>
-                    <button onClick={loadMore}>
-                        Load More
-                    </button>
-                </div>
-            )}
         </>
     );
 }
 
-export default Card;
+export default SearchCardFind;

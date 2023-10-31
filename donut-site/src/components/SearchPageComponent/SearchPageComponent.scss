@@ -1,0 +1,14 @@
+.find-shop-logik {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    
+    .faind-collections {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 10px;
+        column-gap: 10px;
+    }
+}
+

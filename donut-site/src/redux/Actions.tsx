@@ -75,7 +75,12 @@ export const setGloballTotallPrice = (update) => ({
     payload: update,
 });
 
-export const setGloballSpecialPrice = (update) => ({
+export const setGloballSpecialPrice = (update) => ({ 
     type: 'FIND_GLOBALL_SPECIALL_PRICE',
     payload: update,
+});
+
+export const setGlobalSearchRequest = (search) => ({ 
+    type: 'GLOBALL_SEARCH_REQUEST',
+    payload: search,
 });

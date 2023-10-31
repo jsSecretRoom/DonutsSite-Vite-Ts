@@ -1,25 +1,33 @@
 import './Search.scss';
-import SideBurButton from '../../ButtonComponents/SideBurButton/SideBurButton';
-import ShopButton from '../../ButtonComponents/ShopButton/ShopButton';
+
+
+import { useDispatch, useSelector } from 'react-redux';
+import { setGlobalSearchRequest } from '../../redux/Actions';
+
 import Donutimg from '../../assets/donut.svg';
 
 
 function Search() {
-    return ( 
-        <section className='search'>
-            <div className='search-conteiner'>
-                <div className='button-section'>
-                    <SideBurButton/>
-                    <ShopButton/>
-                </div>
-                <div className='search-input'>
-                    <input type="search" name="search" id="search" placeholder='chocolate, gift, festive'/>
-                    <img className='donut-img' src={Donutimg} alt="Donutimg" />
-                </div>
 
+    const dispatch = useDispatch();
+
+    let searchRequest = useSelector((state) => state.globalStates.globalSearchRequest);
+    
+    const handleSearch = (e) => {
+        const searchValue = e.target.value;
+        dispatch(setGlobalSearchRequest(searchValue));
+    };
+
+    return (
+        <section className='search'>
+        <div className='search-conteiner'>
+            <div className='search-input'>
+            <input type="search" name="search" id="search" placeholder='chocolate, gift, festive' onChange={handleSearch} value={searchRequest} />
+            <img className='donut-img' src={Donutimg} alt="Donutimg" />
             </div>
+        </div>
         </section>
     );
 }
-
+    
 export default Search;

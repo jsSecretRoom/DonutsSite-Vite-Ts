@@ -64,10 +64,11 @@
                 column-gap: 20px;
                 .add-to-basket{
                     position: static;
+                    display: flex;
+                    justify-content: center;
                     button{
-                        width: 280px;
+                        width: 220px;
                         justify-content: center;
-
                         font-size: 22px;
                     }
                 }

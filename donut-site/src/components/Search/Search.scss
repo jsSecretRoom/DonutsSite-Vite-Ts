@@ -4,16 +4,17 @@
     display: flex;
     justify-content: center;
     position: sticky;
-    top: 110px;
+    top: 75px;
     left: 0;
     z-index: 5;
     @media (min-width: 768px) {
-        top: 70px;
+        top: 58px;
     }
     .search-conteiner {
         width: 100%;
         padding: 0 10px;
-        height: 100px;
+        margin: 5px 0;
+        height: auto;
         display: flex;
         column-gap: 10px;
         align-items: center;
@@ -21,18 +22,12 @@
         @media (min-width: 768px) {
             padding: 0 20px;
             flex-direction: row;
-            height: 60px;
+            
         }
         @media (min-width: 1920px) {
             width: 1920px;
         }
-        .button-section{
-            display: flex;
-            column-gap: 40px;
-            @media (min-width: 768px) {
-                
-            }
-        }
+
         .search-input{
             position: relative;
             width: 100%;

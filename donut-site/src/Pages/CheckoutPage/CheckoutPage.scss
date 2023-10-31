@@ -11,7 +11,7 @@
     }
     .order {
         background-color:cadetblue;
-        border-radius: 10px;
+        border-radius: 0px;
         .orderproduct {
             display: flex;
             justify-content: space-between;
@@ -19,9 +19,7 @@
             flex-direction: column;
             text-align: left;
             align-items: center;
-            @media (min-width: 440px) {
-                flex-direction: row;
-            }
+
             
             .orderImg {
                 img{
@@ -41,6 +39,13 @@
             ul{
                 
             }
+        }
+        @media (min-width: 440px) {
+            border-radius: 10px;
+            .orderproduct{
+                flex-direction: row;
+            }
+            
         }
     }
     .persondata{

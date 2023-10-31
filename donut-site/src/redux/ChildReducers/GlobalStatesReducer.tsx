@@ -1,7 +1,8 @@
 const initialState = {
     globallCounter: 0,
     globalBoxTotalPrice: 0,
-    globalSpecialPrice: 0
+    globalSpecialPrice: 0,
+    globalSearchRequest: ''
 };
 export function GlobalStatesReducer(state = initialState, action) {
     switch (action.type) {
@@ -19,6 +20,11 @@ export function GlobalStatesReducer(state = initialState, action) {
             return {
                 ...state,
                 globalSpecialPrice: action.payload,
+            };
+        case 'GLOBALL_SEARCH_REQUEST':
+            return {
+                ...state,
+                globalSearchRequest: action.payload,
             };
         default:
             return state;

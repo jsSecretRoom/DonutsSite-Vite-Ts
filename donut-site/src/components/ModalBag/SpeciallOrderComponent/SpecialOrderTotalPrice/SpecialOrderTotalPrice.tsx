@@ -37,7 +37,7 @@ function SpecialOrderTotalPrice({ subArray, personspecialbox, subIndex }) {
         });
 
         dispatch(setSpeciallCollectionFindTotall(totalboxprice));
-        setFirstEffectCompleted(!firstEffectCompleted);
+        setFirstEffectCompleted(true);
     },[personspecialbox]);
 
     useEffect(() => {
@@ -54,6 +54,7 @@ function SpecialOrderTotalPrice({ subArray, personspecialbox, subIndex }) {
                 return item;
             });
             dispatch(setSpeciallCollectionFindTotall(updatedSpecialTotal));
+            
         }
         
     }, [count, firstEffectCompleted]);

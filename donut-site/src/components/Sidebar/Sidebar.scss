@@ -1,20 +1,20 @@
 .aside{
-    min-width: 280px;
-    width: 300px;
+    min-width: 300px;
+    width: 320px;
     height: auto;
+    max-height: 100%;
     min-height: 100vh;
     border-right: 1px solid white;
     background: rgb(62, 46, 71);
-    position: fixed;
+    position: absolute;
     transform: translateX(-100%);
     transition: transform 0.5s ease;
     z-index: 3;
-
     @media (min-width: 668px) {
         position: static;
         transform: translateX(0%);
         background: none;
-        width: 340px;
+        width: 17%;
     }
     .aside-continer{
         height: auto;
@@ -22,6 +22,7 @@
         top: 130px;
         left: 0;
         z-index: 2;
+        
 
         .list{
             display: flex;
@@ -48,4 +49,11 @@
 }
 .show-aside{
     transform: translateX(0%);
+    height: 100%;
+    .aside-continer{
+        
+        max-height: 100%;
+        overflow-y: auto;
+    }
+    
 }

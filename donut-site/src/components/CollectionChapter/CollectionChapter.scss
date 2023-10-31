@@ -12,8 +12,12 @@
 }
 
 .collections {
-    padding: 0 25px;
+    padding: 0 7px;
     width: 100%;
+
+    @media (min-width: 425px) {
+        padding: 0 25px;
+    }
 
     .chapter {
         display: flex;
@@ -57,27 +61,14 @@
                 
             }
 
-            .buttons-scroll {
-                
-                height: 100%;
-                width: 100%;
-                position: absolute;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0 10px;
-                top: 0;
-                right: 0;
-                
-                .left-scroll,
-                .right-scroll {
-                    z-index: 2;
-
-                    img {
-                        width: 60px;
-                    }
-                }
-            }
+            
         }
     }
+    .chapter.show{
+        display: flex;
+    }
+    .chapter.hide{
+        display: none;
+    }
+
 }
