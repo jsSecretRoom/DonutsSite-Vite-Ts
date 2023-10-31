@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import AddToBasketButton from '../../ButtonComponents/AddToBasketButton/AddToBasketButton';
 import IsFavoriteButton from '../../ButtonComponents/IsFavoriteButton/IsFavoriteButton';
 import SpinerLoader from '../SpinerLoader/SpinerLoader';
-import { useEffect } from 'react';
+
 
 function SearchCardFind({ collectionName, searchRequest }) {
     const { data: collectionData, isLoading, isError } = useQuery(['collectionFind', collectionName], fetchData);
@@ -55,6 +55,15 @@ function SearchCardFind({ collectionName, searchRequest }) {
     const filteredCollection = collectionData.filter(item =>
         item.name.toLowerCase().includes(searchRequest.toLowerCase())
     );
+
+    // Сортировка отфильтрованной коллекции по алфавиту по полю 'name'
+    filteredCollection.sort((a, b) => {
+        const nameA = a.name.toLowerCase();
+        const nameB = b.name.toLowerCase();
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
+    });
 
         
     return (

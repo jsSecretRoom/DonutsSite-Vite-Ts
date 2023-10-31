@@ -47,13 +47,9 @@ function SearchPageComponent({searchRequest}) {
     return ( 
         <div className="find-shop-logik">
             <section className='faind-collections'>
-                {collectionData?.map((item, index) => (
-                    <SearchCardFind key={index} 
-                    collectionName={item} 
-                    searchRequest={searchRequest} 
-                    />
+                {collectionData?.sort((a, b) => a.localeCompare(b)).map((item, index) => (
+                    <SearchCardFind key={index} collectionName={item} searchRequest={searchRequest} />
                 ))}
-                
             </section>
         </div>
     );

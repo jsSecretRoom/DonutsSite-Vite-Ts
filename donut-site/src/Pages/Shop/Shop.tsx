@@ -1,9 +1,12 @@
 import './Shop.scss';
-import { Outlet } from 'react-router-dom';
+
 import { useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { setNameCollections, setListCollectionsnames } from '../../redux/Actions';
 import { useParams } from 'react-router-dom';
+
+import Sidebar from '../../components/Sidebar/Sidebar';
+import CollectionChapter from '../../components/CollectionChapter/CollectionChapter';
 
 import { collection, getDocs, DocumentData } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
@@ -36,7 +39,6 @@ function Shop() {
 
         // Фильтрация и сортировка массива listNames перед отправкой
         const filteredAndSortedDataListNames = listNames
-                                              
         .sort((a, b) => a.localeCompare(b));
 
         dispatch(setListCollectionsnames(filteredAndSortedDataListNames));
@@ -102,7 +104,8 @@ function Shop() {
     return (
         <main className='shop-main'>
             <div className='shop-page'>
-                <Outlet/>
+                <Sidebar/>
+                <CollectionChapter/>
             </div>
         </main>
     );

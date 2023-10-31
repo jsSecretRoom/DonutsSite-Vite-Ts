@@ -26,8 +26,8 @@ import ModalSpeciallOrder from "../components/ModalSpeciallOrder/ModalSpeciallOr
 import ModalOrderSucess from "../components/ModalOrderSucess/ModalOrderSucess";
 
 import CheckoutPage from "../Pages/CheckoutPage/CheckoutPage";
-import Sidebar from "../components/Sidebar/Sidebar";
-import CollectionChapter from "../components/CollectionChapter/CollectionChapter";
+import FuterComponent from "../components/FuterComponent/FuterComponent";
+
 
 export const router = createBrowserRouter([
     {
@@ -36,11 +36,16 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <HomePage />,
+                element: (
+                    <>
+                        <HomePage />
+                        <FuterComponent/>
+                    </>
+                ),
                 
             },
             {
-                path: '/shop',
+                path: '/shop/:filterName',
                 element: (
                     <>
                         <Search />
@@ -48,21 +53,7 @@ export const router = createBrowserRouter([
                         <Shop />
                     </>
                 ),
-                children: [
-                    {
-                        path: '/shop/:filterName',
-                        element: (
-                            <>
-                                <Sidebar/>
-                                <CollectionChapter/>
-                            </>
-                        ), children: [
-                            {
-                                
-                            }
-                        ]
-                    }
-                ]
+                
 
             },
             {

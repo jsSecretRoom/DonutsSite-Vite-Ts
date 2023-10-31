@@ -23,8 +23,12 @@ body {
   overflow-x: hidden;
 }
 
-nav, footer, aside {
+nav, aside {
   display: block;
+}
+
+footer{
+display: flex;
 }
 
 nav{

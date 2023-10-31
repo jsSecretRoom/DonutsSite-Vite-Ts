@@ -1,9 +1,12 @@
 import './HomePage.scss';
 import { NavLink, Outlet } from 'react-router-dom';
+
 import AnimationComponent from '../../components/AnimationComponent/AnimationComponent';
+
 import quteimg from '../../assets/img/guteimg.jpg'
 import cake from '../../assets/img/Flower.jpg'
 import icecrem from '../../assets/img/icecrem.jpg'
+import tasty from '../../assets/img/tasty.jpg'
 
 
 function HomePage() {
@@ -59,7 +62,11 @@ function HomePage() {
                     <section className='svet-vords'>
                         <p>Sweet Tastes and Moments: For us, every day can become a holiday. Breakfast with a donut, coffee with friends, a romantic dinner with our desserts - pleasure in every bite.</p>
                         <p>Give yourself joy and taste! We guarantee that every order with us is an incredible journey into the world of sweets.</p>
+                        <div className='images-tasty'>
+                            <img src={tasty} alt="tasty" />
+                        </div>
                     </section>
+
                     <section className='ordr-byit'>
                         <h4>Place your order today and give your taste buds a real treat!</h4>
                         <NavLink to='/shop/Sweets'>Order now</NavLink>
@@ -67,9 +74,6 @@ function HomePage() {
                         <p>Welcome to the world of sweet treats!</p>
                     </section>
                 </div>
-                <footer>
-                    
-                </footer>
             </main>
         </div>
     );

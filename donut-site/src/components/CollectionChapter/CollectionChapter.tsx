@@ -47,7 +47,9 @@ function CollectionChapter() {
   },[searchRequest])
 
   return (
-    <>{showChaptr ? <SearchPageComponent searchRequest={searchRequest}/> : 
+
+    <>
+      {showChaptr ? <SearchPageComponent searchRequest={searchRequest}/> : 
     
       <div className='shop-logik'>
           <Categories />

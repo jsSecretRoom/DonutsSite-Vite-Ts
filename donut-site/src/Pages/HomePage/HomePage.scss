@@ -61,6 +61,7 @@
                 
                 h4{
                     color: brown;
+                    text-align: center;
                 }
                 
                 .prev {
@@ -181,6 +182,17 @@
                     width: 100%;
                     @media (min-width: 1200px) {
                         width: 1200px;
+                    }
+                }
+                .images-tasty{
+                    display: flex;
+                    justify-content: center;
+                    margin: 20px;
+                    img{
+                        width: 83%;
+                        border-radius: 10px;
+                        min-width: 300px;
+                        
                     }
                 }
             }

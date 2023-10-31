@@ -3,9 +3,9 @@ import './SetCreator.scss';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import ProductItemCard from './ProductItemCard';
-import { setTogleLeedOpenClose } from '../../redux/Actions';
+import { setTogleLeedOpenClose, setGloballTotallPrice, setGloballCount } from '../../redux/Actions';
 import { useDispatch } from 'react-redux';
-
+import { useLocation } from 'react-router-dom';
 import OrderButton from '../../ButtonComponents/OrderButton/OrderButton';
 
 import BodyBox from '../../assets/box/backbox.svg'
@@ -23,6 +23,8 @@ function SetCreator() {
     let togleLeed = useSelector((state) => state.togllebutton.togleLeedOpenClose);
     let globallTotallPrice = useSelector((state) => state.globalStates.globalBoxTotalPrice);
 
+    const location = useLocation();
+    
     const createMatrix = () => {
         let newMatrix = [];
         for (let i = 1; i <= donutsCount; i++) {
@@ -34,6 +36,13 @@ function SetCreator() {
     useEffect(() => {
         createMatrix();
     }, [donutsCount]);
+
+    useEffect(() => {
+        if(location !== '/create'){
+            dispatch(setGloballTotallPrice(0));
+            dispatch(setGloballCount(0));
+        }
+    }, [location]);
 
     useEffect(() => {
         if (globallcount === donutsCount){
