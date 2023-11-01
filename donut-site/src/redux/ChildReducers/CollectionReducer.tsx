@@ -1,15 +1,20 @@
+import { CollectionReducerState, CollectionAction } from "../TS-STATE";
 
-const initialState = {
+const initialState: CollectionReducerState = {
   collectionsName: [],
   collectionslistNames: [],
   pushToFavirite: [],
 
   speciallCollectionBox: [],
-  specialCollectionTotallPrice: []
-
+  specialCollectionTotallPrice: [],
+  pushToBasket: [],
 };
+ 
+export function CollectionReducer(
 
-export function CollectionReducer(state = initialState, action ) {
+  state: CollectionReducerState = initialState, 
+  action: CollectionAction ) : CollectionReducerState {
+    
   switch (action.type) {
     case 'GET_COLLECTION_NAME':
       return {
@@ -36,6 +41,12 @@ export function CollectionReducer(state = initialState, action ) {
       return {
         ...state,
         specialCollectionTotallPrice: action.payload,
+      };
+
+    case 'ADD_TO_BASKET':
+      return {
+        ...state,
+        pushToBasket: [...action.payload],
       };
     default:
       return state;

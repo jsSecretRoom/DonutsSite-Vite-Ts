@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import ReduxStor from './redux/ReduxStor.tsx'
 
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { MyProvider} from './Context/Context.tsx';
+
 
 const queryClient = new QueryClient();
 
@@ -19,9 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <QueryClientProvider client={queryClient}>
     <Provider store={ReduxStor}>
       <React.StrictMode>
-        <MyProvider>
-          <App />
-        </MyProvider>
+        <App />
       </React.StrictMode>
     </Provider>
   </QueryClientProvider>

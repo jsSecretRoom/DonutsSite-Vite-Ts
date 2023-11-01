@@ -1,10 +1,16 @@
-const initialState = {
+import { NumberReducerStates, NumberAction } from "../TS-STATE";
+
+const initialState: NumberReducerStates = {
     globallCounter: 0,
     globalBoxTotalPrice: 0,
-    globalSpecialPrice: 0,
-    globalSearchRequest: ''
+    globalSpecialPrice: 0
 };
-export function GlobalStatesReducer(state = initialState, action) {
+
+export function NumberReducer(
+
+    state: NumberReducerStates = initialState, 
+    action: NumberAction) : NumberReducerStates {
+
     switch (action.type) {
         case 'FIND_GLOBAL_COUNT':
             return {
@@ -20,11 +26,6 @@ export function GlobalStatesReducer(state = initialState, action) {
             return {
                 ...state,
                 globalSpecialPrice: action.payload,
-            };
-        case 'GLOBALL_SEARCH_REQUEST':
-            return {
-                ...state,
-                globalSearchRequest: action.payload,
             };
         default:
             return state;

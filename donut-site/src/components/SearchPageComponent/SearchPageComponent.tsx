@@ -12,7 +12,7 @@ import { db } from '../../firebase/firebaseConfig';
 function SearchPageComponent({searchRequest}) {
 
     let listDataNemas = useSelector((state) => state.getcollection.collectionslistNames);
-
+    
 
     const { data: collectionData } = useQuery(['searchData', listDataNemas], fetchData);
     

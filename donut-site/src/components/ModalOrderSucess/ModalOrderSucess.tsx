@@ -1,10 +1,12 @@
 import './ModalOrderSucess.scss';
 
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch  } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Modal from 'react-modal';
 
-import { setModallOrderSucces, setModallBag } from '../../redux/Actions';
+import { setModallOrderSucces } from '../../redux/Actions/BooleanActions';
+
+
 const modalRoot = document.getElementById('orderSucess');
 Modal.setAppElement(modalRoot);
 
@@ -12,12 +14,12 @@ Modal.setAppElement(modalRoot);
 function ModalOrderSucess() {
     const dispatch = useDispatch();
 
-    const toggleModal = useSelector((state) => state.togllebutton.toglSuccesOrder);
-   
+    const toggleModal = useSelector((state) => state.getboolean.toglSuccesOrder);
+
     const closeModal = () => {
         dispatch(setModallOrderSucces(!toggleModal));
     }
-    return ( 
+    return (
         <Modal
             isOpen={toggleModal}
             contentLabel="Модальное окно"
@@ -34,7 +36,7 @@ function ModalOrderSucess() {
                         <button onClick={closeModal}>Home</button>
                     </NavLink>
                 </section>
-                
+
             </div>
         </Modal>
     );

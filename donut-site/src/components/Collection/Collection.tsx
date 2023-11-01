@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import Card from '../CollectionChapter/Card';
 import BackButton from '../../ButtonComponents/BackButton/BackButton';
 
+
+
 function Collection() {
     const { collectionName } = useParams();
 

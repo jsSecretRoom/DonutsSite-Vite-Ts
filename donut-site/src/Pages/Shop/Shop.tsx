@@ -2,7 +2,9 @@ import './Shop.scss';
 
 import { useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
-import { setNameCollections, setListCollectionsnames } from '../../redux/Actions';
+
+import { setListCollectionsnames, setNameCollections } from '../../redux/Actions/CollectionActions';
+
 import { useParams } from 'react-router-dom';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
@@ -39,10 +41,10 @@ function Shop() {
 
         // Фильтрация и сортировка массива listNames перед отправкой
         const filteredAndSortedDataListNames = listNames
-        .sort((a, b) => a.localeCompare(b));
+            .sort((a, b) => a.localeCompare(b));
 
         dispatch(setListCollectionsnames(filteredAndSortedDataListNames));
-        
+
         return filteredAndSortedDataListNames;
     }
 
@@ -52,7 +54,7 @@ function Shop() {
     // Функция для получения данных для выбранной категории
     async function fetchData() {
         const nameCollectionsData = [];
-        const querySnapshot = await getDocs(collection(db, filterName)); 
+        const querySnapshot = await getDocs(collection(db, filterName));
 
         querySnapshot.forEach((doc) => {
             const data: DocumentData = doc.data();
@@ -63,7 +65,7 @@ function Shop() {
                 nameCollectionsData.push(collectionData);
             }
         });
-
+        
         dispatch(setNameCollections(nameCollectionsData));
 
         return nameCollectionsData;
@@ -71,13 +73,13 @@ function Shop() {
 
     if (isLoadingListNames) {
         return (
-          <SpinerLoader
-            style={{
-                backgroundColor: 'rgba(255, 192, 203, 0)',
-                height: '100vh',
-                position: 'fixed',
-            }}
-          />
+            <SpinerLoader
+                style={{
+                    backgroundColor: 'rgba(255, 192, 203, 0)',
+                    height: '100vh',
+                    position: 'fixed',
+                }}
+            />
         );
     }
 
@@ -88,11 +90,11 @@ function Shop() {
     if (isLoadingNameCollections) {
         return (
             <SpinerLoader
-              style={{
-                backgroundColor: 'rgba(255, 192, 203, 0)',
-                height: '100vh',
-                position: 'static',
-              }}
+                style={{
+                    backgroundColor: 'rgba(255, 192, 203, 0)',
+                    height: '100vh',
+                    position: 'static',
+                }}
             />
         );
     }
@@ -104,8 +106,8 @@ function Shop() {
     return (
         <main className='shop-main'>
             <div className='shop-page'>
-                <Sidebar/>
-                <CollectionChapter/>
+                <Sidebar />
+                <CollectionChapter />
             </div>
         </main>
     );

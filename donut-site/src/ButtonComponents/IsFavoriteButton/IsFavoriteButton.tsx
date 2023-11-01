@@ -1,27 +1,27 @@
 import './IsFavoriteButton.scss';
-
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { setPushToFavirite } from '../../redux/Actions';
+import { RootState } from '../../redux/RootReducer';
+import { ProductList } from '../../redux/TS-STATE';
+
+import { setPushToFavirite } from '../../redux/Actions/CollectionActions';
 
 import Star from '../../assets/Star_light.svg';
 import dotedStarr from '../../assets/Star_duotone.svg';
 
-function IsFavoriteButton({ id, cardToBuy }) {
+function IsFavoriteButton({ id, cardToBuy }: { id: number; cardToBuy: ProductList }) {
     const dispatch = useDispatch();
 
-    const favoriteList = useSelector(( state ) => state.getcollection.pushToFavirite);
-    
+    const favoriteList: ProductList[] = useSelector((state: RootState) => state.getcollection.pushToFavirite);
     
     const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {
-
         setIsActive(favoriteList.some(item => item.id === cardToBuy.id));
-        
     }, [favoriteList, cardToBuy]);
-    
+
     useEffect(() => {
         const storedState = localStorage.getItem(`favoriteState_${id}`);
         if (storedState !== null) {
@@ -34,7 +34,7 @@ function IsFavoriteButton({ id, cardToBuy }) {
         if (storedBasket !== null) {
             dispatch(setPushToFavirite(JSON.parse(storedBasket)));
         }
-    }, [dispatch]); 
+    }, [dispatch]);
 
     const addToFavorite = () => {
         const newActiveState = !isActive;
@@ -43,7 +43,7 @@ function IsFavoriteButton({ id, cardToBuy }) {
 
         setIsActive(newActiveState);
 
-        let updatedData = [];
+        let updatedData: ProductList[] = [];
 
         if (newActiveState) {
             updatedData = [...favoriteList, cardToBuy];

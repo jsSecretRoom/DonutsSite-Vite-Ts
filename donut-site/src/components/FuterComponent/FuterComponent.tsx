@@ -3,7 +3,7 @@ import './FuterComponent.scss';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { setGlobalSearchRequest } from '../../redux/Actions';
+import { setGlobalSearchRequest } from '../../redux/Actions/StringActions'
 
 import Githab from '../../assets/Github.svg';
 import Instagram from '../../assets/Instagram.svg';
@@ -17,7 +17,7 @@ function FuterComponent() {
         dispatch(setGlobalSearchRequest(''));
     }
 
-    return ( 
+    return (
         <footer>
             <div className='foter-for-partners'>
                 <section className='info-list'>
@@ -138,7 +138,7 @@ function FuterComponent() {
                     </div>
                 </section>
                 <section className='contacts-list'>
-                    <NavLink to='https://github.com/jsSecretRoom' onClick={setState}> 
+                    <NavLink to='https://github.com/jsSecretRoom' onClick={setState}>
                         <img src={Githab} alt="" />
                     </NavLink>
                     <NavLink to='https://t.me/ruslangubkin' onClick={setState}>

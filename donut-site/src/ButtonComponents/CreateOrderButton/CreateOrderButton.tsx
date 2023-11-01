@@ -1,37 +1,47 @@
-import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { useDispatch } from 'react-redux';
-import { setModallBag, setGloballSpecialPrice } from '../../redux/Actions';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/RootReducer';
 
-function CreateOrderButton({ totalReal, busketArray, productCount }) {
+import { setModallBag } from '../../redux/Actions/BooleanActions';
+import { setGloballSpecialPrice } from '../../redux/Actions/NumberActions';
 
+interface Product {
+    name: string;
+    foto: string;
+}
+
+interface OrderItem {
+    productName: string;
+    count: number;
+    photo: string;
+}
+
+function CreateOrderButton({ totalReal, busketArray, productCount }: { totalReal: number, busketArray: Product[], productCount: number[] }) {
     const dispatch = useDispatch();
-    let toglmodal = useSelector((state) => state.togllebutton.togleBagModal);
+    const toglmodal = useSelector((state: RootState) => state.getboolean.togleBagModal);
+    const gudsArr: OrderItem[] = [];
 
-    let gudsArr = [];
-
-    busketArray.map((item, i) => {
-        
-        return gudsArr.push({
+    busketArray.forEach((item, i) => {
+        gudsArr.push({
             productName: item.name,
             count: productCount[i],
-            photo:  item.foto
-        })
+            photo: item.foto
+        });
     });
 
     const updateOrder = () => {
-        
         const newOrder = {
             total: totalReal,
             orderGuds: gudsArr
         };
 
         localStorage.setItem('orderData', JSON.stringify(newOrder));
-        
+
         dispatch(setModallBag(!toglmodal));
         dispatch(setGloballSpecialPrice(0));
     };
-    
-    return ( 
+
+    return (
         <button onClick={updateOrder}>Buy</button>
     );
 }

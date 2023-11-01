@@ -8,27 +8,40 @@ import PriceComponent from '../PriceComponent/PriceComponent';
 import DellButton from '../../../ButtonComponents/DellButton/DellButton';
 import TotalPrice from '../TotalPrice/TotalPrice';
 
+import { RootState } from '../../../redux/RootReducer';
+
+interface CartItem {
+    item: {
+        id: number;
+        foto: string;
+        name: string;
+        diskountIndicator: boolean;
+        realPrice: number;
+        diskountPrice: number;
+    };
+    count: number;
+}
+
 function CardLine() {
-    const busketArray = useSelector((state) => state.togllebutton.pushToBasket);
+    const busketArray = useSelector((state: RootState) => state.getcollection.pushToBasket);
 
     // Используйте useEffect для обновления cartItems при изменении busketArray
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
     useEffect(() => {
         // Проверьте, что busketArray существует и не является пустым массивом
         if (busketArray && busketArray.length > 0) {
-            setCartItems(
-                busketArray.map((item) => ({
-                    item: item,
-                    count: 1,
-                }))
-            );
+            const items: CartItem[] = busketArray.map((item: any) => ({
+                item: item,
+                count: 1,
+            }));
+            setCartItems(items);
         } else {
             setCartItems([]);
         }
     }, [busketArray]);
 
-    const updateCount = (itemId, newCount) => {
+    const updateCount = (itemId: number, newCount: number) => {
         // Проверьте, что cartItems существует и имеет элемент с заданным itemId
         if (cartItems && cartItems.length > 0) {
             const updatedCartItems = cartItems.map((cartItem) =>
@@ -41,7 +54,7 @@ function CardLine() {
     return (
         <div className='conteiner-biznes'>
             {busketArray.length > 0 ? (
-                busketArray.map((item, id) => (
+                busketArray.map((item: any, id: number) => (
                     <div key={id} className='bay-line-info'>
                         <div className='product-main-continer'>
                             <div className='guds-img'>
@@ -58,10 +71,10 @@ function CardLine() {
                             </div>
                             <CounterComponent
                                 count={cartItems[id] && cartItems[id].count}
-                                updateCount={(newCount) => updateCount(item.id, newCount)}
+                                updateCount={(newCount: number) => updateCount(item.id, newCount)}
                             />
                             <PriceComponent
-                                diskountIndicator={item.diskountIndicator }
+                                diskountIndicator={item.diskountIndicator}
                                 realPrice={item.realPrice}
                                 discountPrice={item.diskountPrice}
                                 count={cartItems[id] && cartItems[id].count}
@@ -69,20 +82,16 @@ function CardLine() {
                         </div>
                     </div>
                 ))
-                
-                
-                
             ) : (
-                <p>Корзина пуста</p> 
+                <p>Корзина пуста</p>
             )}
             <section className='speciall-order'>
                 <h2>Special order:</h2>
-                <SpeciallOrderComponent/>
+                <SpeciallOrderComponent />
             </section>
             <div className='logic-calculator'>
-                <TotalPrice busketArray={busketArray} cartItems={cartItems}/>
+                <TotalPrice busketArray={busketArray} cartItems={cartItems} />
             </div>
-            
         </div>
     );
 }

@@ -2,15 +2,17 @@ import { useState, useEffect } from 'react';
 import SpecialCounter from '../SpecialCounter/SpecialCounter';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { setSpeciallCollectionFindTotall } from '../../../../redux/Actions';
+import { setSpeciallCollectionFindTotall } from '../../../../redux/Actions/CollectionActions';
+
+import { RootState } from '../../../../redux/RootReducer';
 
 function SpecialOrderTotalPrice({ subArray, personspecialbox, subIndex }) {
     const dispatch = useDispatch()
     let [totalForBoxSet, setTotalForBoxSet] = useState(0);
     let [count, setCount] = useState(1);
     const [firstEffectCompleted, setFirstEffectCompleted] = useState(false);
-    
-    let specialTotal = useSelector((state) => state.getcollection.specialCollectionTotallPrice);
+
+    let specialTotal = useSelector((state: RootState) => state.getcollection.specialCollectionTotallPrice);
     
     useEffect(() => {
 
@@ -20,9 +22,9 @@ function SpecialOrderTotalPrice({ subArray, personspecialbox, subIndex }) {
         });
 
         setTotalForBoxSet(oneCount * count);
-        
+
     }, [subArray, count]);
-    
+
     useEffect(() => {
         let totalboxprice = [];
         personspecialbox.forEach((item, id) => {
@@ -38,14 +40,14 @@ function SpecialOrderTotalPrice({ subArray, personspecialbox, subIndex }) {
 
         dispatch(setSpeciallCollectionFindTotall(totalboxprice));
         setFirstEffectCompleted(true);
-    },[personspecialbox]);
+    }, [personspecialbox]);
 
     useEffect(() => {
         if (firstEffectCompleted) {
             const updatedSpecialTotal = specialTotal.map((item, index) => {
 
-                if (index === subIndex) { 
-                    
+                if (index === subIndex) {
+
                     return {
                         ...item,
                         totalCount: count
@@ -54,9 +56,9 @@ function SpecialOrderTotalPrice({ subArray, personspecialbox, subIndex }) {
                 return item;
             });
             dispatch(setSpeciallCollectionFindTotall(updatedSpecialTotal));
-            
+
         }
-        
+
     }, [count, firstEffectCompleted]);
 
 

@@ -7,29 +7,35 @@ import SpinerLoader from '../SpinerLoader/SpinerLoader';
 import BackButton from '../../ButtonComponents/BackButton/BackButton';
 import AddToBasketButton from '../../ButtonComponents/AddToBasketButton/AddToBasketButton';
 
+
 function AboutProductPage() {
     const { collectionName, itemName } = useParams();
 
     const { data: collectionData, isLoading, isError } = useQuery(['collectionData', collectionName], fetchData);
 
     async function fetchData() {
-        const collectionRef = collection(db, collectionName);
-        const querySnapshot = await getDocs(collectionRef);
-
-        const data = [];
-
-        querySnapshot.forEach((doc) => {
-
-            const docData = doc.data();
-
-            if (docData.id == itemName) {
-                data.push(docData);
-            }
-
-        });
-        console.log(data);
-
-        return data;
+        if(collectionName){
+            const collectionRef = collection(db, collectionName);
+            const querySnapshot = await getDocs(collectionRef);
+    
+            const data: any = [];
+    
+            querySnapshot.forEach((doc) => {
+    
+                const docData = doc.data();
+    
+                if (docData.id == itemName) {
+                    data.push(docData);
+                }
+    
+            });
+            
+    
+            return data;
+        }else{
+            return console.error("error  in About Product");
+        }
+        
     }
 
 

@@ -1,24 +1,28 @@
-
 import './AddToBasketButton.scss';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { setAddToBasket } from '../../redux/Actions/CollectionActions';
+import { RootState } from '../../redux/RootReducer';
 
-import { setAddToBasket } from '../../redux/Actions';
 
-function AddToBasketButton({ id, cardToBuy }) { 
+import { ProductList } from '../../redux/TS-STATE';
+interface Props {
+    id: number;
+    cardToBuy: ProductList;
+}
+
+
+function AddToBasketButton({ id, cardToBuy }: Props) {
     const dispatch = useDispatch();
+    const busketArray = useSelector((state: RootState) => state.getcollection.pushToBasket);
     
-    const busketArray = useSelector((state) => state.togllebutton.pushToBasket);
-
-    
-
     const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {
         // Обновление активности кнопки при изменении busketArray
         setIsActive(busketArray.some(item => item.id === cardToBuy.id));
     }, [busketArray, cardToBuy]);
-    
+
     useEffect(() => {
         const storedState = localStorage.getItem(`buttonState_${id}`);
         if (storedState !== null) {
@@ -31,8 +35,8 @@ function AddToBasketButton({ id, cardToBuy }) {
         if (storedBasket !== null) {
             dispatch(setAddToBasket(JSON.parse(storedBasket)));
         }
-    }, [dispatch]); 
- 
+    }, [dispatch]);
+
     const handleAddToBasket = () => {
         const newActiveState = !isActive;
 
@@ -40,14 +44,14 @@ function AddToBasketButton({ id, cardToBuy }) {
 
         setIsActive(newActiveState);
 
-        let updatedData = [];
+        let updatedData: ProductList[] = []; 
 
         if (newActiveState) {
             updatedData = [...busketArray, cardToBuy];
         } else {
             updatedData = busketArray.filter(item => item.id !== cardToBuy.id);
         }
-
+        
         localStorage.setItem('basketArray', JSON.stringify(updatedData));
         dispatch(setAddToBasket(updatedData));
     }

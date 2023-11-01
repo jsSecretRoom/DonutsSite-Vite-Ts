@@ -1,23 +1,26 @@
 import './ProductItemCard';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
+import { setGloballTotallPrice, setGloballCount} from '../../redux/Actions/NumberActions';
+import { setSpeciallCollection } from '../../redux/Actions/CollectionActions';
+
 import donutico from '../../assets/donut.svg';
 import moreIco from '../../assets/ico/Sign_in.svg';
 import lessIco from '../../assets/ico/Sign_out.svg';
-import { setGloballCount, setGloballTotallPrice, setSpeciallCollection } from '../../redux/Actions';
 
 function CounterOneDonut({ matrixfraim, setmatrixfraim, item, donutsCount }) {
     const dispatch = useDispatch();
     const [prevDonutsCount, setPrevDonutsCount] = useState(donutsCount);
     let [count, setCount] = useState(0);
     let [addtobasket, setaddtobasket] = useState(false);
-  
+
     let maxmatrixlength = matrixfraim.length;
 
-    let globallcount = useSelector((state) => state.globalStates.globallCounter);
-    let globallTotallPrice = useSelector((state) => state.globalStates.globalBoxTotalPrice);
+    let globallcount = useSelector((state) => state.getnumber.globallCounter);
+    let globallTotallPrice = useSelector((state) => state.getnumber.globalBoxTotalPrice);
     let speciallPrice = useSelector((state) => state.getcollection.speciallCollectionBox);
-    
+
     useEffect(() => {
         if (donutsCount !== prevDonutsCount) {
             setCount(0);
@@ -29,12 +32,12 @@ function CounterOneDonut({ matrixfraim, setmatrixfraim, item, donutsCount }) {
 
     useEffect(() => {
 
-        if(count > 0){
+        if (count > 0) {
             setaddtobasket(true);
-        }else{
+        } else {
             setaddtobasket(false);
         }
-    },[count])
+    }, [count])
 
     useEffect(() => {
 
@@ -46,15 +49,15 @@ function CounterOneDonut({ matrixfraim, setmatrixfraim, item, donutsCount }) {
             basketitem: item
         };
 
-        if(addtobasket){
+        if (addtobasket) {
             updatedData = [...speciallPrice, specialItem]
-        }else{
+        } else {
             updatedData = speciallPrice.filter((myitem) => myitem.specialid !== item.id);
         }
 
         dispatch(setSpeciallCollection(updatedData));
-        
-    },[addtobasket])
+
+    }, [addtobasket])
 
     useEffect(() => {
         const updatedData = speciallPrice.map((element) => {
@@ -67,7 +70,7 @@ function CounterOneDonut({ matrixfraim, setmatrixfraim, item, donutsCount }) {
             }
             return element;
         });
-    
+
         dispatch(setSpeciallCollection(updatedData));
     }, [count]);
 
@@ -84,12 +87,12 @@ function CounterOneDonut({ matrixfraim, setmatrixfraim, item, donutsCount }) {
             }
         }
     }
-    
+
     const addToBox = () => {
         if (count < maxmatrixlength && globallcount < maxmatrixlength) {
             let updatedMatrixfraim = [...matrixfraim];
             let indexOfFreeCell = -1;
-    
+
             if (!matrixfraim[globallcount].isengaged) {
                 updatedMatrixfraim[globallcount] = { donutimg: item.oneimg, isengaged: true };
                 setmatrixfraim(updatedMatrixfraim);
@@ -104,7 +107,7 @@ function CounterOneDonut({ matrixfraim, setmatrixfraim, item, donutsCount }) {
                         break;
                     }
                 }
-    
+
                 if (indexOfFreeCell !== -1) {
                     updatedMatrixfraim[indexOfFreeCell] = { donutimg: item.oneimg, isengaged: true };
                     setmatrixfraim(updatedMatrixfraim);
@@ -115,7 +118,7 @@ function CounterOneDonut({ matrixfraim, setmatrixfraim, item, donutsCount }) {
             }
         }
     }
-    return ( 
+    return (
         <div className='counter-one-donut'>
             <div className='guds-counter'>
                 <button className='less' onClick={remuveToBox}>

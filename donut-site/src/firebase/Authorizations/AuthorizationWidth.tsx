@@ -1,9 +1,10 @@
 import './Authorization.scss';
 import { signInWithPopup } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
-import { useNavigate  } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { SetAutorisation } from '../../redux/Actions/BooleanActions';
 
-import {auth } from '../firebaseConfig';
+import { auth } from '../firebaseConfig';
 
 
 interface GoogleAuthorizationProps {
@@ -15,21 +16,21 @@ interface GoogleAuthorizationProps {
 function AuthorizationWidth({ txt, img, provider }: GoogleAuthorizationProps) {
 
   const dispatch = useDispatch();
-  const navigate = useNavigate ();
+  const navigate = useNavigate();
 
   const handleSignIn = async () => {
     try {
       await signInWithPopup(auth, provider);
       console.error("You successfully authorized!");
-  
+
       // Получите токен пользователя, например, так:
       const user = auth.currentUser;
-      
+
       if (user) {
         const token = await user.getIdToken();
         // Сохраните токен в локальном хранилище
         localStorage.setItem('authToken', token);
-        dispatch({ type: ActionTypes.SUCCESSFUL_AUTHORIZATION, payload: true });
+        dispatch(SetAutorisation(true));
         navigate('/', { replace: true });
       } else {
         console.error("Пользователь не аутентифицирован.");
@@ -38,12 +39,11 @@ function AuthorizationWidth({ txt, img, provider }: GoogleAuthorizationProps) {
       console.error("Ошибка!!!", error);
     }
   };
-  
-  
-  return ( 
+
+  return (
     <button className='aus-method' onClick={handleSignIn}>
-        <img src={img} alt={txt} />
-        <p>{txt}</p>
+      <img src={img} alt={txt} />
+      <p>{txt}</p>
     </button>
   );
 }

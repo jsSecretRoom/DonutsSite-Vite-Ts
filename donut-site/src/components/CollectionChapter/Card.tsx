@@ -9,17 +9,11 @@ import { useParams } from 'react-router-dom';
 import AddToBasketButton from '../../ButtonComponents/AddToBasketButton/AddToBasketButton';
 import IsFavoriteButton from '../../ButtonComponents/IsFavoriteButton/IsFavoriteButton';
 import SpinerLoader from '../SpinerLoader/SpinerLoader';
-interface CollectionData {
-    name: string;
-    id: number
-    foto: string;
-    diskountPrice: number;
-    realPrice: number;
-    diskountIndicator: string;
-    // Добавьте інші поля, якщо вони є в вашій колекції
-}
 
-function Card({ collectionName }: { collectionName: string } ) {
+import { ProductList } from '../../redux/TS-STATE';
+
+
+function Card({ collectionName }: { collectionName: string | undefined } ) {
 
     const [visibleCards, setVisibleCards] = useState(5); // Initial number of visible cards
     const { data: collectionData, isLoading, isError } = useQuery(['collectionData', collectionName], fetchData);
@@ -35,16 +29,21 @@ function Card({ collectionName }: { collectionName: string } ) {
     }, [filterName]);
 
     async function fetchData() {
-        const collectionRef = collection(db, collectionName);
-        const querySnapshot = await getDocs(collectionRef);
-        const data: CollectionData[] = [];
+        if(collectionName){
+            const collectionRef = collection(db, collectionName);
+            const querySnapshot = await getDocs(collectionRef);
+            const data: ProductList[] = [];
 
-        querySnapshot.forEach((doc) => {
-            const docData = doc.data() as CollectionData;
-            data.push(docData);
-        });
+            querySnapshot.forEach((doc) => {
+                const docData = doc.data() as ProductList;
+                data.push(docData);
+            });
 
-        return data;
+            return data;
+        }else{
+            console.log('error in Card');
+        }
+        
     }
 
     if (!collectionData) {

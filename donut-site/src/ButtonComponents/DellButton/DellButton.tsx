@@ -1,11 +1,15 @@
 import './DellButton.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import ButtonImg from '../../assets/ico/microFeachButton.svg';
-import { setAddToBasket } from '../../redux/Actions';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-function DellButton({ id }) {
+import { RootState } from '../../redux/RootReducer';
+
+import ButtonImg from '../../assets/ico/microFeachButton.svg';
+import { setAddToBasket } from '../../redux/Actions/CollectionActions';
+
+function DellButton({ id }: { id: number }) {
     const dispatch = useDispatch();
-    const busketArray = useSelector((state) => state.togllebutton.pushToBasket);
+    const busketArray = useSelector((state: RootState) => state.getcollection.pushToBasket);
 
     const dellProduct = () => {
         // Filter the product to be removed

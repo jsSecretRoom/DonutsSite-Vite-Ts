@@ -1,15 +1,26 @@
 import { combineReducers } from 'redux';
-import { AutorisationReducer } from './ChildReducers/AutorisationReducer';
+import { StringReducer } from './ChildReducers/StringReducer';
 import { CollectionReducer } from './ChildReducers/CollectionReducer';
-import { ButtonsReducer } from './ChildReducers/ButtonsReducer';
-import { GlobalStatesReducer } from './ChildReducers/GlobalStatesReducer';
+import { BooleanReducer } from './ChildReducers/BooleanReducer';
+import { NumberReducer } from './ChildReducers/NumberReducer';
+
+import { StringReducerStates, CollectionReducerState, BooleanReducerState, NumberReducerStates } from './TS-STATE';
+
+
 const RootReducer = combineReducers({
 
-    autorisation: AutorisationReducer,
+    getstring: StringReducer,
     getcollection: CollectionReducer,
-    togllebutton: ButtonsReducer,
-    globalStates: GlobalStatesReducer
+    getboolean: BooleanReducer,
+    getnumber: NumberReducer
     
 }); 
 
 export default RootReducer;
+
+export interface RootState {
+    getstring: StringReducerStates;
+    getcollection: CollectionReducerState;
+    getboolean: BooleanReducerState;
+    getnumber: NumberReducerStates;
+}

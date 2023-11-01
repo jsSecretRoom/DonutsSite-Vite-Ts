@@ -4,28 +4,32 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Modal from 'react-modal';
 
-import { setTogleSpeciallModalBox, setGloballCount, setGloballTotallPrice, setSpeciallCollection } from '../../redux/Actions';
+import { setTogleSpeciallModalBox } from '../../redux/Actions/BooleanActions';
+import { setGloballCount, setGloballTotallPrice } from '../../redux/Actions/NumberActions';
+import { setSpeciallCollection } from '../../redux/Actions/CollectionActions';
 
 const modalRoot = document.getElementById('speciallOrderBox');
 Modal.setAppElement(modalRoot);
 
 function ModalSpeciallOrder() {
     const dispatch = useDispatch();
-    
-    const toggleModal = useSelector((state) => state.togllebutton.togleSpeciallModalBox);
+
+    const toggleModal = useSelector((state) => state.getboolean.togleSpeciallModalBox);
     let speciallCollection = useSelector((state) => state.getcollection.speciallCollectionBox);
-    let globallTotallPrice = useSelector((state) => state.globalStates.globalBoxTotalPrice);
+    let globallTotallPrice = useSelector((state) => state.getnumber.globalBoxTotalPrice);
+
     
+
     const closeModal = () => {
         dispatch(setTogleSpeciallModalBox(!toggleModal));
 
         const savedData = localStorage.getItem('speciallCollectionOrer');
         let specialProducts = [];
-    
+
         if (savedData) {
             specialProducts = JSON.parse(savedData);
         }
-    
+
         // Проверяем, что speciallCollection не пуст и существует
         if (speciallCollection && speciallCollection.length > 0) {
             // Добавляем speciallCollection в общий массив

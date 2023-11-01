@@ -3,7 +3,11 @@ import './SetCreator.scss';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import ProductItemCard from './ProductItemCard';
-import { setTogleLeedOpenClose, setGloballTotallPrice, setGloballCount } from '../../redux/Actions';
+
+
+import { setGloballCount, setGloballTotallPrice } from '../../redux/Actions/NumberActions';
+import { setTogleLeedOpenClose } from '../../redux/Actions/BooleanActions';
+
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import OrderButton from '../../ButtonComponents/OrderButton/OrderButton';
@@ -19,12 +23,12 @@ function SetCreator() {
     let [matrixfraim, setmatrixfraim] = useState([]);
 
 
-    let globallcount = useSelector((state) => state.globalStates.globallCounter);
-    let togleLeed = useSelector((state) => state.togllebutton.togleLeedOpenClose);
-    let globallTotallPrice = useSelector((state) => state.globalStates.globalBoxTotalPrice);
+    let globallcount = useSelector((state) => state.getnumber.globallCounter);
+    let togleLeed = useSelector((state) => state.getboolean.togleLeedOpenClose);
+    let globallTotallPrice = useSelector((state) => state.getnumber.globalBoxTotalPrice);
 
     const location = useLocation();
-    
+
     const createMatrix = () => {
         let newMatrix = [];
         for (let i = 1; i <= donutsCount; i++) {
@@ -38,16 +42,16 @@ function SetCreator() {
     }, [donutsCount]);
 
     useEffect(() => {
-        if(location !== '/create'){
+        if (location !== '/create') {
             dispatch(setGloballTotallPrice(0));
             dispatch(setGloballCount(0));
         }
     }, [location]);
 
     useEffect(() => {
-        if (globallcount === donutsCount){
+        if (globallcount === donutsCount) {
             dispatch(setTogleLeedOpenClose(true));
-        }else{
+        } else {
             dispatch(setTogleLeedOpenClose(false));
         }
     }, [globallcount]);
@@ -66,7 +70,7 @@ function SetCreator() {
                     <button onClick={() => changeDonutsCount(20)}>5x4(20)</button>
                 </div>
                 <div className='product-container'>
-                    <ProductItemCard matrixfraim={matrixfraim} setmatrixfraim={setmatrixfraim} donutsCount={donutsCount}/>
+                    <ProductItemCard matrixfraim={matrixfraim} setmatrixfraim={setmatrixfraim} donutsCount={donutsCount} />
                 </div>
             </section>
             <section className="donuts-box">
@@ -80,19 +84,19 @@ function SetCreator() {
                     <div className="slots">
                         {matrixfraim.map((item, index) => (
                             <div className='marix-item' key={index}>
-                                <img src={item.donutimg} alt="item"/>
+                                <img src={item.donutimg} alt="item" />
                             </div>
                         ))}
                     </div>
                     <div className="cap-box">
-                        <div className={`Lied ${ togleLeed ? 'activ' : ''}`}>
+                        <div className={`Lied ${togleLeed ? 'activ' : ''}`}>
                             <div className='bakc-lied'>
-                            
+
                             </div>
                             <img src={LiedBox} alt="LiedBox" />
 
                             <div className='order-button'>
-                                <OrderButton/>
+                                <OrderButton />
                             </div>
                         </div>
                     </div>

@@ -4,9 +4,11 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import SiteLogick from '../SiteLogick/SiteLogick';
 
+import { RootState } from '../../redux/RootReducer';
+
 function Layout() {
     const navigate = useNavigate();
-    const isAuthorized = useSelector((state: any) => state.autorisation.authorized);
+    const isAuthorized = useSelector((state: RootState) => state.getboolean.authorized);
 
     useEffect(() => {
         const authToken = localStorage.getItem('authToken');
@@ -22,13 +24,13 @@ function Layout() {
                 <nav>
                     
                     <div className='nav-conteiner'>
-                        <SiteLogick/>
+                        
                         <div className='links'>
                             <NavLink to={'/'}>Home</NavLink>
                             <NavLink to={'/shop/Sweets'}>Order now!</NavLink>
                             <NavLink to={'/create'}>Create a set</NavLink>
                         </div>
-                        
+                        <SiteLogick/>
                         <div className='logo'>
                             <NavLink to={'/'}><h4>Divine Doughnuts</h4></NavLink>   
                         </div>

@@ -11,13 +11,15 @@ import SearchPageComponent from '../SearchPageComponent/SearchPageComponent';
 import ScrollFicha from './ScrollFicha';
 import Card from './Card';
 
+import { RootState } from '../../redux/RootReducer';
+
 function CollectionChapter() {
 
-  let capterData = useSelector((state) => state.getcollection.collectionsName);
+  let capterData = useSelector((state: RootState) => state.getcollection.collectionsName);
   
-  let searchRequest = useSelector((state) => state.globalStates.globalSearchRequest);
+  let searchRequest = useSelector((state: RootState) => state.getstring.globalSearchRequest);
 
-  const containerRefs = useRef([]);
+  const containerRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [displayCount, setDisplayCount] = useState(3);
   const [hasMore, setHasMore] = useState(true); 
 
@@ -69,7 +71,7 @@ function CollectionChapter() {
                     <Card  collectionName={item.toString()}/>
                   </div>
 
-                  <ScrollFicha index={index} containerRef={containerRefs.current[index]} />
+                  <ScrollFicha key={index} containerRef={containerRefs.current[index]} />
 
                 </div>
 
@@ -83,7 +85,9 @@ function CollectionChapter() {
             hasMore={hasMore}
             loader={<h4>Loading...</h4>}
             endMessage={<p>No more items to load</p>}
-          ></InfiniteScroll>
+          >
+            <p>loading data info:</p>
+          </InfiniteScroll>
         </div>
       }
     </>

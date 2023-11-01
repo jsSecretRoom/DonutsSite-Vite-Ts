@@ -1,15 +1,25 @@
-const initialState = {
-  togleSidebur: false,
+import { BooleanReducerState, BooleanAction } from "../TS-STATE";
 
+const initialState: BooleanReducerState = {
+  authorized: false,
+  togleSidebur: false,
   togleBagModal: false,
   toglSuccesOrder: false,
   togleSpeciallModalBox: false,
-
   togleLeedOpenClose: false,
-  pushToBasket: [],
 };
-export function ButtonsReducer(state = initialState, action) {
+
+export function BooleanReducer(
+  
+  state: BooleanReducerState = initialState, 
+  action: BooleanAction) : BooleanReducerState {
+
   switch (action.type) {
+    case 'SUCCESSFUL_AUTHORIZATION':
+      return {
+        ...state,
+        authorized: action.payload,
+      };
     case 'SIDEBUR_IVENT':
       return {
         ...state,
@@ -35,11 +45,7 @@ export function ButtonsReducer(state = initialState, action) {
         ...state,
         togleLeedOpenClose: action.payload,
       };
-    case 'ADD_TO_BASKET':
-      return {
-        ...state,
-        pushToBasket: [...action.payload],
-      };
+    
     default:
       return state;
   }

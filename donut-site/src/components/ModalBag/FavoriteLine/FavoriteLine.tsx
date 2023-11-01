@@ -3,11 +3,12 @@ import './FavoriteLine.scss';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import AddToBasketButton from '../../../ButtonComponents/AddToBasketButton/AddToBasketButton';
 import IsFavoriteButton from '../../../ButtonComponents/IsFavoriteButton/IsFavoriteButton';
-import { NavLink } from 'react-router-dom';
+
+import { RootState } from '../../../redux/RootReducer';
 
 function FavoriteLine() {
 
-    const favoriteList = useSelector(( state ) => state.getcollection.pushToFavirite);
+    const favoriteList = useSelector(( state: RootState ) => state.getcollection.pushToFavirite);
 
     return ( 
         <>
