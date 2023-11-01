@@ -1,7 +1,5 @@
-import { CollectionState, SetCollection, GetCollectionName } from '../redaxTypes';
 
-
-const initialState: CollectionState = {
+const initialState = {
   collectionsName: [],
   collectionslistNames: [],
   pushToFavirite: [],
@@ -11,9 +9,9 @@ const initialState: CollectionState = {
 
 };
 
-export function CollectionReducer(state = initialState, action: SetCollection): CollectionState {
+export function CollectionReducer(state = initialState, action ) {
   switch (action.type) {
-    case GetCollectionName.GET_COLLECTION_NAME:
+    case 'GET_COLLECTION_NAME':
       return {
         ...state,
         collectionsName: action.payload,

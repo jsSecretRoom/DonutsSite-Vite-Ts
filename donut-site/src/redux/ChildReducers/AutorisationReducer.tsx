@@ -1,12 +1,11 @@
-import { AppState, AppAction, ActionTypes } from '../redaxTypes';
 
-const initialState: AppState = {
+const initialState = {
   authorized: false,
 };
 
-export function AutorisationReducer(state = initialState, action: AppAction): AppState {
+export function AutorisationReducer(state = initialState, action) {
   switch (action.type) {
-    case ActionTypes.SUCCESSFUL_AUTHORIZATION:
+    case 'SUCCESSFUL_AUTHORIZATION':
       return {
         ...state,
         authorized: action.payload,

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate  } from 'react-router-dom';
 
 import {auth } from '../firebaseConfig';
-import { ActionTypes } from '../../redux/redaxTypes';
+
 
 interface GoogleAuthorizationProps {
   txt: string;
