@@ -8,7 +8,7 @@ import { setModallOrderSucces } from '../../redux/Actions/BooleanActions';
 
 import { RootState } from '../../redux/RootReducer';
 
-const modalRoot = document.getElementById('orderSucess');
+const modalRoot: any = document.getElementById('orderSucess');
 Modal.setAppElement(modalRoot);
 
 

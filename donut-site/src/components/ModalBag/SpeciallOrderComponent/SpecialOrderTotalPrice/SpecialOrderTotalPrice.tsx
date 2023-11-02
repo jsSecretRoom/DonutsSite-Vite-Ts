@@ -6,7 +6,22 @@ import { setSpeciallCollectionFindTotall } from '../../../../redux/Actions/Colle
 
 import { RootState } from '../../../../redux/RootReducer';
 
-function SpecialOrderTotalPrice({ subArray, personspecialbox, subIndex }) {
+type SpecialOrderItem = {
+    id: string;
+    info: string;
+    oneimg: string;
+    price: number;
+    specialcount: number;
+    specialid: string;
+};
+type SpecialOrderTotalPriceProps = {
+    subArray: any[];
+    personspecialbox: SpecialOrderItem[][];
+    subIndex: number;
+};
+
+const SpecialOrderTotalPrice: React.FC<SpecialOrderTotalPriceProps> = ({subArray, personspecialbox, subIndex,}: SpecialOrderTotalPriceProps) => {
+
     const dispatch = useDispatch()
     let [totalForBoxSet, setTotalForBoxSet] = useState(0);
     let [count, setCount] = useState(1);
@@ -26,7 +41,7 @@ function SpecialOrderTotalPrice({ subArray, personspecialbox, subIndex }) {
     }, [subArray, count]);
 
     useEffect(() => {
-        let totalboxprice = [];
+        let totalboxprice: any = [];
         personspecialbox.forEach((item, id) => {
 
             return totalboxprice.push(

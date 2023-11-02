@@ -11,7 +11,7 @@ import { setGloballSpecialPrice } from '../../redux/Actions/NumberActions';
 import { RootState } from '../../redux/RootReducer';
 
 import Modal from 'react-modal';
-const modalRoot = document.getElementById('portall');
+const modalRoot: any = document.getElementById('portall');
 
 Modal.setAppElement(modalRoot !== null ? modalRoot as HTMLElement : '');
 

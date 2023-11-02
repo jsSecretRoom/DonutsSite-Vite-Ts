@@ -22,17 +22,25 @@ interface CartItem {
     count: number;
 }
 
+
 function CardLine() {
-    const busketArray = useSelector((state: RootState) => state.getcollection.pushToBasket);
+    const busketArray: any[] = useSelector((state: RootState) => state.getcollection.pushToBasket);
 
     // Используйте useEffect для обновления cartItems при изменении busketArray
-    const [cartItems, setCartItems] = useState<CartItem[]>([]);
+    const [cartItems, setCartItems] = useState<any[]>([]);
 
     useEffect(() => {
         // Проверьте, что busketArray существует и не является пустым массивом
         if (busketArray && busketArray.length > 0) {
             const items: CartItem[] = busketArray.map((item: any) => ({
-                item: item,
+                item: {
+                    id: Number(item.id), // Преобразование id к числу, если ожидается number
+                    foto: item.foto,
+                    name: item.name,
+                    diskountIndicator: item.diskountIndicator === 'true', // Преобразование diskountIndicator к boolean
+                    realPrice: item.realPrice,
+                    diskountPrice: Number(item.diskountPrice), // Преобразование diskountPrice к числу, если ожидается number
+                },
                 count: 1,
             }));
             setCartItems(items);

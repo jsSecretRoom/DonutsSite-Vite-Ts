@@ -4,19 +4,42 @@ import CreateOrderButton from '../../../ButtonComponents/CreateOrderButton/Creat
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-function TotalPrice({ busketArray, cartItems }) {
-    const specialTotal = useSelector((state) => state.getcollection.specialCollectionTotallPrice);
+import { RootState } from '../../../redux/RootReducer';
+type CartItem = {
+    count: number;
+    item: {
+        diskountIndicator: boolean;
+        diskountPrice: number;
+        foto: string;
+        id: string;
+        name: string;
+        realPrice: number;
+    };
+    
+};
+
+type BasketItem = {
+    diskountIndicator: boolean;
+    diskountPrice: number;
+    foto: string;
+    id: string;
+    name: string;
+    realPrice: number;
+};
+
+function TotalPrice({ busketArray, cartItems }: { busketArray: BasketItem[]; cartItems: CartItem[] }) {
+    const specialTotal: any[] = useSelector((state: RootState) => state.getcollection.specialCollectionTotallPrice);
     const [specialTotalres, setSpecialTotalres] = useState(0);
     const [totalres, setTotalres] = useState(0);
-
+    
     useEffect(() => {
-        let total = [];
+        let total: any[] = [];
         specialTotal.forEach((item) => {
             let finalRes = 0;
             let specialCount = item.totalCount;
             let totallSubres = 0;
 
-            item.totalItem.forEach((subitem) => {
+            item.totalItem.forEach((subitem: any) => {
                 let subcount = subitem.specialcount;
                 totallSubres += subcount * subitem.basketitem.price;
 
@@ -31,7 +54,7 @@ function TotalPrice({ busketArray, cartItems }) {
     },[specialTotal]);
 
     const getProductCount = () => {
-        const productCount = [];
+        const productCount: any = [];
         if (busketArray && cartItems) {
             busketArray.forEach((item) => {
                 const cartItem = cartItems.find((cartItem) => cartItem.item.id === item.id);
