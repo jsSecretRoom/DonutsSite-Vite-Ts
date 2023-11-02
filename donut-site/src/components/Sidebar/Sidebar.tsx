@@ -2,15 +2,19 @@ import './Sidebar.scss';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setGlobalSearchRequest } from '../../redux/Actions/StringActions';
+import { setSideburButton } from '../../redux/Actions/BooleanActions';
 
+import { RootState } from '../../redux/RootReducer';
 
 function Sidebar() {
     const dispatch = useDispatch();
-    const togleButton = useSelector((state) => state.getboolean.togleSidebur);
-    let listDataNemas = useSelector((state) => state.getcollection.collectionslistNames);
+    const togleButton = useSelector((state: RootState) => state.getboolean.togleSidebur);
+    
+    let listDataNemas = useSelector((state: RootState) => state.getcollection.collectionslistNames);
 
     const setState = () => {
         dispatch(setGlobalSearchRequest(''));
+        dispatch(setSideburButton(false));
     }
     return (
         <aside className={`aside ${togleButton ? 'show-aside' : ''}`}>

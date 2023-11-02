@@ -6,6 +6,7 @@ import Modal from 'react-modal';
 
 import { setModallOrderSucces } from '../../redux/Actions/BooleanActions';
 
+import { RootState } from '../../redux/RootReducer';
 
 const modalRoot = document.getElementById('orderSucess');
 Modal.setAppElement(modalRoot);
@@ -14,7 +15,7 @@ Modal.setAppElement(modalRoot);
 function ModalOrderSucess() {
     const dispatch = useDispatch();
 
-    const toggleModal = useSelector((state) => state.getboolean.toglSuccesOrder);
+    const toggleModal = useSelector((state: RootState) => state.getboolean.toglSuccesOrder);
 
     const closeModal = () => {
         dispatch(setModallOrderSucces(!toggleModal));

@@ -9,18 +9,34 @@ import donutico from '../../assets/donut.svg';
 import moreIco from '../../assets/ico/Sign_in.svg';
 import lessIco from '../../assets/ico/Sign_out.svg';
 
-function CounterOneDonut({ matrixfraim, setmatrixfraim, item, donutsCount }) {
+interface DonutItem {
+    oneimg: string;
+    price: number;
+    info: string;
+    id: number; 
+}
+
+interface CounterOneDonutProps {
+    matrixfraim: any[];
+    setmatrixfraim: React.Dispatch<React.SetStateAction<any[]>>;
+    item: DonutItem;
+    donutsCount: number; 
+}
+
+import { RootState } from '../../redux/RootReducer';
+
+function CounterOneDonut({ matrixfraim, setmatrixfraim, item, donutsCount }: CounterOneDonutProps) {
     const dispatch = useDispatch();
     const [prevDonutsCount, setPrevDonutsCount] = useState(donutsCount);
-    let [count, setCount] = useState(0);
-    let [addtobasket, setaddtobasket] = useState(false);
+    const [count, setCount] = useState(0);
+    const [addtobasket, setaddtobasket] = useState(false);
 
-    let maxmatrixlength = matrixfraim.length;
+    const maxmatrixlength = matrixfraim.length;
 
-    let globallcount = useSelector((state) => state.getnumber.globallCounter);
-    let globallTotallPrice = useSelector((state) => state.getnumber.globalBoxTotalPrice);
-    let speciallPrice = useSelector((state) => state.getcollection.speciallCollectionBox);
-
+    const globallcount: number = useSelector((state: RootState) => state.getnumber.globallCounter);
+    const globallTotallPrice: number = useSelector((state: RootState) => state.getnumber.globalBoxTotalPrice);
+    const speciallPrice: any[] = useSelector((state: RootState) => state.getcollection.speciallCollectionBox);
+    
     useEffect(() => {
         if (donutsCount !== prevDonutsCount) {
             setCount(0);

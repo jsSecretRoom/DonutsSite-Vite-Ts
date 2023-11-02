@@ -7,7 +7,15 @@ import { useState, useEffect } from 'react';
 import CounterOneDonut from './CounterOneDonut';
 import SpinerLoader from '../SpinerLoader/SpinerLoader';
 
-function ProductItemCard({matrixfraim, setmatrixfraim, donutsCount}) {
+interface CollectionData {
+    id: number
+    oneimg: string;
+    info: string;
+    price: number;
+}
+
+
+function ProductItemCard({ matrixfraim, setmatrixfraim, donutsCount }: { matrixfraim: any, setmatrixfraim: any, donutsCount: any }) {
 
     const [visibleCards, setVisibleCards] = useState(5);
 

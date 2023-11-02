@@ -1,23 +1,32 @@
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, DocumentData, QueryDocumentSnapshot, getDocs, CollectionReference } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
-import { useQuery } from 'react-query';
+import { useQuery, UseQueryResult } from 'react-query';
 import { NavLink } from 'react-router-dom';
 import AddToBasketButton from '../../ButtonComponents/AddToBasketButton/AddToBasketButton';
 import IsFavoriteButton from '../../ButtonComponents/IsFavoriteButton/IsFavoriteButton';
 import SpinerLoader from '../SpinerLoader/SpinerLoader';
 
+import { ProductList } from '../../redux/TS-STATE';
 
-function SearchCardFind({ collectionName, searchRequest }) {
-    const { data: collectionData, isLoading, isError } = useQuery(['collectionFind', collectionName], fetchData);
+function SearchCardFind({ collectionName, searchRequest }: { collectionName: string, searchRequest: string }) {
+    const { data: collectionData, isLoading, isError }: UseQueryResult<ProductList[], unknown> = useQuery(['collectionFind', collectionName], fetchData);
 
-    async function fetchData() {
-        const collectionRef = collection(db, collectionName);
+    async function fetchData(): Promise<ProductList[]> {
+        const collectionRef: CollectionReference<DocumentData> = collection(db, collectionName);
         const querySnapshot = await getDocs(collectionRef);
-        const data = [];
+        const data: ProductList[] = [];
 
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
             const docData = doc.data();
-            data.push(docData);
+            const item: ProductList = {
+                id: parseFloat(doc.id),
+                diskountIndicator: docData.diskountIndicator,
+                diskountPrice: docData.diskountPrice,
+                foto: docData.foto,
+                name: docData.name,
+                realPrice: docData.realPrice
+            };
+            data.push(item);
         });
 
         return data;
@@ -51,21 +60,12 @@ function SearchCardFind({ collectionName, searchRequest }) {
         return <div>Error loading data</div>;
     }
 
-    // Фильтрация карточек на основе поискового запроса
-    const filteredCollection = collectionData.filter(item =>
+    const filteredCollection: ProductList[] = collectionData.filter(item =>
         item.name.toLowerCase().includes(searchRequest.toLowerCase())
     );
 
-    // Сортировка отфильтрованной коллекции по алфавиту по полю 'name'
-    filteredCollection.sort((a, b) => {
-        const nameA = a.name.toLowerCase();
-        const nameB = b.name.toLowerCase();
-        if (nameA < nameB) return -1;
-        if (nameA > nameB) return 1;
-        return 0;
-    });
+    filteredCollection.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
-        
     return (
         <>
             {filteredCollection.map((item, index) => (
@@ -81,7 +81,7 @@ function SearchCardFind({ collectionName, searchRequest }) {
                                 {item.diskountIndicator ? (
                                     <>
                                         <p className='real-price'>{item.realPrice}</p>
-                                        <p className='discount'>{item.diskountPrice}</p>
+                                        {item.diskountPrice && <p className='discount'>{item.diskountPrice}</p>}
                                     </>
                                 ) : (
                                     <p className='real-price'>{item.realPrice}</p>

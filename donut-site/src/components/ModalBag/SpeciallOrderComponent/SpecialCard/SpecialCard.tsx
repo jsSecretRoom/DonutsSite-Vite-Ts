@@ -1,21 +1,14 @@
 import './SpecialCard.scss';
-interface SpecialItem {
-  basketitem: {
-    oneimg: string;
-    info: string;
-    price: number;
-  };
-  specialcount: number;
-}
 
-interface SpecialCardProps {
-  speciallsubArray: SpecialItem[];
-}
+function SpecialCard({ subArray } : any) {
+  
+  if (!Array.isArray(subArray)) {
+    return <div>Special items are not available</div>;
+  }
 
-function SpecialCard({ speciallsubArray }: SpecialCardProps) {
   return (
     <>
-      {speciallsubArray.map((item, itemIndex) => (
+      {subArray.map((item, itemIndex) => (
         <div key={itemIndex} className='special-order'>
           <div className='special-img'>
             <img src={item.basketitem.oneimg} alt="oneimg" />

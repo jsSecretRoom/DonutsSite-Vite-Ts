@@ -18,10 +18,10 @@ function SpeciallOrderComponent() {
   
     return (
       <div className='speciall-product-list'>
-        {personspecialbox.map((subArray: any, subIndex: number) => (
+        {personspecialbox.map((subArray, subIndex: number) => (
           <div key={subIndex} className='product-item'>
             <div className='special-order-products'>
-              <SpecialCard speciallsubArray={subArray} />
+              <SpecialCard subArray={subArray} />
             </div>
             <div className='dell'>
               <button onClick={() => dellSpeciallOrder(subIndex)}>Delete</button>

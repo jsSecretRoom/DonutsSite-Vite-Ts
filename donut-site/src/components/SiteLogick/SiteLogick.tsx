@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './SiteLogick.scss';
 import SideBurButton from '../../ButtonComponents/SideBurButton/SideBurButton';
 import ShopButton from '../../ButtonComponents/ShopButton/ShopButton';

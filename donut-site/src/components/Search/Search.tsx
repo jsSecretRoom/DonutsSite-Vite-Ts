@@ -6,14 +6,15 @@ import { setGlobalSearchRequest } from '../../redux/Actions/StringActions';
 
 import Donutimg from '../../assets/donut.svg';
 
+import { RootState } from '../../redux/RootReducer'; 
 
 function Search() {
 
     const dispatch = useDispatch();
 
-    let searchRequest = useSelector((state) => state.getstring.globalSearchRequest);
+    let searchRequest = useSelector((state: RootState) => state.getstring.globalSearchRequest);
 
-    const handleSearch = (e) => {
+    const handleSearch = (e: any) => {
         const searchValue = e.target.value;
         dispatch(setGlobalSearchRequest(searchValue));
     };

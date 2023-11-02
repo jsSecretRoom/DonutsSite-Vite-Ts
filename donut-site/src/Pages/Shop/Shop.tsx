@@ -1,68 +1,63 @@
 import './Shop.scss';
-
 import { useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
-
 import { setListCollectionsnames, setNameCollections } from '../../redux/Actions/CollectionActions';
-
 import { useParams } from 'react-router-dom';
-
 import Sidebar from '../../components/Sidebar/Sidebar';
 import CollectionChapter from '../../components/CollectionChapter/CollectionChapter';
-
-import { collection, getDocs, DocumentData } from 'firebase/firestore';
+import {
+  collection,
+  getDocs,
+  DocumentData,
+  CollectionReference,
+  QueryDocumentSnapshot,
+  QuerySnapshot,
+} from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
-
 import SpinerLoader from '../../components/SpinerLoader/SpinerLoader';
 
 function Shop() {
     const dispatch = useDispatch();
-    const { filterName } = useParams();
+    const { filterName }: { filterName?: string } = useParams();
+    
     const listDataLink = 'CategoriesListNavigation';
 
-    // Для первого запроса
     const { data: dataListNames, isLoading: isLoadingListNames, isError: isErrorListNames } = useQuery(listDataLink, fetchDataListName);
 
-    // Функция для получения списка категорий
-    async function fetchDataListName() {
-        const listNames = [];
-        const querySnapshot = await getDocs(collection(db, listDataLink));
+    async function fetchDataListName(): Promise<string[]> {
+        const listNames: string[] = [];
+        const querySnapshot: QuerySnapshot<DocumentData> = await getDocs(collection(db, listDataLink) as CollectionReference<DocumentData>);
 
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
             const data: DocumentData = doc.data();
 
             for (const key in data) {
                 if (data.hasOwnProperty(key)) {
                     const collectionData = data[key];
-                    listNames.push(collectionData);
+                    listNames.push(collectionData as string);
                 }
             }
         });
 
-        // Фильтрация и сортировка массива listNames перед отправкой
-        const filteredAndSortedDataListNames = listNames
-            .sort((a, b) => a.localeCompare(b));
+        const filteredAndSortedDataListNames = listNames.sort((a, b) => a.localeCompare(b));
 
         dispatch(setListCollectionsnames(filteredAndSortedDataListNames));
 
         return filteredAndSortedDataListNames;
     }
 
-    // Для второго запроса
-    const { data: nameCollectionsData, isLoading: isLoadingNameCollections, isError: isErrorNameCollections } = useQuery(filterName, fetchData);
+    const { data: nameCollectionsData, isLoading: isLoadingNameCollections, isError: isErrorNameCollections } = useQuery(filterName!, fetchData);
 
-    // Функция для получения данных для выбранной категории
-    async function fetchData() {
-        const nameCollectionsData = [];
-        const querySnapshot = await getDocs(collection(db, filterName));
+    async function fetchData(): Promise<string[]> {
+        const nameCollectionsData: string[] = [];
+        const querySnapshot: QuerySnapshot<DocumentData> = await getDocs(collection(db, filterName!) as CollectionReference<DocumentData>);
 
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
             const data: DocumentData = doc.data();
 
             for (let i = 1; data['collection' + i]; i++) {
                 const collectionData = data['collection' + i];
-
-                nameCollectionsData.push(collectionData);
+                nameCollectionsData.push(collectionData as string);
             }
         });
         
@@ -72,15 +67,7 @@ function Shop() {
     }
 
     if (isLoadingListNames) {
-        return (
-            <SpinerLoader
-                style={{
-                    backgroundColor: 'rgba(255, 192, 203, 0)',
-                    height: '100vh',
-                    position: 'fixed',
-                }}
-            />
-        );
+        return <SpinerLoader style={{ backgroundColor: 'rgba(255, 192, 203, 0)', height: '100vh', position: 'fixed' }} />;
     }
 
     if (isErrorListNames || !dataListNames) {
@@ -88,15 +75,7 @@ function Shop() {
     }
 
     if (isLoadingNameCollections) {
-        return (
-            <SpinerLoader
-                style={{
-                    backgroundColor: 'rgba(255, 192, 203, 0)',
-                    height: '100vh',
-                    position: 'static',
-                }}
-            />
-        );
+        return <SpinerLoader style={{ backgroundColor: 'rgba(255, 192, 203, 0)', height: '100vh', position: 'static' }} />;
     }
 
     if (isErrorNameCollections || !nameCollectionsData) {

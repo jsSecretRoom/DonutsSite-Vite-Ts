@@ -67,8 +67,12 @@
     }
     .speciall-order{
         width: 100%;
-        padding: 20px;
+        padding: 0;
         overflow-x: hidden;
+
+        @media (min-width: 424px) {
+            padding: 20px;
+        }
 
         h2{
             color: black;

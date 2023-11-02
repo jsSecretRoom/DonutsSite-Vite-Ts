@@ -11,12 +11,14 @@ import { setSpeciallCollection } from '../../redux/Actions/CollectionActions';
 const modalRoot = document.getElementById('speciallOrderBox');
 Modal.setAppElement(modalRoot);
 
+import { RootState } from '../../redux/RootReducer';
+
 function ModalSpeciallOrder() {
     const dispatch = useDispatch();
 
-    const toggleModal = useSelector((state) => state.getboolean.togleSpeciallModalBox);
-    let speciallCollection = useSelector((state) => state.getcollection.speciallCollectionBox);
-    let globallTotallPrice = useSelector((state) => state.getnumber.globalBoxTotalPrice);
+    const toggleModal = useSelector((state: RootState) => state.getboolean.togleSpeciallModalBox);
+    let speciallCollection = useSelector((state: RootState) => state.getcollection.speciallCollectionBox);
+    let globallTotallPrice = useSelector((state: RootState) => state.getnumber.globalBoxTotalPrice);
 
     
 

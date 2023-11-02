@@ -1,12 +1,15 @@
 import './RegistrationComponnt.scss';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form';
+
+interface FormData {
+    email: string;
+    password: string;
+}
 
 function RegistrationComponnt() {
-    // Инициализация хука useForm
-    const { handleSubmit, control, formState: { errors } } = useForm();
+    const { handleSubmit, control, formState: { errors } } = useForm<FormData>();
 
-    // Функция, которая будет вызвана при отправке формы
-    const onSubmit = (data) => {
+    const onSubmit: SubmitHandler<FormData> = (data) => {
         console.log(data);
     };
 
