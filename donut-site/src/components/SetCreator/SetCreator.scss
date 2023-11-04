@@ -195,22 +195,19 @@
         justify-content: right;
         align-items: center;
         bottom: 0;
-        z-index: 6;
+        z-index: 2;
         width: 100vi;
         height: 180px;
         border-radius: 10px;
         pointer-events: none;
-        @media (min-width: 575px) {
-            position: fixed;
-        }
-
+        
         @media (min-width: 1224px) {
            top: 30px;
            right: 10px;
            width: 180px;
            height: 100vh;
            flex-direction: column;
-           justify-content: center;
+           justify-content: center;position: fixed;
 
         }
         .price {

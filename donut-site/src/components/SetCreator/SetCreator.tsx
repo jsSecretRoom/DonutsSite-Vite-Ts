@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/RootReducer';
 import { setGloballCount, setGloballTotallPrice } from '../../redux/Actions/NumberActions';
 import { setTogleLeedOpenClose } from '../../redux/Actions/BooleanActions';
-import { useLocation } from 'react-router-dom';
+import { setSpeciallCollection } from '../../redux/Actions/CollectionActions';
 
 import FuterComponent from '../FuterComponent/FuterComponent';
 
@@ -25,11 +25,10 @@ function SetCreator() {
   const [donutsCount, setDonutsCount] = useState<number>(6);
   const [matrixfraim, setmatrixfraim] = useState<MatrixItem[]>([]);
 
-  const globallcount = useSelector((state: RootState) => state.getnumber.globallCounter);
-  const togleLeed = useSelector((state: RootState) => state.getboolean.togleLeedOpenClose);
-  const globallTotallPrice = useSelector((state: RootState) => state.getnumber.globalBoxTotalPrice);
-
-  const location = useLocation();
+  let globallcount = useSelector((state: RootState) => state.getnumber.globallCounter);
+  let togleLeed = useSelector((state: RootState) => state.getboolean.togleLeedOpenClose);
+  let globallTotallPrice = useSelector((state: RootState) => state.getnumber.globalBoxTotalPrice);
+  
 
   const createMatrix = () => {
     const newMatrix: MatrixItem[] = [];
@@ -44,11 +43,11 @@ function SetCreator() {
   }, [donutsCount]);
 
   useEffect(() => {
-    if (location.pathname !== '/create') {
-      dispatch(setGloballTotallPrice(0));
-      dispatch(setGloballCount(0));
-    }
-  }, [location]);
+    dispatch(setGloballTotallPrice(0));
+    dispatch(setGloballCount(0));
+    dispatch(setTogleLeedOpenClose(false));
+    dispatch(setSpeciallCollection([]));
+  }, []);
 
   useEffect(() => {
     if (globallcount === donutsCount) {

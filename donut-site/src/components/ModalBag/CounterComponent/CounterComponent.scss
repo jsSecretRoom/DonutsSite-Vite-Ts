@@ -17,13 +17,15 @@
     }
     .counter {
         background-color: white;
-        width: 40px;
+        min-width: 30px;
+        width: auto;
+        
         text-align: center;
         border-radius: 10px;
         border: 1px solid black;
         p{
             color: rgb(0, 0, 0);
-            font-size: 33px;
+            font-size: 28px;
         }
     }
 }
