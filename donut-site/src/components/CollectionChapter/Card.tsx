@@ -91,7 +91,7 @@ function Card({ collectionName }: { collectionName: string | undefined } ) {
                         <div className='logic'>
                             <div className='price'>
                                 {item.diskountIndicator ? (
-                                    <>
+                                    <> 
                                         <p className='real-price'>{item.realPrice}</p>
                                         <p className='discount'>{item.diskountPrice}</p>
                                     </>

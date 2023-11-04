@@ -1,12 +1,32 @@
-.shop-button {
-    width: 45px;
-    height: 45px;
-    padding: 0;
-    background-color: white;
-    z-index: 40;
-    img{
-        
+.basket-button{
+    position: relative;
+    .shop-button {
         width: 45px;
         height: 45px;
+        padding: 0;
+        background-color: white;
+        z-index: 40;
+        img{
+            
+            width: 45px;
+            height: 45px;
+        }
+    }
+    .basket-count{
+        position: absolute;
+        background-color: white;
+        bottom: 0px;
+        left: 28px;
+        z-index: 2;
+        width: 25px;
+        height: 25px;
+        border-radius: 50px;
+        border: 1px solid black;
+        
+        p{
+            color: black;
+            font-weight: 800;
+            
+        }
     }
 }

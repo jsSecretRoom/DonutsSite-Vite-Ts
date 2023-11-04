@@ -26,6 +26,7 @@ interface CartItem {
 function CardLine() {
     const busketArray: any[] = useSelector((state: RootState) => state.getcollection.pushToBasket);
 
+
     // Используйте useEffect для обновления cartItems при изменении busketArray
     const [cartItems, setCartItems] = useState<any[]>([]);
 

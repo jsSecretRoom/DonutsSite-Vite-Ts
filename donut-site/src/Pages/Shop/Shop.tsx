@@ -3,8 +3,11 @@ import { useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { setListCollectionsnames, setNameCollections } from '../../redux/Actions/CollectionActions';
 import { useParams } from 'react-router-dom';
+
+import FuterComponent from '../../components/FuterComponent/FuterComponent';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import CollectionChapter from '../../components/CollectionChapter/CollectionChapter';
+
 import {
   collection,
   getDocs,
@@ -83,12 +86,17 @@ function Shop() {
     }
 
     return (
-        <main className='shop-main'>
-            <div className='shop-page'>
-                <Sidebar />
-                <CollectionChapter />
-            </div>
-        </main>
+        <>
+            <main className='shop-main'>
+                <div className='shop-page'>
+                    <Sidebar />
+                    <CollectionChapter />
+                </div>
+                
+            </main>
+            <FuterComponent/>
+        </>
+
     );
 }
 

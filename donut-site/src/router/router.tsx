@@ -32,7 +32,12 @@ import FuterComponent from "../components/FuterComponent/FuterComponent";
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Layout />,
+        element: (
+            <>
+                <Layout />
+                <ModalBag/>
+            </>
+        ), 
         children: [
             {
                 path: '/',
@@ -49,7 +54,7 @@ export const router = createBrowserRouter([
                 element: (
                     <>
                         <Search />
-                        <ModalBag/>
+                        
                         <Shop />
                     </>
                 ),

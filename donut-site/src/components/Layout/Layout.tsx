@@ -16,7 +16,7 @@ function Layout() {
             // Если пользователь не авторизован и отсутствует токен, перенаправляем на /login
             navigate('/login');
         }
-    }, [isAuthorized, navigate]);
+    }, [isAuthorized, navigate]); 
 
     return ( 
         <>

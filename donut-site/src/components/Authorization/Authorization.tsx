@@ -33,7 +33,7 @@ function Autorization() {
                         <input type="current-password" name="current-password" id="current-password" placeholder='Password'/>
                         <div className='warning-massage'>
                             <p>I don't have an account!</p>
-                            <NavLink to='/registration'>Rrgistration!</NavLink>
+                            <NavLink to='/registration'>Registration!</NavLink>
                         </div>
                         
                         <button><p>Sign in</p></button>

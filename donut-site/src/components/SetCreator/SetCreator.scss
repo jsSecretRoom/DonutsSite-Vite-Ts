@@ -48,14 +48,19 @@
         width: 100vi;
         display: flex;
         justify-content: center;
-
+        max-width: 1000px;
         .box-conteinr{
-            height: 642px;
+            height: 250px;
        
             position: relative;
             display: flex;
             justify-content: center;
-            
+            @media (min-width: 575px) {
+                height: 442px;
+            }
+            @media (min-width: 768px) {
+                height: 700px;
+            }
             .main-box {
                 position: absolute;
                 .box{
@@ -63,6 +68,7 @@
     
                     .BodyBox{
                         width: 90vi;
+                        max-width: 1000px;
                         @media (min-width: 1224px) {
                             width: 50vi;
                             
@@ -70,6 +76,7 @@
                     }
                     .BodyBoxTop{
                         width: 90vi;
+                        max-width: 1000px;
                         @media (min-width: 1224px) {
                             width: 50vi;
                         }
@@ -87,7 +94,8 @@
                 padding: 10px;
                 width: 78vi;
                 height: 45vi;
-
+                max-width: 1000px;
+                max-height: 560px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -99,6 +107,7 @@
                 @media (min-width: 1224px) {
                     width: 43vi;
                     height: 25vi;
+                    max-width: 1000px;
                 }
 
                 .marix-item{
@@ -108,7 +117,8 @@
                         
                         width: 9.2vi;
                         height: 14vi;
-                        
+                        max-width: 140px;
+                        max-height: 190px;
                         transform: perspective(25vi) rotateX(-15deg);
                         transform-origin: center top;
 
@@ -123,12 +133,13 @@
             }
             .cap-box {
                 position: absolute;
+                max-width: 1000px;
                 
                 .Lied {
                     position: relative;
                     display: flex;
                     width: 100%;
-                    
+                    max-width: 1000px;
                     transform-origin: center top;
                     z-index: 3;
                     transform-style: preserve-3d;
@@ -140,6 +151,8 @@
                     }
                     
                     img {
+                        max-width: 1000px;
+                        
                         width: 82vi;
                         z-index: 2;
                     }
@@ -176,7 +189,7 @@
         
     }
     .total-price-conteiner {
-        position: fixed;
+        position: static;
         display: flex;
         flex-direction: row;
         justify-content: right;
@@ -186,6 +199,10 @@
         width: 100vi;
         height: 180px;
         border-radius: 10px;
+        pointer-events: none;
+        @media (min-width: 575px) {
+            position: fixed;
+        }
 
         @media (min-width: 1224px) {
            top: 30px;

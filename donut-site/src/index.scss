@@ -58,11 +58,11 @@ a:focus, a:active {
 
 a {
   font-weight: 500;
-  color: #257fe6;
+  color: rgb(0, 34, 146);
   text-decoration: inherit;
 }
 a:hover {
-  color: #02c8ff;
+  color: #ee0d4c;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -198,13 +198,14 @@ button::-moz-focus-inner {
 @media (prefers-color-scheme: light) {
   :root {
     color: #fdfffe;
-    background-color: rgba(255, 192, 203, 1);
+    background-color: #8453b0;
   }
   a:hover {
-    color: #1b26ff;
+    color: rgb(94, 188, 255);
   }
   button {
     background-color: #080061;
     color: #fdfffe;
   }
+  
 }

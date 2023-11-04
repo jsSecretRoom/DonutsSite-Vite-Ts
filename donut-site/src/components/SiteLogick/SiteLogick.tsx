@@ -16,16 +16,14 @@ function SiteLogick() {
     }, [currentPath]);
 
     return (
-        <>
-            {path && (
-                <section className='site-logick'>
-                    <div className='button-section'>
-                        <SideBurButton />
-                        <ShopButton />
-                    </div>
-                </section>
-            )}
-        </>
+        <section className='site-logick'>
+            <div className='button-section'>
+                {path && (
+                    <SideBurButton />
+                )}
+                <ShopButton />
+            </div>
+        </section>
     );
 }
 

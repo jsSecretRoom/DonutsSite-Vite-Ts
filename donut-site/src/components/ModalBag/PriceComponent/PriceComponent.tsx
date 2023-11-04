@@ -1,3 +1,4 @@
+import './PriceComponent.scss';
 interface PriceComponentProps {
   realPrice: number;
   discountPrice: number;
