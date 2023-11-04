@@ -14,9 +14,9 @@
         pointer-events:all;
         display: flex;
         column-gap: 20px;
-        
+        padding: 20px 0;
         @media (min-width: 768px) {
-            
+            padding: 0;
         }
     }
 }

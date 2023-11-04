@@ -93,10 +93,10 @@ function Card({ collectionName }: { collectionName: string | undefined } ) {
                                 {item.diskountIndicator ? (
                                     <> 
                                         <p className='real-price'>{item.realPrice}</p>
-                                        <p className='discount'>{item.diskountPrice}</p>
+                                        <p className='discount'>{item.diskountPrice}</p> 
                                     </>
                                 ) : (
-                                    <p className='real-price'>{item.realPrice}</p>
+                                    <p className={`real-price ${item.diskountIndicator ? '' : 'deco'}`}>{item.realPrice}</p>
                                 )}
                             </div>
                             <IsFavoriteButton id={item.id} cardToBuy={item}/>

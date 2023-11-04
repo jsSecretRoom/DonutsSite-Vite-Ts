@@ -19,7 +19,7 @@ function SiteLogick() {
         <section className='site-logick'>
             <div className='button-section'>
                 {path && (
-                    <SideBurButton />
+                    <SideBurButton /> 
                 )}
                 <ShopButton />
             </div>
