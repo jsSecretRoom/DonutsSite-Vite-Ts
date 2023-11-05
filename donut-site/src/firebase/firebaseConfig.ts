@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// https://firebase.google.com/docs/web/setup#available-libraries 
 
 
 const API_KEY = import.meta.env.VITE_API_KEY;

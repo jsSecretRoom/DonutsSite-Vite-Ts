@@ -11,6 +11,7 @@ interface GoogleAuthorizationProps {
   txt: string;
   img: string;
   provider: any;
+  // redirectUri: string;
 }
 
 function AuthorizationWidth({ txt, img, provider }: GoogleAuthorizationProps) {
@@ -42,7 +43,7 @@ function AuthorizationWidth({ txt, img, provider }: GoogleAuthorizationProps) {
 
   return (
     <button className='aus-method' onClick={handleSignIn}>
-      <img src={img} alt={txt} />
+      {'=clic=>'}<img src={img} alt={txt} />
       <p>{txt}</p>
     </button>
   );
