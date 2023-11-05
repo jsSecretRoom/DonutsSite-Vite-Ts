@@ -20,15 +20,15 @@ type SpecialOrderTotalPriceProps = {
     subIndex: number;
 };
 
-const SpecialOrderTotalPrice: React.FC<SpecialOrderTotalPriceProps> = ({subArray, personspecialbox, subIndex,}: SpecialOrderTotalPriceProps) => {
+function SpecialOrderTotalPrice({ subArray, personspecialbox, subIndex, }: SpecialOrderTotalPriceProps) {
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     let [totalForBoxSet, setTotalForBoxSet] = useState(0);
     let [count, setCount] = useState(1);
     const [firstEffectCompleted, setFirstEffectCompleted] = useState(false);
 
     let specialTotal = useSelector((state: RootState) => state.getcollection.specialCollectionTotallPrice);
-    
+    console.log(specialTotal);
     useEffect(() => {
 
         let oneCount = 0;
@@ -50,7 +50,7 @@ const SpecialOrderTotalPrice: React.FC<SpecialOrderTotalPriceProps> = ({subArray
                     totalItem: item,
                     totalCount: count
                 }
-            )
+            );
         });
 
         dispatch(setSpeciallCollectionFindTotall(totalboxprice));
@@ -76,6 +76,12 @@ const SpecialOrderTotalPrice: React.FC<SpecialOrderTotalPriceProps> = ({subArray
 
     }, [count, firstEffectCompleted]);
 
+    useEffect(() => {
+        const requiredItem = specialTotal.find(item => item.totalId === subIndex);
+        if (!requiredItem) {
+            setCount(1);
+        }
+    }, [specialTotal, subIndex]);
 
 
     const handleLess = () => {

@@ -30,27 +30,34 @@ type BasketItem = {
 function TotalPrice({ busketArray, cartItems }: { busketArray: BasketItem[]; cartItems: CartItem[] }) {
     const specialTotal: any[] = useSelector((state: RootState) => state.getcollection.specialCollectionTotallPrice);
     const [specialTotalres, setSpecialTotalres] = useState(0);
+    
     const [totalres, setTotalres] = useState(0);
     
     useEffect(() => {
-        let total: any[] = [];
-        specialTotal.forEach((item) => {
-            let finalRes = 0;
-            let specialCount = item.totalCount;
-            let totallSubres = 0;
+        if (specialTotal.length > 0) {
+            let total: any[] = [];
+            specialTotal.forEach((item) => {
+                let finalRes = 0;
+                let specialCount = item.totalCount;
+                let totallSubres = 0;
 
-            item.totalItem.forEach((subitem: any) => {
-                let subcount = subitem.specialcount;
-                totallSubres += subcount * subitem.basketitem.price;
+                item.totalItem.forEach((subitem: any) => {
+                    let subcount = subitem.specialcount;
+                    totallSubres += subcount * subitem.basketitem.price;
 
+                });
+                finalRes = totallSubres * specialCount;
+                
+                return total.push(finalRes);
             });
-            finalRes = totallSubres * specialCount;
             
-            return total.push(finalRes);
-        });
-        let sum = total.reduce((acc, currentValue) => acc + currentValue, 0);
-
-        setSpecialTotalres(sum)
+            let sum = total.reduce((acc, currentValue) => acc + currentValue, 0);
+            setSpecialTotalres(sum)
+        }else{
+            
+            setSpecialTotalres(0);
+        }
+        
     },[specialTotal]);
 
     const getProductCount = () => {
