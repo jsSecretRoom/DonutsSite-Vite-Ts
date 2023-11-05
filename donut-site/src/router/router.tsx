@@ -36,6 +36,8 @@ export const router = createBrowserRouter([
             <>
                 <Layout />
                 <ModalBag/>
+                <ModalOrderSucess/>
+                <ModalSpeciallOrder/>
             </>
         ), 
         children: [
@@ -66,7 +68,7 @@ export const router = createBrowserRouter([
                 element: 
                 <>
                     <SetCreator />
-                    <ModalSpeciallOrder/>
+                    
                 </> 
             },
             {
@@ -93,7 +95,6 @@ export const router = createBrowserRouter([
                 element: (
                     <>
                         <CheckoutPage />
-                        <ModalOrderSucess/>
                     </>
                 )
             },

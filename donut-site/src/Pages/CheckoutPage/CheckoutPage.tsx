@@ -2,46 +2,62 @@ import './CheckoutPage.scss';
 import SubmitOrderButton from '../../ButtonComponents/SubmitOrderButton/SubmitOrderButton';
 import fulboxico from '../../assets/box/fullboxIco.svg';
 
-function CheckoutPage() {
-  const orderData = localStorage.getItem('orderData');
-  const savedOrderData = orderData ? JSON.parse(orderData) : { orderGuds: [] };
+interface ProductItem {
+  count: number;
+  photo: string;
+  productName: string;
+}
 
-  const specialCollectionOrder = localStorage.getItem('speciallCollectionOrer');
-  let specialproducts = specialCollectionOrder ? JSON.parse(specialCollectionOrder) : [];
+interface BasketItem {
+  id: string;
+  oneimg: string;
+  info: string;
+  price: number;
+}
+
+interface SpecialProduct {
+  basketitem: BasketItem;
+  specialcount: number;
+  specialid: string;
+}
+
+function CheckoutPage() {
+  let orderData: any = localStorage.getItem('orderData');
+  let savedOrderData:any = orderData ? JSON.parse(orderData) : null;
+
+  let specialCollectionOrder: any = localStorage.getItem('speciallCollectionOrer');
+  let specialproducts: any = specialCollectionOrder ? JSON.parse(specialCollectionOrder) : null;
   console.log(specialproducts);
 
   return (
     <main className="checkout">
       <section className="order">
         <h2>Ваш заказ:</h2>
-        {savedOrderData.orderGuds.map((obj: any) => (
-          <div className="orderproduct" key={obj.productName}>
+        {savedOrderData && savedOrderData.orderGuds.map((obj: ProductItem, id: number) => (
+          <div className="order-product" key={id}>
             <div className="orderImg">
-              <img src={obj.photo} alt="фото" />
+              <img src={obj.photo} alt="photo" />
             </div>
             <p>{obj.productName}</p>
             <h3>Count: {obj.count} x</h3>
           </div>
         ))}
 
-        {specialproducts.map((obj: any) => (
-          <div className="orderproduct" key={obj.productName}>
+        {specialproducts.map((obj: any, id: number) => (
+          <div className="order-product" key={id}>
             <div className="orderImg">
-              <img src={fulboxico} alt="фото" />
+              <img src={fulboxico} alt="fulboxico" />
             </div>
-            <ul>
-              {obj.basketitem && obj.basketitem.info !== undefined ? (
-                <li>
-                  {obj.basketitem.info.length > 25
-                    ? `${obj.basketitem.info.slice(0, 25)}... ${obj.specialcount}x`
-                    : `${obj.basketitem.info} ${obj.specialcount}x`}
-                </li>
-              ) : (
-                <li>Info is undefined</li>
-              )}
-            </ul>
+            <div className='by-items'>
+              {obj.map((item: SpecialProduct, index: number) => (
+                <ul key={index}>
+                  <li> <img src={item.basketitem.oneimg} alt="img" /> {item.basketitem.info.slice(0, 24)}... <span>{item.specialcount} x</span></li>
+                </ul>
+              ))}
+            </div>
           </div>
         ))}
+
       </section>
       <section className="persondata">
         <form action="">

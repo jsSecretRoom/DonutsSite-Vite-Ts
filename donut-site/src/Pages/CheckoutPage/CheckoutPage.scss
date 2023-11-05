@@ -1,7 +1,7 @@
 .checkout {
     width: 100%;
     min-height: 100vh;
-    padding: 0px;
+    margin: 0 0 70px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,7 @@
     .order {
         background-color:cadetblue;
         border-radius: 0px;
-        .orderproduct {
+        .order-product {
             display: flex;
             justify-content: space-between;
             padding: 20px;
@@ -23,22 +23,27 @@
             
             .orderImg {
                 img{
-                    width: 120px;
-                    height: 120px;
+                    width: 200px;
+                    height: 200px;
                     border-radius: 10px;
                 }
                 
             }
-            p{
-                padding: 10px;
-                text-align: left;
+            .by-items{
+                ul{
+                    li{
+                        img{
+                            width: 27px;
+                            border-radius: 50px;
+                        }
+                        span{
+                            font-size: 18px;
+                            color: rgb(23, 36, 222);
+                        }
+                    }
+                }
             }
-            h3{
-
-            }
-            ul{
-                
-            }
+           
         }
         @media (min-width: 440px) {
             border-radius: 10px;

@@ -5,6 +5,8 @@ import { NavLink } from 'react-router-dom';
 
 import { setGlobalSearchRequest } from '../../redux/Actions/StringActions'
 
+import InfoChaptr from './InfoChaptr';
+
 import Githab from '../../assets/Github.svg';
 import Instagram from '../../assets/Instagram.svg';
 import Telegram from '../../assets/Telegram.svg';
@@ -42,94 +44,11 @@ function FuterComponent() {
                         </div>
                     </div>
 
-                    <div className='info-conteiner'>
-                        <h4>For partners</h4>
-                        <div className='list'>
-                            <NavLink to='/Cooperation' onClick={setState}>
-                                <p>Cooperation with us</p>
-                            </NavLink>
-                            <NavLink to='/Franchising' onClick={setState}>
-                                <p>Franchising</p>
-                            </NavLink>
-                            <NavLink to='/Rental' onClick={setState}>
-                                <p>Rental of premises</p>
-                            </NavLink>
-                            <NavLink to='/SellonDivine' onClick={setState}>
-                                <p>Sell on Divine D.</p>
-                            </NavLink>
-                        </div>
-                    </div>
-
-                    <div className='info-conteiner'>
-                        <h4>For partners</h4>
-                        <div className='list'>
-                            <NavLink to='/Cooperation' onClick={setState}>
-                                <p>Cooperation with us</p>
-                            </NavLink>
-                            <NavLink to='/Franchising' onClick={setState}>
-                                <p>Franchising</p>
-                            </NavLink>
-                            <NavLink to='/Rental' onClick={setState}>
-                                <p>Rental of premises</p>
-                            </NavLink>
-                            <NavLink to='/SellonDivine' onClick={setState}>
-                                <p>Sell on Divine D.</p>
-                            </NavLink>
-                        </div>
-                    </div>
-
-                    <div className='info-conteiner'>
-                        <h4>For partners</h4>
-                        <div className='list'>
-                            <NavLink to='/Cooperation' onClick={setState}>
-                                <p>Cooperation with us</p>
-                            </NavLink>
-                            <NavLink to='/Franchising' onClick={setState}>
-                                <p>Franchising</p>
-                            </NavLink>
-                            <NavLink to='/Rental' onClick={setState}>
-                                <p>Rental of premises</p>
-                            </NavLink>
-                            <NavLink to='/SellonDivine' onClick={setState}>
-                                <p>Sell on Divine D.</p>
-                            </NavLink>
-                        </div>
-                    </div>
-
-                    <div className='info-conteiner'>
-                        <h4>For partners</h4>
-                        <div className='list'>
-                            <NavLink to='/Cooperation' onClick={setState}>
-                                <p>Cooperation with us</p>
-                            </NavLink>
-                            <NavLink to='/Franchising' onClick={setState}>
-                                <p>Franchising</p>
-                            </NavLink>
-                            <NavLink to='/Rental' onClick={setState}>
-                                <p>Rental of premises</p>
-                            </NavLink>
-                            <NavLink to='/SellonDivine' onClick={setState}>
-                                <p>Sell on Divine D.</p>
-                            </NavLink>
-                        </div>
-                    </div>
-                    <div className='info-conteiner'>
-                        <h4>For partners</h4>
-                        <div className='list'>
-                            <NavLink to='/Cooperation' onClick={setState}>
-                                <p>Cooperation with us</p>
-                            </NavLink>
-                            <NavLink to='/Franchising' onClick={setState}>
-                                <p>Franchising</p>
-                            </NavLink>
-                            <NavLink to='/Rental' onClick={setState}>
-                                <p>Rental of premises</p>
-                            </NavLink>
-                            <NavLink to='/SellonDivine' onClick={setState}>
-                                <p>Sell on Divine D.</p>
-                            </NavLink>
-                        </div>
-                    </div>
+                    <InfoChaptr/>
+                    <InfoChaptr/>
+                    <InfoChaptr/>
+                    <InfoChaptr/>
+                    <InfoChaptr/>
                 </section>
                 <section className='company'>
                     <div className='company-info'>
