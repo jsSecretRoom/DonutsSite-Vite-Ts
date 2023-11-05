@@ -23,7 +23,7 @@ function SpeciallOrderComponent() {
       localStorage.setItem('speciallCollectionOrer', JSON.stringify(updatedSpecialProducts));
       setpersonspecialbox(updatedSpecialProducts);
 
-      const updatedSpecialTotal = specialTotal.filter((item, index) => index !== subIndex);
+      const updatedSpecialTotal = specialTotal.filter((_item, index) => index !== subIndex);
       dispatch(setSpeciallCollectionFindTotall(updatedSpecialTotal));
     };
   
