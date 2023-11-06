@@ -27,7 +27,7 @@ function CheckoutPage() {
 
   let specialCollectionOrder: any = localStorage.getItem('speciallCollectionOrer');
   let specialproducts: any = specialCollectionOrder ? JSON.parse(specialCollectionOrder) : null;
-  console.log(specialproducts);
+  
 
   return (
     <main className="checkout">

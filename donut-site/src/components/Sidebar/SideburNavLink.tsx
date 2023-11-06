@@ -6,13 +6,12 @@ import { setSideburButton } from '../../redux/Actions/BooleanActions';
 
 import { RootState } from '../../redux/RootReducer';
 
-function SideburNavLink({ filterName, filter, index } : any) {
+function SideburNavLink({ filterName, filter, index }: any) {
     const dispatch = useDispatch();
     const [navColor, setNavColor] = useState(false);
     const listDataNames = useSelector((state: RootState) => state.getcollection.collectionslistNames);
     const location = useLocation();
-    
-    
+
     useEffect(() => {
         const decodedFilter = decodeURIComponent(filter);
         const decodedPathname = decodeURIComponent(location.pathname);
@@ -31,13 +30,13 @@ function SideburNavLink({ filterName, filter, index } : any) {
 
     return (
         <NavLink
-            className={`state ${navColor ? 'active' : ''}`}
             onClick={setState}
             to={`/shop/${filter}`}
             key={index}
+            className={navColor ? 'active-link' : 'inactive-link'}
         >
             <img src="" alt="" />
-            <p style={{ color: navColor ? 'red' : 'blue' }}>{filter}</p>
+            <p>{filter}</p>
         </NavLink>
     );
 }

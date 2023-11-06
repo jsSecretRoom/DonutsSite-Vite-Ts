@@ -10,8 +10,6 @@ import { RootState } from '../../redux/RootReducer';
 
 import { useEffect, useState } from 'react';
 
-
-
 function ShopButton() {
     const dispatch = useDispatch();
     const toggleModal: boolean = useSelector((state: RootState) => state.getboolean.togleBagModal);
@@ -37,8 +35,6 @@ function ShopButton() {
             </button>
             <div className='basket-count'> <p>{basketCount}</p></div>
         </div>
-
-        
     );
 }
 

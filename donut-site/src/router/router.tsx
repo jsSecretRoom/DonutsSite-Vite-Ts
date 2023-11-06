@@ -83,7 +83,6 @@ export const router = createBrowserRouter([
                 path: '/about_product/:collectionName/:itemName',
                 element: (
                     <>
-                        
                         <AboutProductPage />
                     </>
                 )

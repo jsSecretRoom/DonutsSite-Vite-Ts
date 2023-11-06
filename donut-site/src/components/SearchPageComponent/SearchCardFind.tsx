@@ -19,7 +19,7 @@ function SearchCardFind({ collectionName, searchRequest }: { collectionName: str
         querySnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
             const docData = doc.data();
             const item: ProductList = {
-                id: parseFloat(doc.id),
+                id: docData.id,
                 diskountIndicator: docData.diskountIndicator,
                 diskountPrice: docData.diskountPrice,
                 foto: docData.foto,
@@ -65,7 +65,7 @@ function SearchCardFind({ collectionName, searchRequest }: { collectionName: str
     );
 
     filteredCollection.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
-
+    
     return (
         <>
             {filteredCollection.map((item, index) => (
@@ -76,7 +76,7 @@ function SearchCardFind({ collectionName, searchRequest }: { collectionName: str
                     </div>
                     <div className='description'>
                         <NavLink to={`/about_product/${collectionName}/${item.id}`}>{item.name}</NavLink>
-                        <div className='logic'>
+                        <div className='logic'> 
                             <div className='price'>
                                 {item.diskountIndicator ? (
                                     <>
