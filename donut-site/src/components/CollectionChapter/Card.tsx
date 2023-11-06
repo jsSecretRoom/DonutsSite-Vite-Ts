@@ -78,6 +78,13 @@ function Card({ collectionName }: { collectionName: string | undefined } ) {
         setVisibleCards((prevVisibleCards) => prevVisibleCards + 5);
     };
 
+    function truncateString(str: string, num: number) {
+        if (str.length <= num) {
+            return str;
+        }
+        return str.slice(0, num) + '...';
+    }
+
     return (
         <>
             {collectionData.slice(0, visibleCards).map((item, index) => (
@@ -87,7 +94,7 @@ function Card({ collectionName }: { collectionName: string | undefined } ) {
                         <AddToBasketButton id={item.id} cardToBuy={item}/>
                     </div>
                     <div className='description'>
-                        <NavLink to={`/about_product/${collectionName}/${item.id}`}>{item.name}</NavLink>
+                        <NavLink to={`/about_product/${collectionName}/${item.id}`}>{truncateString(item.name, 65)}</NavLink>
                         <div className='logic'>
                             <div className='price'>
                                 {item.diskountIndicator ? (
